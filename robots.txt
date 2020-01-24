@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mstefan99.com/sitemap.xml
