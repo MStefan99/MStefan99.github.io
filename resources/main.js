@@ -1,4 +1,3 @@
-
 let btn = document.getElementById("contact");
 let button1 = document.getElementById('btn1');
 let button2 = document.getElementById('btn2');
@@ -15,21 +14,20 @@ function load() {
     loader.classList.remove('loaded');
 }
 
-window.onload = function(){
- wrapper.classList.add('loaded');
- loader.classList.add('loaded');
- clearTimeout(time);
+window.onload = function () {
+    wrapper.classList.add('loaded');
+    loader.classList.add('loaded');
+    clearTimeout(time);
 };
 
-function menu(){
+function menu() {
     navmenu.classList.toggle('selected');
 }
 
-function menu_hide(){
-    if(parallax.scrollTop == 0){
+function menu_hide() {
+    if (parallax.scrollTop === 0) {
         navmenu.classList.add('selected');
-    }
-    else {
+    } else {
         navmenu.classList.remove('selected');
     }
 }
@@ -43,13 +41,13 @@ btn.onclick = function () {
 };
 button1.onclick = function () {
 
-    btn.innerHTML="Contact me!";
+    btn.innerHTML = "Contact me!";
     button1.style["display"] = "none";
     button2.style["display"] = "none";
 };
 button2.onclick = function () {
 
-        btn.innerHTML="Contact me!";
-        button1.style["display"] = "none";
-        button2.style["display"] = "none";
+    btn.innerHTML = "Contact me!";
+    button1.style["display"] = "none";
+    button2.style["display"] = "none";
 };

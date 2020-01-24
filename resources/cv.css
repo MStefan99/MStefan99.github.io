@@ -1,33 +1,33 @@
 
-p{
+p {
     display: inline;
 }
 
-.text{
+.text {
     padding: 0 0 0 40px;
     display: block;
 }
 
-#name, #name:visited{
+#name, #name:visited {
     color: #333;
     text-decoration: none;
 }
 
-#name:hover{
+#name:hover {
     color: #000;
     text-decoration: none;
 }
 
-a{
- text-decoration: underline;
+a {
+    text-decoration: underline;
     color: #000;
 }
 
-img{
+img {
     max-width: 32px;
 }
 
-#refs{
+#refs {
     margin-left: 10px;
 }
 
