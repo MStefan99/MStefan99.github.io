@@ -1,5 +1,6 @@
 html {
     font-family: sans-serif;
+    overflow: hidden;
 }
 
 body {
@@ -18,7 +19,7 @@ header > * {
 }
 
 header * {
-    color: white;
+    color: #ffffff;
 }
 
 header #name {
@@ -38,38 +39,60 @@ header #info span {
     margin: 0 5vw;
 }
 
-#menu-container {
+header #menu #menu-button {
+    cursor: pointer;
+}
+
+main #menu-container {
     float: right;
     overflow-y: hidden;
     display: flex;
     flex-flow: column nowrap;
-    background: black;
+    background: #000000;
+    transition: transform cubic-bezier(0, 0.7, 0.5, 0.95) 1s;
 }
 
-#menu-list {
+main #menu-title {
+    margin: 2vh auto 0 auto;
+    color: #ffffff;
+    font-size: 16pt;
+}
+
+main #menu-list {
     margin: 0;
     padding: 2vh 2vw;
 }
 
-.menu-item {
+main .menu-item {
     margin: 0;
     padding: 1vh 1vw;
+    cursor: pointer;
 }
 
-.item-container * {
-    background: black;
-    color: white;
+main .item-container .menu-link {
+    color: #ffffff;
     font-weight: bolder;
+    text-decoration: none;
 }
 
-.item-container:before {
+main .menu-item:hover {
+    background: #1f1f1f;
+}
+
+main .item-container:before {
     content: "•";
-    color: white;
+    color: #ffffff;
     font-weight: bolder;
 }
 
 .no-bullets {
     list-style: none;
+}
+
+.hidden-right {
+    transform: translate(
+            100%, 0
+    );
 }
 
 .notification {
@@ -97,6 +120,6 @@ header #info span {
     vertical-align: middle;
     line-height: normal;
     text-decoration: underline;
-    color: white;
+    color: #ffffff;
     word-break: break-word;
 }
