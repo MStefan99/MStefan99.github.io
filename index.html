@@ -2,23 +2,25 @@
 <html lang="en">
 <head>
   <link href="resources/style.css" rel="stylesheet" type="text/css">
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126259429-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+  <!--  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126259429-1"></script>-->
+  <!--  <script>-->
+  <!--    window.dataLayer = window.dataLayer || [];-->
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+  <!--    function gtag() {-->
+  <!--      dataLayer.push(arguments);-->
+  <!--    }-->
 
-    gtag('js', new Date());
+  <!--    gtag('js', new Date());-->
 
-    gtag('config', 'UA-126259429-1');
-  </script>
+  <!--    gtag('config', 'UA-126259429-1');-->
+  <!--  </script>-->
+
   <meta content="YoYwM-_C1SP_vj-5wv9Lu1MSwNgMZj21psTvS2-nLHo" name="google-site-verification"/>
 
   <link href="./resources/ico.png" rel="icon" sizes="16x16" type="image/png">
-  <meta content="I am a student of Metropolia UAS in Espoo, Finland studying Information Technology"
+  <meta content="2nd year student in Metropolia, Helsinki"
         name="description">
   <meta content="Mikhail Stefantsev" name="author">
   <meta content="#4a76a8" name="theme-color">
@@ -30,108 +32,57 @@
 </head>
 <body>
 
-<div class="loaded" id="loader-wrapper">
-  <div class="loaded" id="loader">
-    <p>Loading takes longer than usual</p>
-    <p style="font-size: 5vh; display: block">Please wait...</p>
-    <div class="dots">
-      <div class="dot dot1"></div>
-      <div class="dot dot2"></div>
-      <div class="dot dot3"></div>
-    </div>
-
-  </div>
-</div>
-
 <header>
-  <nav id="menu">
+  <div id="title">
     <div id="name">
-      <h1>Mikhail Stefantsev</h1>
-      <div id="menu_button" onclick="menu()">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      <span>
+        Mikhail Stefantsev
+      </span>
     </div>
-    <ul class="selected" id="navmenu">
-      <li><a href="https://www.facebook.com/profile.php?id=100008517679330">My Facebook page</a></li>
-      <li><a href="https://www.instagram.com/mstefan99/">My Instagram</a></li>
-      <li><a href="https://t.me/MStefan99">Telegram</a></li>
-      <li style="float:right;"><a href="https://vk.com/mstefan99">VK</a></li>
-      <li><a href="https://www.metropolia.fi">Where do I study</a></li>
-      <li><a href="./about">About me</a></li>
-    </ul>
-  </nav>
+    <div id="info">
+      <span>
+        Personal page
+      </span>
+    </div>
+  </div>
+  <div id="menu">
+    <div id="menu-button">
+      X
+    </div>
+  </div>
 </header>
-<main class="parallax" onscroll="menu_hide()">
 
-  <div class="parallax__group">
+<main>
+  <div class="closed" id="menu-container">
+    <ul class="no-bullets" id="menu-list">
+      <li class="menu-item">
+        <div class="item-container">
+          <!--          <a href="https://google.com">Google</a>-->
+        </div>
+      </li>
+      <li class="menu-item">
+        <div class="item-container">
 
-    <div class="parallax__layer--base" id="container_vkim">
-      <picture>
-        <source srcset="./resources/vkim_new_sq.webp" type="image/webp">
-        <source srcset="./resources/vkim_new_sq.jpg" type="image/jpeg">
-        <img alt="Alt Text!" id="vkim" src="./resources/vkim_new_sq.jpg">
-      </picture>
-    </div>
-    <div class="box parallax__layer parallax__layer--base" id="box1">
-      <p style="font-size: 28pt; margin: 10px; ">Welcome to my personal page!</p>
-      <p style="font-size: 16pt; margin: 15px;">Thanks for visiting!</p> <br>
-      <p style="font-size: 18pt; margin: 10px;">My name is Mikhail Stefantsev and I'm a student of a finnish
-        University studying Information Technology.</p>
-    </div>
-    <div class="parallax__layer parallax__layer--back">
-      <img alt="" id="bg" src="./resources/bg-new.jpg">
-    </div>
+        </div>
+      </li>
+      <li class="menu-item">
+        <div class="item-container">
+
+        </div>
+      </li>
+    </ul>
   </div>
-  <div class="parallax__group">
-    <div class="box parallax__layer parallax__layer--base" id="box2">
-      <p style="font-size: 24pt; margin: 20px 6vw 60px; ">About me in brief</p>
-      <p style="font-size: 14pt; margin: 10px 10vw 20px;">Originally from Russia, I moved in Finland to study in
-        finnish University. Previously I've been
-        studying in ITMO University in Saint Petersburg where I've got many useful skills for my future career.
-        Now I'm looking forward to finishing my studies and starting my career in IT area, which offers a lot of
-        opportunities. If you'd like to know more about me, visit the <a
-                href="./about">about page</a>.
-      </p> <br>
-      <p style="font-size: 16pt; margin: 10px 6vw;">At the moment I'm studying mobile development, IOT and smart
-        systems. </p>
-    </div>
-  </div>
-  <div class="parallax__group">
-    <div class="parallax__layer parallax__layer--base">
-      <div id="sect0">
-        <h2>But I also love...</h2>
-      </div>
-      <div id="sect1">
-        <h2>Photography -</h2>
-      </div>
-
-
-      <div id="sect2">
-        <h2>the art</h2>
-      </div>
-
-      <div id="sect3">
-        <h2>of expressing yourself</h2>
-
-      </div>
-    </div>
-  </div>
-
 </main>
-<div class="fixed">
-  <a class="button" href="./cv" id="cv">Open my CV</a> <br>
-  <a class="button" id="contact">Contact me!</a>
-  <a class="button hidden" href="mailto:stephan05.08.67@gmail.com" id="btn1">Yes</a>
-  <a class="button hidden" id="btn2">No</a>
 
-</div>
-<script src="resources/main.js"></script>
-<div class="notification bottom">
+<footer>
+</footer>
+
+<div class="notification">
   <span>
     Site under construction
   </span>
 </div>
+
+<script src="resources/main.js"></script>
 </body>
 </html>
