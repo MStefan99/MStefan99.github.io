@@ -39,17 +39,30 @@ header #info span {
     margin: 0 5vw;
 }
 
+header #menu {
+    margin: auto 3vw auto 0;
+    padding: 0;
+}
+
 header #menu #menu-button {
     cursor: pointer;
 }
 
 main #menu-container {
-    float: right;
+    position: absolute;
+    right: 0;
     overflow-y: hidden;
     display: flex;
     flex-flow: column nowrap;
     background: #000000;
-    transition: transform cubic-bezier(0, 0.7, 0.5, 0.95) 1s;
+    transition: transform cubic-bezier(0.4, 0.3, 0, 0.9) 1s;
+}
+
+@media screen and (max-width: 425px) {
+    main #menu-container {
+        width: 100vw;
+        left: 0;
+    }
 }
 
 main #menu-title {
@@ -85,14 +98,66 @@ main .item-container:before {
     font-weight: bolder;
 }
 
+main #main-group {
+    padding: 2vh 2vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+main #main-group > * {
+    margin: 0 1vw;
+}
+
+main #left-container {
+    order: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+main #main-container {
+    order: 1;
+    flex-grow: 10;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+main #right-container {
+    order: 2;
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+main #main-container .title {
+    font-weight: bold;
+    font-size: 22pt;
+    margin: 2vh 0;
+}
+
+main #main-container .text {
+    margin: 1vh 0;
+}
+
 .no-bullets {
     list-style: none;
+}
+
+.right {
+    float: right;
 }
 
 .hidden-right {
     transform: translate(
             100%, 0
     );
+}
+
+.hidden {
+    display: none;
 }
 
 .notification {
