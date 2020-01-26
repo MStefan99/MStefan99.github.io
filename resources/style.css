@@ -1,6 +1,6 @@
 html {
-    font-family: sans-serif;
-    overflow: hidden;
+    font-family: "Roboto", sans-serif;
+    overflow-x: hidden;
 }
 
 body {
@@ -24,6 +24,7 @@ header * {
 
 header #name {
     font-size: 32pt;
+    font-weight: 300;
 }
 
 header #name span {
@@ -58,22 +59,23 @@ main #menu-container {
     transition: transform cubic-bezier(0.4, 0.3, 0, 0.9) 1s;
 }
 
-@media screen and (max-width: 425px) {
-    main #menu-container {
-        width: 100vw;
-        left: 0;
-    }
-}
-
 main #menu-title {
-    margin: 2vh auto 0 auto;
+    margin: 2vh auto;
     color: #ffffff;
-    font-size: 16pt;
+    font-size: 18pt;
+    font-weight: 300;
 }
 
-main #menu-list {
+main .menu-subtitle {
+    margin: 1vh auto;
+    color: #ffffff;
+    font-size: 14pt;
+    font-weight: 300;
+}
+
+main .menu-list {
     margin: 0;
-    padding: 2vh 2vw;
+    padding: 2vh 5vw 4vh 3vw;
 }
 
 main .menu-item {
@@ -84,7 +86,7 @@ main .menu-item {
 
 main .item-container .menu-link {
     color: #ffffff;
-    font-weight: bolder;
+    font-weight: 700;
     text-decoration: none;
 }
 
@@ -95,7 +97,7 @@ main .menu-item:hover {
 main .item-container:before {
     content: "•";
     color: #ffffff;
-    font-weight: bolder;
+    font-weight: 700;
 }
 
 main #main-group {
@@ -133,17 +135,55 @@ main #right-container {
 }
 
 main #main-container .title {
-    font-weight: bold;
+    font-weight: 700;
     font-size: 22pt;
     margin: 2vh 0;
 }
 
-main #main-container .text {
+main #main-container .section {
     margin: 1vh 0;
+    font-size: 14pt;
+    padding: 0 1vw;
 }
 
-.no-bullets {
-    list-style: none;
+main #main-container #profile-photo {
+    height: 20vh;
+}
+
+main #main-container #education-list {
+    padding: 0;
+}
+
+main #main-container #education-list .list-element {
+    margin: 2vh 0;
+}
+
+main #main-container #education-list .list-element:before {
+    display: inline;
+    content: "»";
+    font-weight: 700;
+}
+
+main #main-container #education-list .list-element .title {
+    font-size: 14pt;
+}
+
+main #main-container #education-list .list-element .info {
+    padding: 1vh 2vw;
+}
+
+main #main-container #education-list .list-element .info .info-element:before {
+    display: inline;
+    content: "›";
+    font-weight: 700;
+}
+
+l {
+    font-weight: 300;
+}
+
+.list {
+
 }
 
 .right {
@@ -169,7 +209,7 @@ main #main-container .text {
     font-size: 52pt;
 
     font-style: italic;
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
     background: repeating-linear-gradient(
             -45deg,
@@ -187,4 +227,16 @@ main #main-container .text {
     text-decoration: underline;
     color: #ffffff;
     word-break: break-word;
+}
+
+@media screen and (max-width: 425px) {
+    main #menu-container {
+        width: 100vw;
+        left: 0;
+    }
+
+    main .menu-list {
+        padding: 0;
+        margin: 2vh auto;
+    }
 }

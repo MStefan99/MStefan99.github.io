@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <link href="resources/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i|Roboto:300,400,400i,700,900&display=swap"
+          rel="stylesheet">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!--  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126259429-1"></script>-->
@@ -55,36 +57,54 @@
 <main>
     <div class="hidden-right" id="menu-container">
         <div id="menu-title">
-            Links
+            Menu
         </div>
-        <ul class="no-bullets" id="menu-list">
-            <li class="menu-item" onclick="location.href='https://github.com/MStefan99/'">
+
+        <div class="menu-list">
+
+            <div class="menu-subtitle">
+                Links
+            </div>
+            <div class="menu-item" onclick="location.href='https://github.com/MStefan99/'">
                 <div class="item-container">
                     <span class="menu-link">Github</span>
                 </div>
-            </li>
-            <li class="menu-item" onclick="location.href='https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/'">
+            </div>
+            <div class="menu-item" onclick="location.href='./cv/'">
+                <div class="item-container">
+                    <span class="menu-link">CV</span>
+                </div>
+            </div>
+
+            <div class="menu-subtitle">
+                Contact
+            </div>
+            <div class="menu-item" onclick="location.href='https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/'">
                 <div class="item-container">
                     <span class="menu-link">LinkedIn</span>
                 </div>
-            </li>
-            <li class="menu-item" onclick="location.href='https://www.facebook.com/profile.php?id=100008517679330'">
+            </div>
+            <div class="menu-item" onclick="location.href='https://www.facebook.com/profile.php?id=100008517679330'">
                 <div class="item-container">
                     <span class="menu-link">Facebook</span>
                 </div>
-            </li>
-            <li class="menu-item" onclick="location.href='https://t.me/MStefan99/'">
+            </div>
+            <div class="menu-item" onclick="location.href='https://t.me/MStefan99/'">
                 <div class="item-container">
                     <span class="menu-link">Telegram</span>
                 </div>
-            </li>
-            <li class="menu-item" onclick="location.href='mailto:mikhail.stefantsev@outlook.com'">
+            </div>
+            <div class="menu-item" onclick="location.href='mailto:mikhail.stefantsev@outlook.com'">
                 <div class="item-container">
                     <span class="menu-link">Send email</span>
                 </div>
-            </li>
-        </ul>
+            </div>
+            <div>
+
+            </div>
+        </div>
     </div>
+
     <div id="main-group">
         <div id="left-container">
             <!--            Left container-->
@@ -93,13 +113,53 @@
             <div class="title">
                 About
             </div>
-            <div class="text">
+            <div class="section">
                 <span>
                     Some info here
                 </span>
                 <span class="right">
-                    Image
+                    <img alt="Profile photo" id="profile-photo" src="./resources/profile_photo.jpg">
                 </span>
+            </div>
+
+            <div class="title">
+                Education
+            </div>
+            <div class="section">
+                <div id="education-list">
+                    <div class="list-element">
+                        <span class="title">
+                            <b>2018-NOW</b><l> | Metropolia University of Applied Sciences, Helsinki</l>
+                        </span>
+                        <div class="info list">
+                            <div class="info-element">
+                                Smart Systems Major.
+                            </div>
+                            <div class="info-element">
+                                Modules: Smart Systems, IoT and Cloud Computing,
+                                Mobile Solutions, Engineering Mathematics,
+                                Computer Architecture, Computer Networks, C and C++ Programming.
+                            </div>
+                            <div class="info-element">
+                                Average grade: 4.97
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-element">
+                        <span class="title">
+                            <b>2017-2018</b><l> | ITMO University, Saint Petersburg, Russia </l>
+                        </span>
+                        <div class="info list">
+                            <div class="info-element">
+                                Faculty of Software Engineering and Computer Technology.
+                            </div>
+                            <div class="info-element">
+                                Modules: Discrete Mathematics, Information Technology, Calculus,
+                                Computer Technology, Programming, Databases, Software Engineering and Physics.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="right-container">
