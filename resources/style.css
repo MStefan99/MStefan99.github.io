@@ -147,7 +147,10 @@ main #main-container .section {
 }
 
 main #main-container #profile-photo {
-    height: 20vh;
+    max-height: 40vh;
+    max-width: 30vw;
+    min-height: 100px;
+    min-width: 100px;
 }
 
 main #main-container #education-list {
@@ -202,11 +205,11 @@ l {
 
 .notification {
     overflow-x: hidden;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     bottom: 0;
     left: 0;
-    font-size: 52pt;
+    font-size: 8vh;
 
     font-style: italic;
     font-weight: 700;
