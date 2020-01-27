@@ -116,21 +116,21 @@ main #main-group > * {
 
 main #left-container {
     order: 0;
-    flex-grow: 1;
+    flex: 1;
     display: flex;
     flex-flow: column nowrap;
 }
 
 main #main-container {
     order: 1;
-    flex-grow: 10;
+    flex: 0 1.2 90%;
     display: flex;
     flex-flow: column nowrap;
 }
 
 main #right-container {
     order: 2;
-    flex-grow: 1;
+    flex: 1;
     display: flex;
     flex-flow: column nowrap;
 }
@@ -200,7 +200,7 @@ l {
 #banner-container {
     box-sizing: border-box;
     overflow-x: hidden;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     bottom: 0;
     left: 0;
@@ -208,7 +208,11 @@ l {
 }
 
 .banner {
-    padding: .5vh 2vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: .5vh 25px .5vh 0;
+    margin: 0;
 }
 
 .notification {
@@ -236,8 +240,7 @@ l {
 
 .banner .banner-title {
     display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
+    margin: 0 auto;
     text-decoration: underline;
     color: #ffffff;
     word-break: break-word;
@@ -245,9 +248,7 @@ l {
 
 .banner .banner-close {
     font-size: 14pt;
-    padding: 1vh 1vw;
     cursor: pointer;
-    float: right;
     color: white;
 }
 
@@ -282,5 +283,17 @@ l {
 
     header #title {
         margin: .5vh 2vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    main #main-container {
+        flex-basis: 70%;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    main #main-container {
+        flex-basis: 50%;
     }
 }
