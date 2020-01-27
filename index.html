@@ -48,12 +48,7 @@
         </div>
     </div>
     <div id="menu">
-        <div id="menu-button">
-            <svg height="32px" id="Layer_1" width="32px"
-                 xml:space="preserve">
-                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
-            </svg>
-        </div>
+        <div id="menu-button"></div>
     </div>
 </header>
 
@@ -64,7 +59,6 @@
         </div>
 
         <div class="menu-list">
-
             <div class="menu-subtitle">
                 Links
             </div>
@@ -127,38 +121,38 @@
             <div class="title">
                 Education
             </div>
-            <div class="section">
-                <div class="list">
-                    <div class="double-bullet element">
-                        <span class="subtitle">
-                            <b>2018-NOW</b><l> | Metropolia University of Applied Sciences, Helsinki</l>
-                        </span>
-                        <div class="list">
-                            <div class="single-bullet element">
-                                Smart Systems Major.
-                            </div>
-                            <div class="single-bullet element">
-                                Modules: Smart Systems, IoT and Cloud Computing,
-                                Mobile Solutions, Engineering Mathematics,
-                                Computer Architecture, Computer Networks, C and C++ Programming.
-                            </div>
-                            <div class="single-bullet element">
-                                Average grade: 4.97
-                            </div>
+            <div class="list">
+                <div class="element">
+                    <div class="double-bullet subtitle">
+                        <b>2018-NOW</b> |
+                        <l>Metropolia University of Applied Sciences, Helsinki</l>
+                    </div>
+                    <div class="list">
+                        <div class="single-bullet element section">
+                            Smart Systems Major.
+                        </div>
+                        <div class="single-bullet element section">
+                            Modules: Smart Systems, IoT and Cloud Computing,
+                            Mobile Solutions, Engineering Mathematics,
+                            Computer Architecture, Computer Networks, C and C++ Programming.
+                        </div>
+                        <div class="single-bullet element section">
+                            Average grade: 4.97
                         </div>
                     </div>
-                    <div class="double-bullet element">
-                        <span class="subtitle">
-                            <b>2017-2018</b><l> | ITMO University, Saint Petersburg, Russia </l>
-                        </span>
-                        <div class="list">
-                            <div class="single-bullet element">
-                                Faculty of Software Engineering and Computer Technology.
-                            </div>
-                            <div class="single-bullet element">
-                                Modules: Discrete Mathematics, Information Technology, Calculus,
-                                Computer Technology, Programming, Databases, Software Engineering and Physics.
-                            </div>
+                </div>
+                <div class="element">
+                    <div class="double-bullet subtitle">
+                        <b>2017-2018</b> |
+                        <l>ITMO University, Saint Petersburg, Russia</l>
+                    </div>
+                    <div class="list">
+                        <div class="single-bullet element section">
+                            Faculty of Software Engineering and Computer Technology.
+                        </div>
+                        <div class="single-bullet element section">
+                            Modules: Discrete Mathematics, Information Technology, Calculus,
+                            Computer Technology, Programming, Databases, Software Engineering and Physics.
                         </div>
                     </div>
                 </div>
@@ -167,8 +161,73 @@
             <div class="title">
                 Projects
             </div>
-            <div class="section">
-                <!--                Coming soon-->
+            <div class="list">
+                <div class="element">
+                    <div class="double-bullet subtitle">
+                        Deep learning robot
+                    </div>
+                    <div class="section">
+                        Inspired by previous experiment, a <a class="external"
+                                                              href="https://github.com/MStefan99/deep-learning-snake">
+                        deep learning snake AI</a>, this project is demonstrating the deep neural network in action.
+                        The robot is placed inside a simple maze and with the help of only the neural network running on
+                        the server <i>(no path finding algorithms involved)</i> it is able to find the way through the
+                        maze towards the finish line.
+                    </div>
+                    <div class="section">
+                        The project consists of two parts: a robot firmware written in C (<a class="external"
+                                                                                             href="https://github.com/MStefan99/deep-learning-zumo-client">GitHub</a>)
+                        and the server
+                        software made using Python and Tensorflow library (<a class="external"
+                                                                              href="https://github.com/MStefan99/deep-learning-zumo-server">GitHub</a>)
+                        connected
+                        together via Wi-Fi over MQTT protocol.
+                    </div>
+                </div>
+
+                <div class="element">
+                    <div class="double-bullet subtitle">
+                        Blog App
+                    </div>
+                    <div class="section">
+                        A web app allowing to browse a small blog, featuring "favorite" list for each user complete
+                        with user registration (with real-time AJAX), email verification, password reset, user
+                        settings, post search by tags or keywords, dynamic themes and REST API. (<a class="external"
+                                                                                                    href="https://github.com/MStefan99/blog-app">GitHub</a>)
+                    </div>
+                    <div class="section">
+                        Project also includes a separate Android app made with Kotlin allowing to browse and interact
+                        with the blog (<a class="external" href="https://github.com/MStefan99/blog-client">GitHub</a>).
+                    </div>
+                </div>
+
+                <div class="element">
+                    <div class="double-bullet subtitle">
+                        ardUI <i>
+                        <l>(In development)</l>
+                    </i>
+                    </div>
+                    <div class="section">
+                        A lightweight framework for Arduino and other embedded devices allowing users to quickly build
+                        complex interactive UIs for any kind of projects running on any hardware. (<a class="external"
+                                                                                                      href="https://github.com/MStefan99/ardUI">GitHub</a>).
+                    </div>
+                </div>
+
+                <div class="element">
+                    <div class="double-bullet subtitle">
+                        University projects
+                    </div>
+                    <div class="list">
+                        <div class="single-bullet element section">
+                            <a class="external" href="https://github.com/MStefan99/robot-project">Robot project</a>
+                        </div>
+                        <div class="single-bullet element section">
+                            <a class="external" href="https://github.com/MStefan99/programmer-calculator">Programmer
+                                calculator</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="right-container">

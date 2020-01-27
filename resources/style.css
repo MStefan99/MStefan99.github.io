@@ -47,6 +47,11 @@ header #menu {
 header #menu #menu-button {
     cursor: pointer;
     fill: white;
+    background: url("./icon_menu.svg");
+    filter: invert();
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
 }
 
 main #menu-container {
@@ -55,7 +60,7 @@ main #menu-container {
     margin: 0;
     padding: 3vh 4vw;
     right: 0;
-    overflow-y: hidden;
+    overflow-x: hidden;
     display: flex;
     flex-flow: column nowrap;
     background: #000000;
@@ -141,17 +146,17 @@ main #main-container #profile-photo {
 .title {
     font-weight: 700;
     font-size: 22pt;
-    margin: 2vh 0;
+    margin: 3vh 0 2vh 0;
 }
 
 .subtitle {
     font-weight: 700;
     font-size: 16pt;
-    margin: 2vh 0;
+    margin: 2vh 0 1vh 0;
 }
 
 .section {
-    margin: 0 2vw;
+    margin: 1vh 1vw;
     font-size: 14pt;
 }
 
@@ -175,6 +180,10 @@ l {
     margin: 1vh 0;
 }
 
+.element {
+    margin-left: 1vw;
+}
+
 .right {
     float: right;
 }
@@ -185,6 +194,16 @@ l {
 
 .hidden {
     display: none;
+}
+
+.external:after {
+    content: "";
+    display: inline-block;
+    background: url("./icon_external.svg");
+    background-size: 12px 12px;
+    height: 12px;
+    width: 12px;
+    margin: 0 2px;
 }
 
 #banner-container {
