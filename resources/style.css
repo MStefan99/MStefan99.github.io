@@ -81,7 +81,7 @@ main .menu-list {
 }
 
 main .menu-item {
-    margin: 2vh 1vw;
+    padding: 1vh 1vw;
     cursor: pointer;
 }
 
@@ -190,26 +190,41 @@ l {
 }
 
 .hidden-right {
-    transform: translate(
-            100%, 0
-    );
+    transform: translateX(100%);
 }
 
 .hidden {
     display: none;
 }
 
-.notification {
+#banner-container {
+    box-sizing: border-box;
     overflow-x: hidden;
-    position: fixed;
+    position: absolute;
     width: 100vw;
     bottom: 0;
     left: 0;
-    font-size: 8vh;
+    text-align: center;
+}
 
+.banner {
+    padding: .5vh 2vw;
+}
+
+.notification {
+    background: #FFA500;
+    font-size: 4vh;
+}
+
+.error {
+    background: #ff1648;
+    font-size: 6vh;
+}
+
+.progress {
+    font-size: 6vh;
     font-style: italic;
     font-weight: 700;
-    text-align: center;
     background: repeating-linear-gradient(
             -45deg,
             #FFA500 0,
@@ -217,21 +232,28 @@ l {
             #000000 5vw,
             #000000 10vw
     );
-
-    transition: opacity linear 1s;
 }
 
-.notification:hover {
-    opacity: 0;
-}
-
-.notification span {
+.banner .banner-title {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
     text-decoration: underline;
     color: #ffffff;
     word-break: break-word;
+}
+
+.banner .banner-close {
+    font-size: 14pt;
+    padding: 1vh 1vw;
+    cursor: pointer;
+    float: right;
+    color: white;
+}
+
+.banner.dismissed {
+    pointer-events: none;
+    visibility: hidden;
 }
 
 @media screen and (max-width: 425px) {
