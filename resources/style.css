@@ -14,12 +14,12 @@ header {
     justify-content: space-between;
 }
 
-header > * {
-    padding: 2vh 2vw 0 2vw;
-}
-
 header * {
     color: #ffffff;
+}
+
+header #title {
+    margin: 2vh 2vw;
 }
 
 header #name {
@@ -28,29 +28,32 @@ header #name {
 }
 
 header #name span {
-    margin: 0 2vw;
+    display: inline-block;
+    margin-left: 2vw;
 }
 
 header #info {
-    padding: 1vh 2vw;
     font-size: 14pt;
 }
 
 header #info span {
-    margin: 0 5vw;
+    margin-left: 5vw;
 }
 
 header #menu {
     margin: auto 3vw auto 0;
-    padding: 0;
 }
 
 header #menu #menu-button {
     cursor: pointer;
+    fill: white;
 }
 
 main #menu-container {
     position: absolute;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 3vh 4vw;
     right: 0;
     overflow-y: hidden;
     display: flex;
@@ -74,13 +77,11 @@ main .menu-subtitle {
 }
 
 main .menu-list {
-    margin: 0;
-    padding: 2vh 5vw 4vh 3vw;
+    margin: 2vh 2vw;
 }
 
 main .menu-item {
-    margin: 0;
-    padding: 1vh 1vw;
+    margin: 2vh 1vw;
     cursor: pointer;
 }
 
@@ -141,9 +142,8 @@ main #main-container .title {
 }
 
 main #main-container .section {
-    margin: 1vh 0;
+    margin: 1vh 1vw;
     font-size: 14pt;
-    padding: 0 1vw;
 }
 
 main #main-container #profile-photo {
@@ -151,10 +151,6 @@ main #main-container #profile-photo {
     max-width: 30vw;
     min-height: 100px;
     min-width: 100px;
-}
-
-main #main-container #education-list {
-    padding: 0;
 }
 
 main #main-container #education-list .list-element {
@@ -172,7 +168,7 @@ main #main-container #education-list .list-element .title {
 }
 
 main #main-container #education-list .list-element .info {
-    padding: 1vh 2vw;
+    margin: 1vh 2vw;
 }
 
 main #main-container #education-list .list-element .info .info-element:before {
@@ -221,6 +217,12 @@ l {
             #000000 5vw,
             #000000 10vw
     );
+
+    transition: opacity linear 1s;
+}
+
+.notification:hover {
+    opacity: 0;
 }
 
 .notification span {
@@ -239,7 +241,24 @@ l {
     }
 
     main .menu-list {
-        padding: 0;
         margin: 2vh auto;
+    }
+
+    header #name span {
+        margin: 0 4vw;
+    }
+
+    header #info span {
+        margin: 0 6vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main #menu-container {
+        padding: 3vh 12vw;
+    }
+
+    header #title {
+        margin: .5vh 2vw;
     }
 }
