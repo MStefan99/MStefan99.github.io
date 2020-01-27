@@ -1,3 +1,7 @@
+html {
+    font-family: 'Delius', cursive;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -5,10 +9,6 @@ body {
     width: 100vw;
     overflow: hidden;
     background: url("../resources/pattern.png"), radial-gradient(circle, #158AB2 0%, #1f2a6e 15%, #111742 35%, #0D071A 85%);
-}
-
-* {
-    font-family: 'Delius', cursive;
 }
 
 #main {
