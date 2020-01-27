@@ -110,10 +110,6 @@ main #main-group {
     width: 100%;
 }
 
-main #main-group > * {
-    margin: 0 1vw;
-}
-
 main #left-container {
     order: 0;
     flex: 1;
@@ -135,17 +131,6 @@ main #right-container {
     flex-flow: column nowrap;
 }
 
-main #main-container .title {
-    font-weight: 700;
-    font-size: 22pt;
-    margin: 2vh 0;
-}
-
-main #main-container .section {
-    margin: 1vh 1vw;
-    font-size: 14pt;
-}
-
 main #main-container #profile-photo {
     max-height: 40vh;
     max-width: 30vw;
@@ -153,27 +138,32 @@ main #main-container #profile-photo {
     min-width: 100px;
 }
 
-main #main-container #education-list .list-element {
+.title {
+    font-weight: 700;
+    font-size: 22pt;
     margin: 2vh 0;
 }
 
-main #main-container #education-list .list-element:before {
-    display: inline;
-    content: "»";
+.subtitle {
     font-weight: 700;
+    font-size: 16pt;
+    margin: 2vh 0;
 }
 
-main #main-container #education-list .list-element .title {
+.section {
+    margin: 0 2vw;
     font-size: 14pt;
 }
 
-main #main-container #education-list .list-element .info {
-    margin: 1vh 2vw;
-}
-
-main #main-container #education-list .list-element .info .info-element:before {
+.single-bullet:before {
     display: inline;
     content: "›";
+    font-weight: 700;
+}
+
+.double-bullet:before {
+    display: inline;
+    content: "»";
     font-weight: 700;
 }
 
@@ -182,7 +172,7 @@ l {
 }
 
 .list {
-
+    margin: 1vh 0;
 }
 
 .right {
