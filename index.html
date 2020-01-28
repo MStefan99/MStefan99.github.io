@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
     <link href="resources/style.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i|Roboto:300,400,400i,700,900&display=swap"
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700&display=swap"
           rel="stylesheet">
     <link href="./resources/ico.png" rel="icon" sizes="16x16" type="image/png">
     <link href="./resources/apple-touch-icon-120x120-precomposed.png" rel="apple-touch-icon" sizes="120x120"/>
     <link href="./resources/apple-touch-icon-152x152-precomposed.png" rel="apple-touch-icon" sizes="152x152"/>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!--  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126259429-1"></script>-->
-    <!--  <script>-->
-    <!--    window.dataLayer = window.dataLayer || [];-->
+    <!--Global site tag (gtag.js) - Google Analytics-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126259429-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-    <!--    function gtag() {-->
-    <!--      dataLayer.push(arguments);-->
-    <!--    }-->
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-    <!--    gtag('js', new Date());-->
+        gtag('js', new Date());
 
-    <!--    gtag('config', 'UA-126259429-1');-->
-    <!--  </script>-->
+        gtag('config', 'UA-126259429-1');
+    </script>
 
     <meta content="YoYwM-_C1SP_vj-5wv9Lu1MSwNgMZj21psTvS2-nLHo" name="google-site-verification"/>
     <meta content="width=device-width, minimum-scale=1.0, initial-scale=1.0" name="viewport">
@@ -66,7 +66,7 @@
                     <span class="menu-link">Github</span>
                 </div>
             </div>
-            <div class="menu-item" onclick="location.href='./cv/'">
+            <div class="menu-item" onclick="location.href='resources/cv.pdf'">
                 <div class="item-container">
                     <span class="menu-link">CV</span>
                 </div>
@@ -108,18 +108,23 @@
         <div id="right-container">
             <!--Right container-->
         </div>
-        
+
         <div id="main-container">
             <div class="title">
                 About
             </div>
-            <div class="section">
-                <span>
-                    Some info here
-                </span>
-                <span class="right">
+            <div class="horizontal">
+                <div class="section">
+                    I am a 2nd year bachelor student in Metropolia UAS studying computers and software development.
+                    I have years of programming experience and a solid understanding of computers, their architecture,
+                    related technologies and programming in general.
+                </div>
+                <div class="section">
                     <img alt="Profile photo" id="profile-photo" src="./resources/profile_photo.jpg">
-                </span>
+                    <div class="green">
+                        Currently looking for a summer job.
+                    </div>
+                </div>
             </div>
 
             <div class="title">
@@ -128,7 +133,7 @@
             <div class="list">
                 <div class="element">
                     <div class="double-bullet subtitle">
-                        <b>2018-NOW</b> |
+                        <b>2018-<span id="current-year">NOW</span></b> |
                         <l>Metropolia University of Applied Sciences, Helsinki</l>
                     </div>
                     <div class="list">
@@ -171,21 +176,21 @@
                         Deep learning robot
                     </div>
                     <div class="section">
-                        Inspired by previous experiment, a <a class="external"
-                                                              href="https://github.com/MStefan99/deep-learning-snake">
+                        Inspired by the previous experiment, a <a class="external"
+                                                                  href="https://github.com/MStefan99/deep-learning-snake">
                         deep learning snake AI</a>, this project is demonstrating the deep neural network in action.
                         The robot is placed inside a simple maze and with the help of only the neural network running on
                         the server <i>(no path finding algorithms involved)</i> it is able to find the way through the
                         maze towards the finish line.
                     </div>
                     <div class="section">
-                        The project consists of two parts: a robot firmware written in C (<a class="external"
-                                                                                             href="https://github.com/MStefan99/deep-learning-zumo-client">GitHub</a>)
-                        and the server
-                        software made using Python and Tensorflow library (<a class="external"
-                                                                              href="https://github.com/MStefan99/deep-learning-zumo-server">GitHub</a>)
-                        connected
-                        together via Wi-Fi over MQTT protocol.
+                        The project consists of two parts: <a class="external"
+                                                              href="https://github.com/MStefan99/deep-learning-zumo-client">a
+                        robot firmware</a> written in C
+                        and the <a class="external" href="https://github.com/MStefan99/deep-learning-zumo-server">the
+                        server software</a> server
+                        software made using Python and Tensorflow library connected together via Wi-Fi over MQTT
+                        protocol.
                     </div>
                 </div>
 
@@ -194,14 +199,16 @@
                         Blog App
                     </div>
                     <div class="section">
-                        A web app allowing to browse a small blog, featuring "favorite" list for each user complete
+                        <a class="external" href="https://github.com/MStefan99/blog-app">A web app</a> allowing to
+                        browse a small blog, featuring "favorite" list for each user complete
                         with user registration (with real-time AJAX), email verification, password reset, user
-                        settings, post search by tags or keywords, dynamic themes and REST API. (<a class="external"
-                                                                                                    href="https://github.com/MStefan99/blog-app">GitHub</a>)
+                        settings, post search by tags or keywords, dynamic themes and REST API.
                     </div>
                     <div class="section">
-                        Project also includes a separate Android app made with Kotlin allowing to browse and interact
-                        with the blog (<a class="external" href="https://github.com/MStefan99/blog-client">GitHub</a>).
+                        Project also includes a separate <a class="external"
+                                                            href="https://github.com/MStefan99/blog-client">Android
+                        app</a> Android app made with Kotlin allowing to browse and interact
+                        with the blog.
                     </div>
                 </div>
 
@@ -212,9 +219,9 @@
                     </i>
                     </div>
                     <div class="section">
-                        A lightweight framework for Arduino and other embedded devices allowing users to quickly build
-                        complex interactive UIs for any kind of projects running on any hardware. (<a class="external"
-                                                                                                      href="https://github.com/MStefan99/ardUI">GitHub</a>).
+                        <a class="external" href="https://github.com/MStefan99/ardUI"> A lightweight framework</a> for
+                        Arduino and other embedded devices allowing users to quickly build
+                        complex interactive UIs for any kind of projects running on any hardware.
                     </div>
                 </div>
 
@@ -238,16 +245,31 @@
 </main>
 
 <footer>
+    <div class="group">
+        <div class="subtitle">
+            <a href="https://mstefan99.com">Home</a>
+        </div>
+    </div>
+
+    <div class="group">
+        <div class="disabled subtitle">
+            <a class="not-clickable" href="./contact.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="group">
+        <div class="disabled subtitle">
+            <a class="not-clickable" href="./about.html">About</a>
+        </div>
+    </div>
 </footer>
 
 <div id="banner-container">
     <div class="progress banner">
         <div class="banner-title">
-            Website under construction
+            "Contact" and "About" pages in progress
         </div>
-        <div class="banner-close">
-            X
-        </div>
+        <div class="close-button"></div>
     </div>
 </div>
 
