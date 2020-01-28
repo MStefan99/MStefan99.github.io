@@ -2,7 +2,7 @@ const menuButton = document.querySelector("#menu-button");
 const menu = document.querySelector("#menu-container");
 const closeButtonList = document.querySelectorAll(".close-button");
 const currentYear = document.querySelector("#current-year");
-const today = Date();
+const today = new Date();
 
 menuButton.addEventListener("click", () => {
     menu.classList.toggle("hidden-right");
