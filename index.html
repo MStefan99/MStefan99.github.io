@@ -35,15 +35,15 @@
 
 <header>
     <div id="title">
-        <div id="name">
+        <div id="name" onclick="location.href='https://mstefan99.com/'">
             <span>
                 Mikhail Stefantsev
             </span>
         </div>
         <div id="info">
-        <span>
-            Personal page
-        </span>
+            <span>
+                Personal page
+            </span>
         </div>
     </div>
     <div id="menu">
@@ -81,6 +81,11 @@
                     <span class="menu-link">LinkedIn</span>
                 </div>
             </div>
+            <div class="menu-item" onclick="location.href='mailto:mikhail.stefantsev@outlook.com'">
+                <div class="item-container">
+                    <span class="menu-link">Send email</span>
+                </div>
+            </div>
             <div class="menu-item"
                  onclick="location.href='https://www.facebook.com/profile.php?id=100008517679330'">
                 <div class="item-container">
@@ -90,11 +95,6 @@
             <div class="menu-item" onclick="location.href='https://t.me/MStefan99/'">
                 <div class="item-container">
                     <span class="menu-link">Telegram</span>
-                </div>
-            </div>
-            <div class="menu-item" onclick="location.href='mailto:mikhail.stefantsev@outlook.com'">
-                <div class="item-container">
-                    <span class="menu-link">Send email</span>
                 </div>
             </div>
         </div>
@@ -245,32 +245,47 @@
 
 <footer>
     <div class="group">
+        <div class="subtitle list">
+            <span>
+                Useful links
+            </span>
+            <a class="section element" href="./resources/cv.pdf">CV</a>
+            <a class="section element external" href="https://github.com/MStefan99/">GitHub</a>
+        </div>
+    </div>
+
+    <div class="group">
         <div class="subtitle">
-            <a href="https://mstefan99.com">Home</a>
+            <span>
+                Contact
+            </span>
+            <a class="section element external" href="https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/">LinkedIn</a>
+            <a class="section element external" href="mailto:mikhail.stefantsev@outlook.com">Email</a>
+            <a class="section element external" href="https://t.me/MStefan99/">Telegram</a>
         </div>
     </div>
 
     <div class="group">
-        <div class="disabled subtitle">
-            <a class="not-clickable" href="./contact/">Contact</a>
-        </div>
-    </div>
-
-    <div class="group">
-        <div class="disabled subtitle">
-            <a class="not-clickable" href="./about/">About</a>
+        <div class="subtitle">
+            <span>
+                Social
+            </span>
+            <a class="section element external"
+               href="https://www.facebook.com/profile.php?id=100008517679330">Facebook</a>
+            <a class="section element external" href="https://www.instagram.com/mstefan99/">Instagram</a>
+            <a class="section element external" href="https://twitter.com/MStefan999">Twitter</a>
         </div>
     </div>
 </footer>
 
-<div id="banner-container">
-    <div class="progress banner">
-        <div class="banner-title">
-            "Contact" and "About" pages in progress
-        </div>
-        <div class="close-button"></div>
-    </div>
-</div>
+<!--<div id="banner-container">-->
+<!--    <div class="progress banner">-->
+<!--        <div class="banner-title">-->
+<!--            Banner info  -->
+<!--        </div>-->
+<!--        <div class="close-button"></div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <script src="resources/main.js"></script>
 </body>

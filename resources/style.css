@@ -22,6 +22,7 @@ header #title {
 header #name {
     font-size: 32pt;
     font-weight: 300;
+    cursor: pointer;
 }
 
 header #name span {
@@ -315,7 +316,8 @@ footer {
 }
 
 footer a {
-    color: #444466;
+    color: #616078;
+    display: block;
 }
 
 footer .group {
