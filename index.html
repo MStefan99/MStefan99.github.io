@@ -1,289 +1,226 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link href="resources/style.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700&display=swap"
-          rel="stylesheet">
-    <link href="./resources/ico.png" rel="icon" sizes="16x16" type="image/png">
-    <link href="./resources/apple-touch-icon-120x120-precomposed.png" rel="apple-touch-icon" sizes="120x120"/>
-    <link href="./resources/apple-touch-icon-152x152-precomposed.png" rel="apple-touch-icon" sizes="152x152"/>
+	<link href="resources/style.css" rel="stylesheet" type="text/css">
+	<link href="./resources/ico.png" rel="icon" sizes="16x16" type="image/png">
+	<link href="./resources/apple-touch-icon-120x120-precomposed.png" rel="apple-touch-icon" sizes="120x120"/>
+	<link href="./resources/apple-touch-icon-152x152-precomposed.png" rel="apple-touch-icon" sizes="152x152"/>
+	<meta content="width=device-width, minimum-scale=1.0, initial-scale=1.0" name="viewport">
 
-    <!--Global site tag (gtag.js) - Google Analytics-->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126259429-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126259429-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
 
-        gtag('js', new Date());
+		function gtag() {
+			dataLayer.push(arguments);
+		}
 
-        gtag('config', 'UA-126259429-1');
-    </script>
+		gtag('js', new Date());
 
-    <meta content="YoYwM-_C1SP_vj-5wv9Lu1MSwNgMZj21psTvS2-nLHo" name="google-site-verification"/>
-    <meta content="width=device-width, minimum-scale=1.0, initial-scale=1.0" name="viewport">
+		gtag('config', 'UA-126259429-1');
+	</script>
 
-    <title>Personal page - Mikhail Stefantsev</title>
-    <meta content="2nd year student in Metropolia, Helsinki" name="description">
-    <meta content="Mikhail Stefantsev" name="author">
-    <meta content="#4a76a8" name="theme-color">
-    <meta charset="utf-8">
+	<title>Personal page - Mikhail Stefantsev</title>
+	<meta content="2nd year student in Metropolia, Helsinki" name="description">
+	<meta content="Mikhail Stefantsev" name="author">
+	<meta content="#4a76a8" name="theme-color">
+	<meta charset="utf-8">
 </head>
 <body>
 
 <header>
-    <div id="title">
-        <div id="name" onclick="location.href='https://mstefan99.com/'">
-            <span>
-                Mikhail Stefantsev
-            </span>
-        </div>
-        <div id="info">
-            <span>
-                Personal page
-            </span>
-        </div>
-    </div>
-    <div id="menu">
-        <div id="menu-button"></div>
-    </div>
+	<a href='https://mstefan99.com/' id="name">
+		<h1>Mikhail Stefantsev</h1>
+	</a>
+	<span id="info">Personal page</span>
 </header>
 
 <main>
-    <div class="hidden-right" id="menu-container">
-        <div id="menu-title">
-            Menu
-        </div>
+	<div id="main-container">
+		<div id="left-container">
+			<div id="navigation-container">
+				<h1>Navigation</h1>
+				<ul id="navigation-list">
+					<li><a href="#"><h2>Top</h2></a></li>
+				</ul>
+			</div>
+		</div>
 
-        <div class="menu-list">
-            <div class="menu-subtitle">
-                Links
-            </div>
-            <div class="menu-item" onclick="location.href='https://github.com/MStefan99/'">
-                <div class="item-container">
-                    <span class="menu-link">Github</span>
-                </div>
-            </div>
-            <div class="menu-item" onclick="location.href='resources/cv.pdf'">
-                <div class="item-container">
-                    <span class="menu-link">CV</span>
-                </div>
-            </div>
+		<div id="right-container">
+			<div id="contact-container">
+				<h1>Contact</h1>
+				<ul id="contact-list">
+					<li><h2 id="links">Links</h2></li>
+					<li>
+						<a class="menu-link" href='https://github.com/MStefan99/'>Github</a>
+					</li>
+					<li>
+						<a class="menu-link" href='resources/cv.pdf'>CV</a>
+					</li>
 
-            <div class="menu-subtitle">
-                Contact
-            </div>
-            <div class="menu-item"
-                 onclick="location.href='https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/'">
-                <div class="item-container">
-                    <span class="menu-link">LinkedIn</span>
-                </div>
-            </div>
-            <div class="menu-item" onclick="location.href='mailto:mikhail.stefantsev@outlook.com'">
-                <div class="item-container">
-                    <span class="menu-link">Send email</span>
-                </div>
-            </div>
-            <div class="menu-item"
-                 onclick="location.href='https://www.facebook.com/profile.php?id=100008517679330'">
-                <div class="item-container">
-                    <span class="menu-link">Facebook</span>
-                </div>
-            </div>
-            <div class="menu-item" onclick="location.href='https://t.me/MStefan99/'">
-                <div class="item-container">
-                    <span class="menu-link">Telegram</span>
-                </div>
-            </div>
-        </div>
-    </div>
+					<li><h2>Contact</h2></li>
+					<li>
+						<a class="menu-link"
+						   href='https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/'>LinkedIn</a>
+					</li>
+					<li>
+						<a class="menu-link" href='mailto:mikhail.stefantsev@outlook.com'>Send email</a></li>
+					<li>
+						<a class="menu-link" href='https://www.facebook.com/profile.php?id=100008517679330'>Facebook</a>
+					</li>
+					<li>
+						<a class="menu-link" href='https://t.me/MStefan99/'>Telegram</a>
+					</li>
+				</ul>
+			</div>
 
-    <div id="main-group">
-        <div id="left-container">
-            <!--Left container-->
-        </div>
+		</div>
 
-        <div id="right-container">
-            <!--Right container-->
-        </div>
+		<div id="content-container">
+			<h2 id="about">About</h2>
+			<div class="horizontal">
+				<p>Second year student in Metropolia UAS studying Information Technology. Having done more than a dozen
+					projects both personal and for my university and years of experience I have a solid understanding of
+					computers, their architecture and programming in general.</p>
+				<div><img alt="Profile photo" id="profile-photo" src="./resources/profile_photo.jpg"></div>
+			</div>
 
-        <div id="main-container">
-            <div class="title">
-                About
-            </div>
-            <div class="horizontal">
-                <div class="section">
-                    Second year student in Metropolia UAS studying Information Technology. Having done more than a dozen
-                    projects both personal and for my university and years of experience I have a solid understanding of
-                    computers, their architecture and programming in general.
-                </div>
-                <div class="section">
-                    <img alt="Profile photo" id="profile-photo" src="./resources/profile_photo.jpg">
-                </div>
-            </div>
+			<h2 id="work-experience">Work Experience</h2>
+			<ul>
+				<li>
+					<h3 class="double-bullet">
+						<b>Nokia</b> |
+						<l>Summer 2020</l>
+					</h3>
+					<ul>
+						<li class="single-bullet">Summer traineeship</li>
+						<li class="single-bullet">Test engineer position</li>
+					</ul>
+				</li>
+			</ul>
 
-            <div class="title">
-                Education
-            </div>
-            <div class="list">
-                <div class="element">
-                    <div class="double-bullet subtitle">
-                        <b>2018-<span id="current-year">NOW</span></b> |
-                        <l>Metropolia University of Applied Sciences, Helsinki</l>
-                    </div>
-                    <div class="list">
-                        <div class="single-bullet element section">
-                            Smart Systems Major.
-                        </div>
-                        <div class="single-bullet element section">
-                            Modules: Smart Systems, IoT and Cloud Computing,
-                            Mobile Solutions, Engineering Mathematics,
-                            Computer Architecture, Computer Networks, C and C++ Programming.
-                        </div>
-                        <div class="single-bullet element section">
-                            Average grade: 4.97
-                        </div>
-                    </div>
-                </div>
-                <div class="element">
-                    <div class="double-bullet subtitle">
-                        <b>2017-2018</b> |
-                        <l>ITMO University, Saint Petersburg, Russia</l>
-                    </div>
-                    <div class="list">
-                        <div class="single-bullet element section">
-                            Faculty of Software Engineering and Computer Technology.
-                        </div>
-                        <div class="single-bullet element section">
-                            Modules: Discrete Mathematics, Information Technology, Calculus,
-                            Computer Technology, Programming, Databases, Software Engineering and Physics.
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<h2 id="education">Education</h2>
+			<ul>
+				<li>
+					<h3 class="double-bullet" id="edu-metropolia">
+						<b>2018-<span id="current-year">NOW</span></b> |
+						<l>Metropolia University of Applied Sciences, Helsinki</l>
+					</h3>
+					<ul>
+						<li class="single-bullet">
+							Smart Systems Major.
+						</li>
+						<li class="single-bullet">
+							Modules: Smart Systems, IoT and Cloud Computing,
+							Mobile Solutions, Engineering Mathematics and Physics,
+							Computer Architecture, Computer Networks, C and C++ Programming.
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h3 class="double-bullet" id="edu-itmo">
+						<b>2017-2018</b> |
+						<l>ITMO University, Saint Petersburg, Russia</l>
+					</h3>
+					<ul>
+						<li class="single-bullet">
+							Faculty of Software Engineering and Computer Technology.
+						</li>
+						<li class="single-bullet">
+							Modules: Discrete Mathematics, Information Technology, Calculus,
+							Computer Technology, Programming, Databases, Software Engineering and Physics.
+						</li>
+					</ul>
+				</li>
+			</ul>
 
-            <div class="title">
-                Projects
-            </div>
-            <div class="list">
-                <div class="element">
-                    <div class="double-bullet subtitle">
-                        Deep learning robot
-                    </div>
-                    <div class="section">
-                        Inspired by the previous experiment, a <a class="external"
-                                                                  href="https://github.com/MStefan99/deep-learning-snake">
-                        deep learning snake AI</a>, this project is demonstrating the deep neural network in action.
-                        The robot is placed inside a simple maze and with the help of only the neural network running on
-                        the server <i>(no path finding algorithms involved)</i> it is able to find the way through the
-                        maze towards the finish line.
-                    </div>
-                    <div class="section">
-                        The project consists of two parts: <a class="external"
-                                                              href="https://github.com/MStefan99/deep-learning-zumo-client">a
-                        robot firmware</a> written in C
-                        and the <a class="external" href="https://github.com/MStefan99/deep-learning-zumo-server">the
-                        server software</a> made using Python and Tensorflow library connected together via Wi-Fi over
-                        MQTT protocol.
-                    </div>
-                </div>
+			<h2 id="projects">Projects</h2>
+			<ul>
+				<li>
+					<h3 class="double-bullet" id="dlr">Deep learning robot</h3>
+					<p>Inspired by the previous experiment, a <a
+							href="https://github.com/MStefan99/deep-learning-snake">
+						deep learning snake AI</a>, this project is demonstrating the deep neural network in action.
+						The robot is placed inside a simple maze and with the help of only the neural network running on
+						the server <i>(no path finding algorithms involved)</i> it is able to find the way through the
+						maze towards the finish line.</p>
+					<p>The project consists of two parts: <a
+							href="https://github.com/MStefan99/deep-learning-zumo-client">a
+						robot firmware</a> written in C
+						and the <a href="https://github.com/MStefan99/deep-learning-zumo-server">the
+							server software</a> made using Python and Tensorflow library connected together via Wi-Fi
+						over
+						MQTT protocol.</p>
+				</li>
 
-                <div class="element">
-                    <div class="double-bullet subtitle">
-                        Blog App
-                    </div>
-                    <div class="section">
-                        <a class="external" href="https://github.com/MStefan99/blog-app">A web app</a> allowing to
-                        browse a small blog, featuring "favorite" list for each user complete
-                        with user registration (with real-time AJAX), email verification, password reset, user
-                        settings, post search by tags or keywords, dynamic themes and REST API.
-                    </div>
-                    <div class="section">
-                        Project also includes a separate <a class="external"
-                                                            href="https://github.com/MStefan99/blog-client">Android
-                        app</a> Android app made with Kotlin allowing to browse and interact
-                        with the blog.
-                    </div>
-                </div>
+				<li>
+					<h3 class="double-bullet" id="blog-app">Blog App</h3>
+					<p><a href="https://github.com/MStefan99/blog-app">A web app</a> allowing to
+						browse a small blog, featuring "favorite" list for each user complete
+						with user registration (with real-time AJAX), email verification, password reset, user
+						settings, post search by tags or keywords, dynamic themes and REST API.</p>
+					<p>Project also includes a separate <a
+							href="https://github.com/MStefan99/blog-client">Android
+						app</a> Android app made with Kotlin allowing to browse and interact
+						with the blog.</p>
+				</li>
 
-                <div class="element">
-                    <div class="double-bullet subtitle">
-                        ardUI <i>
-                        <l>(In development)</l>
-                    </i>
-                    </div>
-                    <div class="section">
-                        <a class="external" href="https://github.com/MStefan99/ardUI"> A lightweight framework</a> for
-                        Arduino and other embedded devices allowing users to quickly build
-                        complex interactive UIs for any kind of projects running on any hardware.
-                    </div>
-                </div>
+				<li>
+					<h3 class="double-bullet">roomBot</h3>
+					<p><a href="https://github.com/MStefan99/roomBot">A small Discord bot</a> which allows you to
+						create and manage private channels (or "rooms") on public Discord servers, making it possible
+						to chat or talk to other users privately right on the server, without needing to add them
+						as friends.</p>
+				</li>
 
-                <div class="element">
-                    <div class="double-bullet subtitle">
-                        University projects
-                    </div>
-                    <div class="list">
-                        <div class="single-bullet element section">
-                            <a class="external" href="https://github.com/MStefan99/robot-project">Robot project</a>
-                        </div>
-                        <div class="single-bullet element section">
-                            <a class="external" href="https://github.com/MStefan99/programmer-calculator">Programmer
-                                calculator</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+				<li>
+					<h3 class="double-bullet" id="ardui">
+						ardUI <i>
+						<l>(In development)</l>
+					</i>
+					</h3>
+					<p><a href="https://github.com/MStefan99/ardUI"> A lightweight framework</a> for
+						Arduino and other embedded devices allowing users to quickly build
+						complex interactive UIs for any kind of projects running on any hardware.</p>
+				</li>
+
+				<li>
+					<h3 class="double-bullet" id="uni-projects">University projects</h3>
+					<ul>
+						<li class="single-bullet">
+							<a href="https://github.com/MStefan99/robot-project">Robot project</a>
+						</li>
+						<li class="single-bullet">
+							<a href="https://github.com/MStefan99/programmer-calculator">Programmer
+								calculator</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
 </main>
 
 <footer>
-    <div class="group">
-        <div class="subtitle list">
-            <span>
-                Useful links
-            </span>
-            <a class="section element" href="./resources/cv.pdf">CV</a>
-            <a class="section element external" href="https://github.com/MStefan99/">GitHub</a>
-        </div>
-    </div>
-
-    <div class="group">
-        <div class="subtitle">
-            <span>
-                Contact
-            </span>
-            <a class="section element external" href="https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/">LinkedIn</a>
-            <a class="section element external" href="mailto:mikhail.stefantsev@outlook.com">Email</a>
-            <a class="section element external" href="https://t.me/MStefan99/">Telegram</a>
-        </div>
-    </div>
-
-    <div class="group">
-        <div class="subtitle">
-            <span>
-                Social
-            </span>
-            <a class="section element external"
-               href="https://www.facebook.com/profile.php?id=100008517679330">Facebook</a>
-            <a class="section element external" href="https://www.instagram.com/mstefan99/">Instagram</a>
-            <a class="section element external" href="https://twitter.com/MStefan999">Twitter</a>
-        </div>
-    </div>
+	<ul>
+		<li><h4>Useful links</h4></li>
+		<li><a href="./resources/cv.pdf">CV</a></li>
+		<li><a href="https://github.com/MStefan99/">GitHub</a></li>
+	</ul>
+	<ul>
+		<li><h4>Contact</h4></li>
+		<li><a href="https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/">LinkedIn</a></li>
+		<li><a href="mailto:mikhail.stefantsev@outlook.com">Email</a></li>
+		<li><a href="https://t.me/MStefan99/">Telegram</a></li>
+	</ul>
+	<ul>
+		<li><h4>Social</h4></li>
+		<li><a href="https://www.facebook.com/profile.php?id=100008517679330">Facebook</a></li>
+		<li><a href="https://www.instagram.com/mstefan99/">Instagram</a></li>
+		<li><a href="https://twitter.com/MStefan999">Twitter</a></li>
+	</ul>
 </footer>
-
-<!--<div id="banner-container">-->
-<!--    <div class="progress banner">-->
-<!--        <div class="banner-title">-->
-<!--            Banner info  -->
-<!--        </div>-->
-<!--        <div class="close-button"></div>-->
-<!--    </div>-->
-<!--</div>-->
-
 <script src="resources/main.js"></script>
 </body>
 </html>

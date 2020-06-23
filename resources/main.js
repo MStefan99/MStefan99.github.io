@@ -1,18 +1,22 @@
-const menuButton = document.querySelector("#menu-button");
-const menu = document.querySelector("#menu-container");
-const closeButtonList = document.querySelectorAll(".close-button");
 const currentYear = document.querySelector("#current-year");
-const today = new Date();
+const navigationList = document.querySelector('#navigation-list');
+const headers = document.querySelectorAll('#content-container h2,' +
+	'#content-container h3,' +
+	'#content-container h4');
 
-menuButton.addEventListener("click", () => {
-    menu.classList.toggle("hidden-right");
+
+currentYear.innerHTML = new Date().getFullYear().toString();
+
+
+addEventListener('load', () => {
+	headers.forEach((header) => {
+		const headerLI = document.createElement('li');
+		navigationList.appendChild(headerLI);
+		const headerLink = document.createElement('a');
+		headerLink.href = '#' + header.id;
+		headerLI.appendChild(headerLink);
+		const headerElement = document.createElement(header.tagName);
+		headerElement.innerHTML = header.innerHTML;
+		headerLink.appendChild(headerElement);
+	});
 });
-
-
-closeButtonList.forEach(element => {
-    element.addEventListener("click", () => {
-        element.parentElement.classList.add("dismissed");
-    });
-});
-
-currentYear.innerHTML = today.getFullYear().toString();
