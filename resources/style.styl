@@ -1,0 +1,151 @@
+theme-color = #1c71d5
+
+
+html
+	font-family sans-serif
+	scroll-behavior smooth
+	overflow-x hidden
+	font-size 12pt
+
+	body
+		margin 0
+
+		p
+			line-height 1.5em
+
+		a:not(:hover)
+			text-decoration none
+
+		li
+			list-style none
+
+		h3:before
+			content '» '
+			font-weight bold
+
+		h4:before
+			content '› '
+			font-weight bold
+
+		.hidden
+			display none !important
+
+		.light
+			font-weight 300
+
+		.horizontal
+			display flex
+			flex-flow row nowrap
+
+			@media screen and (max-width 425px)
+				flex-direction column
+
+		header
+			background theme-color
+			padding 2vh 5vw
+			color white
+
+			#name
+				color white
+				text-decoration none
+
+				@media screen and (min-width 768px)
+					font-size 1.8em
+
+				h1
+					margin 0
+
+			#info
+				color white
+				margin-left 2vw
+
+		main
+			min-height 100vh
+
+			#left-container, #right-container
+				position sticky
+				top 10vh
+				overflow-y auto
+
+				h1
+					margin 1em 1em
+
+				a
+					color black
+
+				#navigation-list
+					padding-left 0
+					font-size .8em
+
+					h3
+						margin-left 0.5em
+
+					h4
+						margin-left 1.25em
+
+				#contact-list
+					padding-right 0
+					font-weight bold
+
+			@media screen and (max-width 1024px)
+				#left-container, #right-container
+					display none
+
+			#main-container
+				padding 1em
+				display flex
+				flex-flow row nowrap
+				justify-content space-around
+				box-sizing border-box
+
+			#left-container
+				order 0
+				flex 0 1 20%
+
+			#content-container
+				padding 0 1em
+				order 1
+				flex 1 0
+
+			#right-container
+				order 2
+				flex 0 1 20%
+
+			#main-container #profile-photo
+				max-height 40vh
+				max-width 30vw
+				min-height 100px
+				min-width 100px
+				border-radius 50%
+
+			ul
+				padding-left .5em
+
+			li
+				margin-top .5em
+				padding-left .5em
+
+				p
+					padding-left 1em
+
+		footer
+			background darken(white, 20)
+			min-height 5vh
+			display flex
+			flex-flow row wrap
+			justify-content space-evenly
+			padding 3vh 5vw
+			color #666666
+
+			ul, li
+				margin 0
+				padding 0
+
+			h4
+				margin-top 0
+
+			a
+				margin .5em 0
+				font-size .8em
+				color #616078
+				display block

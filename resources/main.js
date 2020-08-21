@@ -1,14 +1,23 @@
-const currentYear = document.querySelector("#current-year");
+const header = document.querySelector('header');
+const leftContainer = document.querySelector('#left-container');
+const rightContainer = document.querySelector('#right-container');
+
+const currentYear = document.querySelectorAll('.current-year');
 const navigationList = document.querySelector('#navigation-list');
 const headers = document.querySelectorAll('#content-container h2,' +
 	'#content-container h3,' +
 	'#content-container h4');
 
 
-currentYear.innerHTML = new Date().getFullYear().toString();
+currentYear.forEach(element => {
+	element.innerHTML = new Date().getFullYear().toString();
+});
 
 
-addEventListener('load', () => {
+addEventListener('load', e => {
+	leftContainer.style['max-height'] =
+		rightContainer.style['max-height'] = screen.height - header.offsetHeight - 50 + 'px';
+
 	headers.forEach((header) => {
 		const headerLI = document.createElement('li');
 		navigationList.appendChild(headerLI);

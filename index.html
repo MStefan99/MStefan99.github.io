@@ -1,14 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
+	<meta charset="utf-8">
 	<link href="resources/style.css" rel="stylesheet" type="text/css">
 	<link href="./resources/ico.png" rel="icon" sizes="16x16" type="image/png">
-	<link href="./resources/apple-touch-icon-120x120-precomposed.png" rel="apple-touch-icon" sizes="120x120"/>
-	<link href="./resources/apple-touch-icon-152x152-precomposed.png" rel="apple-touch-icon" sizes="152x152"/>
+	<link href="./resources/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120"/>
+	<link href="./resources/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"/>
 	<meta content="width=device-width, minimum-scale=1.0, initial-scale=1.0" name="viewport">
 
-
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126259429-1"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 
@@ -22,10 +21,9 @@
 	</script>
 
 	<title>Personal page - Mikhail Stefantsev</title>
-	<meta content="2nd year student in Metropolia, Helsinki" name="description">
+	<meta content="3rd year student in Metropolia, Helsinki" name="description">
 	<meta content="Mikhail Stefantsev" name="author">
 	<meta content="#4a76a8" name="theme-color">
-	<meta charset="utf-8">
 </head>
 <body>
 
@@ -39,48 +37,42 @@
 <main>
 	<div id="main-container">
 		<div id="left-container">
-			<div id="navigation-container">
-				<h1>Navigation</h1>
-				<ul id="navigation-list">
-					<li><a href="#"><h2>Top</h2></a></li>
-				</ul>
-			</div>
+			<h1>Navigation</h1>
+			<ul id="navigation-list">
+				<li><a href="#"><h2>Top</h2></a></li>
+			</ul>
 		</div>
 
 		<div id="right-container">
-			<div id="contact-container">
-				<h1>Contact</h1>
-				<ul id="contact-list">
-					<li><h2 id="links">Links</h2></li>
-					<li>
-						<a class="menu-link" href='https://github.com/MStefan99/'>Github</a>
-					</li>
-					<li>
-						<a class="menu-link" href='resources/cv.pdf'>CV</a>
-					</li>
+			<h1>Contact</h1>
+			<ul id="contact-list">
+				<li><h2>Links</h2></li>
+				<li>
+					<a class="menu-link" href='https://github.com/MStefan99/'>Github</a>
+				</li>
+				<li>
+					<a class="menu-link" href='resources/cv.pdf'>CV</a>
+				</li>
 
-					<li><h2>Contact</h2></li>
-					<li>
-						<a class="menu-link"
-						   href='https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/'>LinkedIn</a>
-					</li>
-					<li>
-						<a class="menu-link" href='mailto:mikhail.stefantsev@outlook.com'>Send email</a></li>
-					<li>
-						<a class="menu-link" href='https://www.facebook.com/profile.php?id=100008517679330'>Facebook</a>
-					</li>
-					<li>
-						<a class="menu-link" href='https://t.me/MStefan99/'>Telegram</a>
-					</li>
-				</ul>
-			</div>
-
+				<li><h2>Contact</h2></li>
+				<li>
+					<a class="menu-link" href='https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/'>LinkedIn</a>
+				</li>
+				<li>
+					<a class="menu-link" href='mailto:mikhail.stefantsev@outlook.com'>Send email</a></li>
+				<li>
+					<a class="menu-link" href='https://www.facebook.com/profile.php?id=100008517679330'>Facebook</a>
+				</li>
+				<li>
+					<a class="menu-link" href='https://t.me/MStefan99/'>Telegram</a>
+				</li>
+			</ul>
 		</div>
 
 		<div id="content-container">
 			<h2 id="about">About</h2>
 			<div class="horizontal">
-				<p>Second year student in Metropolia UAS studying Information Technology. Having done more than a dozen
+				<p>Third year student in Metropolia UAS studying Information Technology. Having done more than a dozen
 					projects both personal and for my university and years of experience I have a solid understanding of
 					computers, their architecture and programming in general.</p>
 				<div><img alt="Profile photo" id="profile-photo" src="./resources/profile_photo.jpg"></div>
@@ -89,13 +81,13 @@
 			<h2 id="work-experience">Work Experience</h2>
 			<ul>
 				<li>
-					<h3 class="double-bullet">
+					<h3 id="work-nokia">
 						<b>Nokia</b> |
-						<l>Summer 2020</l>
+						<span class="light">May – Aug 2020</span>
 					</h3>
 					<ul>
-						<li class="single-bullet">Summer traineeship</li>
-						<li class="single-bullet">Test engineer position</li>
+						<li>Summer traineeship</li>
+						<li>Test engineer position</li>
 					</ul>
 				</li>
 			</ul>
@@ -103,33 +95,39 @@
 			<h2 id="education">Education</h2>
 			<ul>
 				<li>
-					<h3 class="double-bullet" id="edu-metropolia">
-						<b>2018-<span id="current-year">NOW</span></b> |
-						<l>Metropolia University of Applied Sciences, Helsinki</l>
+					<h3 id="edu-metropolia">
+						<b>2018 – <span class="current-year">now</span></b> |
+						<span class="light">Metropolia University of Applied Sciences, Helsinki, Finland</span>
 					</h3>
 					<ul>
-						<li class="single-bullet">
-							Smart Systems Major.
+						<li>
+							Degree: <a href="https://www.metropolia.fi/en/academics/bachelors-degrees/information-technology">
+							Degree Programme in Information Technology</a>
 						</li>
-						<li class="single-bullet">
-							Modules: Smart Systems, IoT and Cloud Computing,
-							Mobile Solutions, Engineering Mathematics and Physics,
-							Computer Architecture, Computer Networks, C and C++ Programming.
+						<li>
+							Specialization: <a href="https://opinto-opas.metropolia.fi/en/88094/en/70331/TXL18S1/1955/year/2018">
+							Professional Major Smart Systems</a>
 						</li>
 					</ul>
 				</li>
 				<li>
-					<h3 class="double-bullet" id="edu-itmo">
-						<b>2017-2018</b> |
-						<l>ITMO University, Saint Petersburg, Russia</l>
+					<h3 id="edu-itmo">
+						<b>2017 – 2018</b> |
+						<span class="light">ITMO University, Saint Petersburg, Russia</span>
 					</h3>
 					<ul>
-						<li class="single-bullet">
-							Faculty of Software Engineering and Computer Technology.
+						<li>
+							Degree: <a href="https://abit.itmo.ru/program/13297/">
+							Degree Programme in Information Technology</a>
 						</li>
-						<li class="single-bullet">
-							Modules: Discrete Mathematics, Information Technology, Calculus,
-							Computer Technology, Programming, Databases, Software Engineering and Physics.
+						<li>
+							Specialization: <a href="https://edu.itmo.ru/subspec/7015/">
+							System and Applied Software</a>
+						</li>
+						<li>
+							Department: <a href="https://scs.ifmo.ru/en/">
+							Faculty of Software Engineering and Computer Systems
+						</a>
 						</li>
 					</ul>
 				</li>
@@ -138,36 +136,47 @@
 			<h2 id="projects">Projects</h2>
 			<ul>
 				<li>
-					<h3 class="double-bullet" id="dlr">Deep learning robot</h3>
-					<p>Inspired by the previous experiment, a <a
-							href="https://github.com/MStefan99/deep-learning-snake">
+					<h3 id="deep-learning-robot">Deep learning robot</h3>
+					<p>Inspired by the previous experiment, a <a href="https://github.com/MStefan99/deep-learning-snake">
 						deep learning snake AI</a>, this project is demonstrating the deep neural network in action.
 						The robot is placed inside a simple maze and with the help of only the neural network running on
 						the server <i>(no path finding algorithms involved)</i> it is able to find the way through the
 						maze towards the finish line.</p>
-					<p>The project consists of two parts: <a
-							href="https://github.com/MStefan99/deep-learning-zumo-client">a
-						robot firmware</a> written in C
-						and the <a href="https://github.com/MStefan99/deep-learning-zumo-server">the
-							server software</a> made using Python and Tensorflow library connected together via Wi-Fi
-						over
-						MQTT protocol.</p>
+					<p>The project consists of two parts: <a href="https://github.com/MStefan99/deep-learning-zumo-client">a
+						robot firmware</a> written in C and the
+						<a href="https://github.com/MStefan99/deep-learning-zumo-server">the server software</a> made using
+						Python and Tensorflow library connected together via Wi-Fi
+						over MQTT protocol.</p>
 				</li>
 
 				<li>
-					<h3 class="double-bullet" id="blog-app">Blog App</h3>
+					<h3 id="midi-parser">Midi Parser</h3>
+					<p>
+						Developed for future projects, <a href="https://github.com/MStefan99/Midi-Parser">Midi Parser</a> is a
+						small C++ library for parsing binary MIDI files (<abbr title="Standard MIDI File">SMF</abbr>) to be
+						later used in any C++ software.
+					</p>
+				</li>
+
+				<li>
+					<h3 id="feedbaq">Feedbaq</h3>
+					<p><a href="https://github.com/MStefan99/Feedbaq">Feedbaq</a> is a simple tool for collecting questions
+						and feedback during presentations made with Node and MongoDB. It features real-time connection
+						using WebSockets so you can see the new questions immediately when they are asked.</p>
+				</li>
+
+				<li>
+					<h3 id="blog-app">Blog App</h3>
 					<p><a href="https://github.com/MStefan99/blog-app">A web app</a> allowing to
 						browse a small blog, featuring "favorite" list for each user complete
-						with user registration (with real-time AJAX), email verification, password reset, user
-						settings, post search by tags or keywords, dynamic themes and REST API.</p>
-					<p>Project also includes a separate <a
-							href="https://github.com/MStefan99/blog-client">Android
-						app</a> Android app made with Kotlin allowing to browse and interact
-						with the blog.</p>
+						with user registration, email verification, password reset, user
+						settings, post search by tags or keywords, dynamic theme and REST API.</p>
+					<p>Project also includes a separate <a href="https://github.com/MStefan99/blog-client">Android
+						app</a> Android app made with Kotlin allowing to browse and interact with the blog.</p>
 				</li>
 
 				<li>
-					<h3 class="double-bullet">roomBot</h3>
+					<h3 id="room-bot">roomBot</h3>
 					<p><a href="https://github.com/MStefan99/roomBot">A small Discord bot</a> which allows you to
 						create and manage private channels (or "rooms") on public Discord servers, making it possible
 						to chat or talk to other users privately right on the server, without needing to add them
@@ -175,25 +184,37 @@
 				</li>
 
 				<li>
-					<h3 class="double-bullet" id="ardui">
-						ardUI <i>
-						<l>(In development)</l>
-					</i>
-					</h3>
-					<p><a href="https://github.com/MStefan99/ardUI"> A lightweight framework</a> for
-						Arduino and other embedded devices allowing users to quickly build
-						complex interactive UIs for any kind of projects running on any hardware.</p>
+					<h3 id="dev-projects">Projects in development</h3>
+					<ul>
+						<li>
+							<h4 id="ardui">ardUI</h4>
+							<p><a href="https://github.com/MStefan99/ardUI">A lightweight framework</a> for
+								Arduino and other embedded devices allowing users to quickly build
+								complex interactive UIs for any kind of projects running on any hardware.</p>
+						</li>
+						<li>
+							<h4 id="simply-message">Simply Message</h4>
+							<p><a href="https://github.com/MStefan99/Simply-Message">A messenger</a> built with Node and MongoDB
+								featuring real-time communication and secure messaging using end-to-end encryption
+								(<abbr title="End-to-end encryption">E2EE</abbr>).</p>
+						</li>
+					</ul>
 				</li>
 
 				<li>
-					<h3 class="double-bullet" id="uni-projects">University projects</h3>
+					<h3 id="university-projects">University projects</h3>
 					<ul>
-						<li class="single-bullet">
-							<a href="https://github.com/MStefan99/robot-project">Robot project</a>
+						<li>
+							<h4 id="robot-project">Robot Project</h4>
+							<p>
+								<a href="https://github.com/MStefan99/robot-project">A project</a> for one of the first-year courses
+								in Metropolia University where students have to develop a firmware for the robot platform for it to
+								complete a set of challenges including line following and simple pathfinding.</p>
 						</li>
-						<li class="single-bullet">
-							<a href="https://github.com/MStefan99/programmer-calculator">Programmer
-								calculator</a>
+						<li>
+							<h4 id="programmer-calculator">Programmer calculator</h4>
+							<p><a href="https://github.com/MStefan99/programmer-calculator">A project</a> for one of the first-year
+								courses in Metropolia University where students have to develop a simple offline Android app.</p>
 						</li>
 					</ul>
 				</li>
