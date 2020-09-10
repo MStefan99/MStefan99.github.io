@@ -2,6 +2,9 @@ const header = document.querySelector('header');
 const leftContainer = document.querySelector('#left-container');
 const rightContainer = document.querySelector('#right-container');
 
+const consentContainer = document.querySelector('#cookie-consent');
+const consentCloseButton = document.querySelector('#consent-close');
+
 const currentYear = document.querySelectorAll('.current-year');
 const navigationList = document.querySelector('#navigation-list');
 const headers = document.querySelectorAll('#content-container h2,' +
@@ -11,6 +14,11 @@ const headers = document.querySelectorAll('#content-container h2,' +
 
 currentYear.forEach(element => {
 	element.innerHTML = new Date().getFullYear().toString();
+});
+
+
+consentCloseButton.addEventListener('click', e => {
+	consentContainer.parentNode.removeChild(consentContainer);
 });
 
 
