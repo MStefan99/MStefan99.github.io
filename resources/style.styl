@@ -152,15 +152,18 @@ html
 
 		#cookie-consent
 			position fixed
-			bottom 1vw
-			left 50vw
+			display flex
+			flex-flow row nowrap
+			bottom 1vh
+			right 2vw
+			max-width 95%
 			padding 1em
 			background whitesmoke
 			border 1px solid grey
 			border-radius 10px
-			transform translateX(-50%)
 
 			#consent-close
+				align-self flex-start
 				cursor pointer
 				background #1c71d5
 				padding .5em 1em

@@ -163,15 +163,18 @@ html body footer a {
 }
 html body #cookie-consent {
   position: fixed;
-  bottom: 1vw;
-  left: 50vw;
+  display: flex;
+  flex-flow: row nowrap;
+  bottom: 1vh;
+  right: 2vw;
+  max-width: 95%;
   padding: 1em;
   background: #f5f5f5;
   border: 1px solid #808080;
   border-radius: 10px;
-  transform: translateX(-50%);
 }
 html body #cookie-consent #consent-close {
+  align-self: flex-start;
   cursor: pointer;
   background: #1c71d5;
   padding: 0.5em 1em;
