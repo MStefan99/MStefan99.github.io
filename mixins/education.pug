@@ -1,0 +1,27 @@
+mixin eduSection()
+	div#edu-section
+		h2.highlight Education
+		block
+
+
+mixin edu(school, programme, major, startTime, endTime, info)
+	-
+		const startDate = new Date(startTime);
+		const endDate = new Date(endTime);
+		const startYear = startDate.getFullYear();
+		const endYear = endDate.getFullYear();
+
+		const studyPeriod = `${startYear !== endYear ? endYear + ' -' : ''} ${endYear}`;
+
+	div.education(id='edu-' + school.toLowerCase().replace(/\s/g, '-'))
+		h3.highlight.double-bullet= school
+			span.light= studyPeriod
+		p.bold.bullet= programme + ' programme'
+		if (major)
+			p.bullet= major + ' professional major'
+		if (info)
+			p= info
+
+		if (block)
+			div.edu-details
+				block

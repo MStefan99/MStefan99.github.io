@@ -1,0 +1,148 @@
+include mixins/experience
+include mixins/education
+include mixins/projects
+
+
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		link(href="./style/stylify.css" rel="stylesheet" type="text/css")
+		link(href="./style/style.css" rel="stylesheet" type="text/css")
+		link(href="./img/ico.png" rel="icon" sizes="16x16" type="image/png")
+		link(href="./img/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120")
+		link(href="./img/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152")
+		meta(content="width=device-width, minimum-scale=1.0, initial-scale=1.0" name="viewport")
+
+		//script(async src="https://www.googletagmanager.com/gtag/js?id=UA-126259429-1")
+		//script.
+		//	window.dataLayer = window.dataLayer || [];
+		//	function gtag() {
+		//		dataLayer.push(arguments);
+		//	}
+		//	gtag('js', new Date());
+		//	gtag('config', 'UA-126259429-1');
+
+		title Personal page - Mikhail Stefantsev
+		meta(content="3rd year student in Metropolia, Helsinki" name="description")
+		meta(content="Mikhail Stefantsev" name="author")
+		meta(content="#4a76a8" name="theme-color")
+
+	body
+		header
+			a#name(href='https://mstefan99.com/')
+				h1 Mikhail Stefantsev
+			span#info Personal page
+
+		main.d-flex.justify-content-between
+			div#nav-container
+				h1 Navigation
+				a(href="#")
+					h2 Top
+				div#navigation-list
+
+			div#link-container
+				h1 Contact
+				h2 Links
+				a.d-block(href='https://github.com/MStefan99/') Github
+				a.d-block(href='https://vault.mstefan99.com:30443/d/s/laRI2LYack8HesT57bfKPf5QwTxOThI5/xV38_Dc8foJZ-hEpPKD97Hi4IyIbTRQf-Drbg5U4VHAk') CV
+				h2 Contact
+				a.d-block(href='mailto:mikhail.stefantsev@outlook.com') Send email
+				a.d-block(href='https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/') LinkedIn
+				a.d-block(href='https://t.me/MStefan99/') Telegram
+
+			article
+				h2 About
+				div#about.d-flex.justify-content-between
+					//- TODO: fill in
+					p [Something about me]
+					div
+						img#photo(alt="Profile photo" src="./img/profile_photo.jpg")
+
+				+workSection
+					+work('Metropolia University of Applied Sciences', 'Assistant lecturer', '2021-09-01', '2021-12-31')
+					+work('Nokia Solutions and Networks', 'Test engineer', '2021-03-01', '2021-08-31')
+						b Thesis work
+						p Summer trainee position
+					+work('Nokia Solutions and Networks', 'Test engineer', '2020-05-01', '2020-08-31')
+						p Summer trainee position
+
+				+eduSection
+					+edu('Metropolia University of Applied Sciences', 'Information and Communication Technologies',
+						'Smart systems', '2018-08-24', '2021-12-20')
+					+edu('ITMO University, Russia', 'Information Technology', 'Operating Systems and Application software',
+						'2017-09-01', '2018-05-31')
+
+				+projectSection
+					+project('ardUI', 'A C++ UI for the modern age', 'ardUI is a simple yet powerful framework that allows you ' +
+					'to quickly build complex, interactive and beautiful interfaces for all your projects. Designed for ' +
+					'low-end embedded systems, ardUI stays fast and efficient even with complex interfaces. Developed from ' +
+					'scratch in C++ including an STL-compatible template library.')
+						p More info:
+						a.block(href='https://github.com/MStefan99/ardUI') Project on GitHub
+
+					+project('My HR', null, 'My HR is a recruiting application built for a school project and includes features ' +
+					'for for collecting, viewing, discussing and managing applications. Made with Node, SQL and web technologies.')
+						p More info:
+						a.block(href='https://github.com/MStefan99/My-HR') Project on GitHub
+						a.block(href='https://ardui.mstefan99.com/') Project website
+
+					+project('Flight computer', null, '(A yet unnamed) Flight computer is a system designed to make flying RC ' +
+					'models safer and more fun. Including anything from flight assist to fully autonomous modes, this is a ' +
+					'perfect addition to any model aircraft')
+						p.light Project early in development, many features may not yet be available
+						p More info:
+						//- TODO: fill in links
+						a.block(href='') Companion app on GitHub
+						a.block(href='') Wireless receiver firmware on GitHub
+						a.block(href='') Main processor firmware on GitHub
+						a.block(href='') Flight processor firmware on GitHub
+
+					+project('Siter', 'Set up your web server without messing with config files!',
+						'Originally planned to be a web interface for Apache, Siter has since become a standalone application you ' +
+						'can use to easily set up your web server to host a variety of things. You can configure Siter to serve ' +
+						'static files, be a reverse proxy or both at the same time. The main goal of Siter is to make setting up ' +
+						'servers easy and streamlined, whether you just need to host a single application you made yourself or ' +
+						'dozens of web servers used by a lot of people. Siter was designed to be fast and reliable, features ' +
+						'an easy-to-use web interface and can be set up in minutes!')
+						p More info:
+						a.block(href='https://github.com/MStefan99/Siter') Project on GitHub
+
+					//- TODO: complete description
+					+project('Deep learning robot', null, '')
+
+					+project('Credible', null, 'Credible is a secure key-value storage for your most sensitive data. ' +
+					'With support for JSON, multiple users and nested keys, it can handle everything you need to keep safe. ' +
+					'Credible automatically encrypts everything you save and checks whether your data has been tampered with.')
+						p More info:
+						a.block(href='https://github.com/MStefan99/Credible') Project on GitHub
+
+					+project('Simply message', null, 'A messenger built with Node and MongoDB ' +
+					'featuring real-time messaging with end-to-end encryption.')
+						p More info
+						a.block(href='https://github.com/MStefan99/Simply-Message') Project on GitHub
+
+					//- TODO: complete description
+					+project('Trader bot', null, '')
+
+					//- TODO: complete description
+					+project('MIDI parser', null, '')
+
+		footer.d-flex.justify-content-between.p-4
+			div#foot-links
+				h4 Useful links
+				a.d-block(href="https://vault.mstefan99.com:30443/d/s/laRI2LYack8HesT57bfKPf5QwTxOThI5/xV38_Dc8foJZ-hEpPKD97Hi4IyIbTRQf-Drbg5U4VHAk") CV
+				a.d-block(href="https://github.com/MStefan99/") GitHub
+
+			div#foot-contact
+				h4 Contact
+				a.d-block(href="https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/") LinkedIn
+				a.d-block(href="mailto:mikhail.stefantsev@outlook.com") Email
+				a.d-block(href="https://t.me/MStefan99/") Telegram
+
+			div#cookie-consent
+				span By using this website you agree to our #[a(href="./privacy.html")] Cookie Policy
+				span#consent-close.btn.btn-outline-info Close
+
+			script(src="resources/main.js")
+

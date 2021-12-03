@@ -5,16 +5,10 @@ const rightContainer = document.querySelector('#right-container');
 const consentContainer = document.querySelector('#cookie-consent');
 const consentCloseButton = document.querySelector('#consent-close');
 
-const currentYear = document.querySelectorAll('.current-year');
 const navigationList = document.querySelector('#navigation-list');
 const headers = document.querySelectorAll('#content-container h2,' +
 	'#content-container h3,' +
 	'#content-container h4');
-
-
-currentYear.forEach(element => {
-	element.innerHTML = new Date().getFullYear().toString();
-});
 
 
 consentCloseButton.addEventListener('click', e => {
@@ -23,9 +17,6 @@ consentCloseButton.addEventListener('click', e => {
 
 
 addEventListener('load', e => {
-	leftContainer.style['max-height'] =
-		rightContainer.style['max-height'] = screen.height - header.offsetHeight - 50 + 'px';
-
 	headers.forEach((header) => {
 		const headerLI = document.createElement('li');
 		navigationList.appendChild(headerLI);

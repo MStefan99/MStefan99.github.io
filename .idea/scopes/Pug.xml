@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Pug" pattern="file[website]:mixins//*.pug" />
+</component>

@@ -1,3 +1,3 @@
 <component name="DependencyValidationManager">
-  <scope name="Stylus" pattern="file[html]:resources//*.styl" />
+  <scope name="Stylus" pattern="file[website]:style//*.styl" />
 </component>

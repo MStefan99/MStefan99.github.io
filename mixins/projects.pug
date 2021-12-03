@@ -1,0 +1,16 @@
+mixin projectSection()
+	div#project-section
+		h2.highlight Projects
+		block
+
+
+mixin project(name, tagline, description)
+	div.project
+		h3.highlight.double-bullet= name
+		if (tagline)
+			span.light.highlight.bullet= tagline
+		p= description
+
+		if (block)
+			div.project-details
+				block

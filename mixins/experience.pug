@@ -1,0 +1,41 @@
+mixin workSection()
+	div#work-section
+		h2.highlight Work experience
+		block
+
+
+mixin work(company, position, startTime, endTime, info)
+	-
+		const monthNames = [
+			'January',
+			'February',
+			'March',
+			'April',
+			'May',
+			'June',
+			'July',
+			'August',
+			'September',
+			'October',
+			'November',
+			'December'
+		];
+		const startDate = new Date(startTime);
+		const endDate = new Date(endTime);
+		const startYear = startDate.getFullYear();
+		const endYear = endDate.getFullYear();
+		const startMonth = startDate.getMonth();
+		const endMonth = endDate.getMonth();
+
+		const workPeriod = `${monthNames[startMonth]} ${startYear !== endYear? endYear : ''} - ${monthNames[endMonth]} ${endYear}`;
+
+	div.work-position(id='position-' + company.toLowerCase().replace(/\s/g, '-'))
+			h3.highlight.double-bullet= company
+				span.light= workPeriod
+			p.bold.bullet= position + ' position'
+			if (info)
+				p= info
+
+			if (block)
+				div.work-details
+					block
