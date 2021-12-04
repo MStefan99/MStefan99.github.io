@@ -29,42 +29,55 @@ html(lang="en")
 		meta(content="#4a76a8" name="theme-color")
 
 	body
-		header
+		header.d-flex.justify-content-between.align-items-baseline.flex-wrap
 			a#name(href='https://mstefan99.com/')
-				h1 Mikhail Stefantsev
+				span Mikhail Stefantsev
 			span#info Personal page
 
-		main.d-flex.justify-content-between
-			div#nav-container
+		main.d-lg-flex.justify-content-between
+			div#nav-container.sticky
 				h1 Navigation
 				a(href="#")
 					h2 Top
-				div#navigation-list
+				div#nav-list
 
-			div#link-container
+			div#link-container.sticky
 				h1 Contact
 				h2 Links
-				a.d-block(href='https://github.com/MStefan99/') Github
-				a.d-block(href='https://vault.mstefan99.com:30443/d/s/laRI2LYack8HesT57bfKPf5QwTxOThI5/xV38_Dc8foJZ-hEpPKD97Hi4IyIbTRQf-Drbg5U4VHAk') CV
+				a(href='https://github.com/MStefan99/') Github
+				a(href='./files/cv.pdf') CV
 				h2 Contact
-				a.d-block(href='mailto:mikhail.stefantsev@outlook.com') Send email
-				a.d-block(href='https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/') LinkedIn
-				a.d-block(href='https://t.me/MStefan99/') Telegram
+				a(href='mailto:mikhail.stefantsev@outlook.com') Send email
+				a(href='https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/') LinkedIn
+				a(href='https://t.me/MStefan99/') Telegram
 
 			article
-				h2 About
-				div#about.d-flex.justify-content-between
-					//- TODO: fill in
-					p [Something about me]
+				h2#about.highlight About
+				div.d-flex.justify-content-between
+					p Metropolia alumni with more than a decade of programming experience and dozens of various projects both
+						|  personal and done in a team. During the years I have gathered knowledge and experience with
+						|  numerous technologies, ranging from Assembly to machine learning. In addition to the software
+						|  I developed, I also have a solid understanding of hardware and electronics to bring it to the
+						|  physical world. With my passion towards technology, willingness to learn and strong organizational
+						|  skills I can successfully complete even the most demanding projects.
 					div
-						img#photo(alt="Profile photo" src="./img/profile_photo.jpg")
+						img#photo.ml-3(alt="Profile photo" src="./img/profile_photo.jpg")
 
 				+workSection
-					+work('Metropolia University of Applied Sciences', 'Assistant lecturer', '2021-09-01', '2021-12-31')
-					+work('Nokia Solutions and Networks', 'Test engineer', '2021-03-01', '2021-08-31')
-						b Thesis work
+					+work('Metropolia University of Applied Sciences', 'Assistant lecturer', '2021-09-01', '2021-12-31', [
+						'Designing and creating course contents and assignments',
+						'Giving lectures',
+						'Assisting students with assignments',
+						'Grading'
+					])
+					+work('Nokia Solutions and Networks', 'Test engineer', '2021-03-01', '2021-08-31', [
+						'Thesis work',
+						'Optimizing and maintaining automated test suite'
+					])
 						p Summer trainee position
-					+work('Nokia Solutions and Networks', 'Test engineer', '2020-05-01', '2020-08-31')
+					+work('Nokia Solutions and Networks', 'Test engineer', '2020-05-01', '2020-08-31', [
+						'Maintaining and updating automated test suite'
+					])
 						p Summer trainee position
 
 				+eduSection
@@ -79,24 +92,23 @@ html(lang="en")
 					'low-end embedded systems, ardUI stays fast and efficient even with complex interfaces. Developed from ' +
 					'scratch in C++ including an STL-compatible template library.')
 						p More info:
-						a.block(href='https://github.com/MStefan99/ardUI') Project on GitHub
+						a(href='https://github.com/MStefan99/ardUI') Project on GitHub
+						a(href='https://ardui.mstefan99.com/') Project website
 
 					+project('My HR', null, 'My HR is a recruiting application built for a school project and includes features ' +
 					'for for collecting, viewing, discussing and managing applications. Made with Node, SQL and web technologies.')
 						p More info:
-						a.block(href='https://github.com/MStefan99/My-HR') Project on GitHub
-						a.block(href='https://ardui.mstefan99.com/') Project website
+						a(href='https://github.com/MStefan99/My-HR') Project on GitHub
 
 					+project('Flight computer', null, '(A yet unnamed) Flight computer is a system designed to make flying RC ' +
 					'models safer and more fun. Including anything from flight assist to fully autonomous modes, this is a ' +
-					'perfect addition to any model aircraft')
-						p.light Project early in development, many features may not yet be available
+					'perfect addition to any model aircraft.')
+						i.text-muted Project early in development, many features may not yet be available
 						p More info:
-						//- TODO: fill in links
-						a.block(href='') Companion app on GitHub
-						a.block(href='') Wireless receiver firmware on GitHub
-						a.block(href='') Main processor firmware on GitHub
-						a.block(href='') Flight processor firmware on GitHub
+						a(href='https://github.com/MStefan99/Command-Center') Companion app on GitHub
+						a(href='https://github.com/MStefan99/wireless-receiver') Wireless receiver firmware on GitHub
+						a(href='') Main processor firmware on GitHub (currently unavailable)
+						a(href='https://github.com/MStefan99/flight-computer-fpu') Flight processor firmware on GitHub
 
 					+project('Siter', 'Set up your web server without messing with config files!',
 						'Originally planned to be a web interface for Apache, Siter has since become a standalone application you ' +
@@ -106,43 +118,65 @@ html(lang="en")
 						'dozens of web servers used by a lot of people. Siter was designed to be fast and reliable, features ' +
 						'an easy-to-use web interface and can be set up in minutes!')
 						p More info:
-						a.block(href='https://github.com/MStefan99/Siter') Project on GitHub
+						a(href='https://github.com/MStefan99/Siter') Project on GitHub
 
-					//- TODO: complete description
-					+project('Deep learning robot', null, '')
+					+project('Deep learning robot', null, 'Building on the foundation of the 1st-year school project ' +
+					'and previous machine learning experiments, this project combines the two to help a robot find its way ' +
+					'through a maze without any fixed algorithm just by utilizing the power of a neural network.')
+						p More info:
+							a(href='https://github.com/MStefan99/deep-learning-zumo-client') Project on GitHub (client)
+							a(href='https://github.com/MStefan99/deep-learning-zumo-server') Project on GitHub (server)
 
 					+project('Credible', null, 'Credible is a secure key-value storage for your most sensitive data. ' +
 					'With support for JSON, multiple users and nested keys, it can handle everything you need to keep safe. ' +
 					'Credible automatically encrypts everything you save and checks whether your data has been tampered with.')
 						p More info:
-						a.block(href='https://github.com/MStefan99/Credible') Project on GitHub
+						a(href='https://github.com/MStefan99/Credible') Project on GitHub
 
-					+project('Simply message', null, 'A messenger built with Node and MongoDB ' +
-					'featuring real-time messaging with end-to-end encryption.')
-						p More info
-						a.block(href='https://github.com/MStefan99/Simply-Message') Project on GitHub
+					+project('Simply message', null, 'A messenger built with Node and MongoDB featuring real-time messaging ' +
+					'with end-to-end encryption.')
+						p More info:
+						a(href='https://github.com/MStefan99/Simply-Message') Project on GitHub
 
-					//- TODO: complete description
-					+project('Trader bot', null, '')
+					+project('MIDI parser', null, 'Developed for future projects, Midi Parser is a tiny C++ library for ' +
+					'parsing binary MIDI files to be used later in any C++ application.')
+						p More info:
+							a(href='https://github.com/MStefan99/Midi-Parser') Project on GitHub
+							a(href='https://midi-parser.mstefan99.com/') Project website
 
-					//- TODO: complete description
-					+project('MIDI parser', null, '')
+					+project('Trader bot', null, 'An automated bot for trading stocks powered by machine learning. ' +
+					'The project is currently incomplete, however the repository includes a neural network written from ' +
+					'scratch in C++.')
+						i.text-muted Project incomplete due to scheduling, no plans to continue at this time
+						p More info:
+							a(href='https://github.com/MStefan99/trader') Project on GitHub
 
-		footer.d-flex.justify-content-between.p-4
+				+projectSection('School projects')
+					+project('Programmer calculator', null, 'The calculator is an Android application for making scientific ' +
+					'or programming calculations. The app also supports different color schemes and is localized ' +
+					'to 6 languages. Calculator application was developed for Metropolia UAS Mobile course.')
+						p More info:
+						a(href='https://github.com/MStefan99/programmer-calculator') Project on GitHub
+
+					+project('Robot project', null, 'Done for one of university courses, this project included programming a ' +
+					'PSoC-based robot platform to perform various tasks like sumo battle, line following and pathfinding.')
+						p More info:
+						a(href='https://github.com/MStefan99/robot-project') Project on GitHub
+
+		footer.d-flex.justify-content-around.p-4
 			div#foot-links
 				h4 Useful links
-				a.d-block(href="https://vault.mstefan99.com:30443/d/s/laRI2LYack8HesT57bfKPf5QwTxOThI5/xV38_Dc8foJZ-hEpPKD97Hi4IyIbTRQf-Drbg5U4VHAk") CV
-				a.d-block(href="https://github.com/MStefan99/") GitHub
+				a(href="./files/cv.pdf") CV
+				a(href="https://github.com/MStefan99/") GitHub
 
 			div#foot-contact
 				h4 Contact
-				a.d-block(href="https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/") LinkedIn
-				a.d-block(href="mailto:mikhail.stefantsev@outlook.com") Email
-				a.d-block(href="https://t.me/MStefan99/") Telegram
+				a(href="https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/") LinkedIn
+				a(href="mailto:mikhail.stefantsev@outlook.com") Email
+				a(href="https://t.me/MStefan99/") Telegram
 
-			div#cookie-consent
-				span By using this website you agree to our #[a(href="./privacy.html")] Cookie Policy
-				span#consent-close.btn.btn-outline-info Close
+		div#cookie-consent.px-2
+			span By using this website you agree to our #[a.d-inline(href="./privacy.html") Cookie Policy]
+			span#consent-close.btn.btn-outline-info Close
 
-			script(src="resources/main.js")
-
+		script(src="./js/main.js")

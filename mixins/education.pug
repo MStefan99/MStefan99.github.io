@@ -1,6 +1,6 @@
-mixin eduSection()
-	div#edu-section
-		h2.highlight Education
+mixin eduSection(title)
+	div.edu-section.ml-2
+		h2#edu-section.highlight= title || 'Education'
 		block
 
 
@@ -11,17 +11,18 @@ mixin edu(school, programme, major, startTime, endTime, info)
 		const startYear = startDate.getFullYear();
 		const endYear = endDate.getFullYear();
 
-		const studyPeriod = `${startYear !== endYear ? endYear + ' -' : ''} ${endYear}`;
+		const studyPeriod = `${startYear !== endYear ? startYear + ' -' : ''} ${endYear}`;
 
-	div.education(id='edu-' + school.toLowerCase().replace(/\s/g, '-'))
-		h3.highlight.double-bullet= school
-			span.light= studyPeriod
-		p.bold.bullet= programme + ' programme'
-		if (major)
-			p.bullet= major + ' professional major'
-		if (info)
-			p= info
+	div.education
+		h3.highlight.double-bullet(id='edu-' + school.toLowerCase().replace(/\s/g, '-'))= school
+			span.light.ml-1= '| ' + studyPeriod
+		div.ml-2
+			p.bold.bullet= programme + ' programme'
+			if (major)
+				p.bullet= major + ' professional major'
+			if (info)
+				p= info
 
-		if (block)
-			div.edu-details
-				block
+			if (block)
+				div.edu-details.ml-2
+					block

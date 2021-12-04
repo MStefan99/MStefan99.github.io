@@ -1,10 +1,11 @@
-mixin workSection()
-	div#work-section
-		h2.highlight Work experience
-		block
+mixin workSection(title)
+	div.work-section
+		h2#work-section.highlight= title || 'Work experience'
+		div.ml-2
+			block
 
 
-mixin work(company, position, startTime, endTime, info)
+mixin work(company, position, startTime, endTime, responsibilities, info)
 	-
 		const monthNames = [
 			'January',
@@ -29,13 +30,23 @@ mixin work(company, position, startTime, endTime, info)
 
 		const workPeriod = `${monthNames[startMonth]} ${startYear !== endYear? endYear : ''} - ${monthNames[endMonth]} ${endYear}`;
 
-	div.work-position(id='position-' + company.toLowerCase().replace(/\s/g, '-'))
-			h3.highlight.double-bullet= company
-				span.light= workPeriod
+		if (responsibilities && !(responsibilities instanceof Array)) {
+			responsibilities = [responsibilities];
+		}
+
+	div.work-position
+		h3.highlight.double-bullet(id='position-' + company.toLowerCase().replace(/\s/g, '-'))= company
+			span.light.ml-1= '| ' + workPeriod
+		div.ml-2
 			p.bold.bullet= position + ' position'
+			if (responsibilities)
+				span Responsibilities:
+				ul.pl-4
+					for r in responsibilities
+						li.mb-1= r
 			if (info)
 				p= info
 
 			if (block)
-				div.work-details
+				div.work-details.ml-2
 					block

@@ -18,11 +18,8 @@ html
 		p
 			line-height 1.5em
 
-		a:not(:visited)
+		a
 			color inherit
-
-			&:not(:hover)
-				text-decoration none
 
 		.bullet::before
 			content '› '
@@ -35,15 +32,50 @@ html
 			padding 2vh 5vw
 			color white
 
-			h1
-				color inherit
+			#name
+				text-decoration none
+				font-size 4em
+				font-weight bold
+
+			#info
+				font-size 1.5em
 
 		main
 			&>*
 				margin 2em
 
+			a
+				color inherit
+				display block
+				margin-bottom .5em
+
+			.sticky
+				@media screen and (max-width 1024px)
+					border-bottom 1px solid darken(white, 30)
+
+				@media screen and (min-width 1024px)
+					position sticky
+					padding 0 2ch
+					top 2vh
+					height 95vh
+					overflow-y auto
+					overflow-x hidden
+					flex 1 0 0
+
 			#nav-container
 				order 0
+
+				a
+					text-decoration none
+
+				#nav-list
+					font-size .9em
+
+					h2
+						margin-left 1ch
+
+					h3
+						margin-left 3ch
 
 			#link-container
 				order 2
@@ -53,11 +85,29 @@ html
 
 			article
 				order 1
+				flex 4 0 0
 
-				#about
-					#photo
-						max-height 40vh
-						max-width 30vw
-						min-height 100px
-						min-width 100px
-						border-radius 50%
+			#photo
+				max-height 40vh
+				max-width 250px
+				min-height 100px
+				min-width 100px
+				border-radius 50%
+
+		footer
+			background-color darken(white, 2)
+
+			a
+				display block
+				margin-bottom .5em
+
+		#cookie-consent
+			position fixed
+			right 5vw
+			bottom 5vh
+			background-color darken(white, 3)
+			border 1px solid black
+			border-radius 8px
+
+			#consent-close
+				margin-left 2ch

@@ -1,16 +1,18 @@
-mixin projectSection()
-	div#project-section
-		h2.highlight Projects
-		block
+mixin projectSection(title)
+	div.project-section
+		h2#project-section.highligh= title || 'Projects'
+		div.ml-2
+			block
 
 
 mixin project(name, tagline, description)
 	div.project
-		h3.highlight.double-bullet= name
-		if (tagline)
-			span.light.highlight.bullet= tagline
-		p= description
+		h3.highlight.bullet(id='project-' + name.toLowerCase().replace(/\s/g, '-'))= name
+		div.ml-2
+			if (tagline)
+				span.light.highlight= tagline
+			p= description
 
-		if (block)
-			div.project-details
-				block
+			if (block)
+				div.project-details.ml-2
+					block
