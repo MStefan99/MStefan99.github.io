@@ -37,6 +37,9 @@ html
 				font-size 4em
 				font-weight bold
 
+				@media screen and (max-width 375px)
+					font-size 3em
+
 			#info
 				font-size 1.5em
 
@@ -61,6 +64,9 @@ html
 					overflow-y auto
 					overflow-x hidden
 					flex 1 0 0
+
+				&>h1
+					hyphens manual
 
 			#nav-container
 				order 0
