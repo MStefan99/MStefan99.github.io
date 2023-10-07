@@ -14,14 +14,9 @@ html(lang="en")
 		link(href="./img/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152")
 		meta(content="width=device-width, minimum-scale=1.0, initial-scale=1.0" name="viewport")
 
-		script(async src="https://www.googletagmanager.com/gtag/js?id=UA-126259429-1")
-		script.
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
-			gtag('config', 'UA-126259429-1');
+		script(async type="module").
+			import {sendHit} from 'https://crash-course-backend.apps.mstefan99.com/cc?k=442a1d98e0c60f79';
+			sendHit();
 
 		title Mikhail Stefantsev | Personal page
 		meta(content="Software developer, Metropolia alumni" name="description")
