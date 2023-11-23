@@ -9,19 +9,17 @@ html(lang="en")
 		meta(charset="utf-8")
 		link(href="./style/stylify.css" rel="stylesheet" type="text/css")
 		link(href="./style/style.css" rel="stylesheet" type="text/css")
-		link(href="./img/ico.png" rel="icon" sizes="16x16" type="image/png")
-		link(href="./img/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120")
-		link(href="./img/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152")
+		link(href="./img/icon.jpg" rel="icon" sizes="64x64" type="image/jpg")
 		meta(content="width=device-width, minimum-scale=1.0, initial-scale=1.0" name="viewport")
 
 		script(async type="module").
-			import {sendHit} from 'https://crash-course-backend.apps.mstefan99.com/cc?k=442a1d98e0c60f79';
+			import {sendHit} from 'https://crash-course-backend.apps.mstefan99.com/cc?k=442a1d98e0c60f79&verbose';
 			sendHit();
 
 		title Mikhail Stefantsev | Personal page
 		meta(content="Software developer, Metropolia alumni" name="description")
 		meta(content="Mikhail Stefantsev" name="author")
-		meta(content="#4a76a8" name="theme-color")
+		meta(content="#18492E" name="theme-color")
 
 	body
 		header.d-flex.justify-content-between.align-items-baseline.flex-wrap
@@ -31,7 +29,7 @@ html(lang="en")
 
 		main.d-lg-flex.justify-content-between
 			div#nav-container.sticky
-				h1 Navi&shy;gation
+				h1 Navigation
 				a(href="#")
 					h2 Top
 				div#nav-list
@@ -40,24 +38,25 @@ html(lang="en")
 				h1 Contact
 				h2 Links
 				a(href='https://github.com/MStefan99/') Github
-				a(href='./files/cv.pdf') CV
+				a(href='./files/CV.pdf') CV
 				h2 Contact
 				a(href='mailto:mikhail.stefantsev@outlook.com') Send email
 				a(href='https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/') LinkedIn
 				a(href='https://t.me/MStefan99/') Telegram
 
 			article
-				h2#about.highlight About
-				div.d-md-flex.justify-content-between
-					p Metropolia alumni with over a decade of programming experience and dozens of various projects, both
-						|  personal and done as part of a team. During this time I have gathered the knowledge and experience with
-						|  numerous technologies, ranging from Assembly to machine learning and in addition to all of the software
-						|  I have developed over the years I have also acquired a solid understanding of  hardware and electronics,
-						|  which, combined with my extensive software experience, allows me to design and create hardware from
-						|  scratch. With my passion towards technology, willingness to learn and strong organizational skills I can
-						|  successfully complete even the most demanding of the projects that lie ahead.
-					div
-						img#photo.d-none.d-sm-block.ml-3(alt="Profile photo" src="./img/profile_photo.jpg")
+				.d-none
+					h2#about.highlight About
+					div.d-md-flex.justify-content-between
+						p Metropolia alumni with over a decade of programming experience and dozens of various projects, both
+							|  personal and done as part of a team. During this time I have gathered the knowledge and experience with
+							|  numerous technologies, ranging from Assembly to machine learning and in addition to all of the software
+							|  I have developed over the years I have also acquired a solid understanding of  hardware and electronics,
+							|  which, combined with my extensive software experience, allows me to design and create hardware from
+							|  scratch. With my passion towards technology, willingness to learn and strong organizational skills I can
+							|  successfully complete even the most demanding of the projects that lie ahead.
+				div.d-md-flex.justify-content-end
+					img#photo.d-none.d-sm-block.ml-3(alt="Profile photo" src="./img/profile_photo.jpg")
 
 				+workSection
 					+work('Metropolia University of Applied Sciences', 'Assistant lecturer', '2021-09-01', '2021-12-31', [
@@ -170,9 +169,5 @@ html(lang="en")
 				a(href="https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/") LinkedIn
 				a(href="mailto:mikhail.stefantsev@outlook.com") Email
 				a(href="https://t.me/MStefan99/") Telegram
-
-		div#cookie-consent.px-2.mx-2
-			span.d-inline-block.my-2 By using this website you agree to our #[a.d-inline(href="./privacy.html") Cookie Policy]
-			span#consent-close.btn.btn-outline-info Close
 
 		script(src="./js/main.js")
