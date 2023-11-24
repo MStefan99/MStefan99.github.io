@@ -1,6 +1,158 @@
-@import "stylify.css";
-@import "old-style.css";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+	font-family: sans-serif;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+	font-size: 12pt;
+
+	--color-accent: #18492e;
+}
+
+body {
+	margin: 0;
+}
+
+main {
+	flex-flow: row nowrap;
+}
+
+article, .sticky {
+	margin: 2em;
+}
+
+header {
+	@apply bg-accent;
+	padding: .5vh 1vw;
+	color: #fff;
+	border-radius: 0 0 16px 16px;
+}
+
+header #name {
+	text-decoration: none;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+@media screen and (max-width: 375px) {
+	header {
+		padding: 1vh 2vw;
+		border-radius: 0 0 8px 8px;
+	}
+
+	header #name {
+		font-size: 1.2em;
+	}
+}
+
+main a {
+	color: inherit;
+	display: block;
+	margin-bottom: 0.5em;
+}
+
+@media screen and (max-width: 1024px) {
+	.sticky {
+		border-bottom: 1px solid #b3b3b3;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.sticky {
+		position: sticky;
+		padding: 0 2ch;
+		top: 2vh;
+		height: 95vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+		flex: 1 0 0;
+	}
+}
+
+#nav-container {
+	order: 0;
+}
+
+#nav-container a {
+	text-decoration: none;
+}
+
+#nav-container #nav-list {
+	font-size: 0.9em;
+}
+
+#link-container {
+	order: 2;
+}
+
+#link-container a {
+	font-size: 1.2em;
+}
+
+article {
+	order: 1;
+	flex: 4 0 0;
+}
+
+#photo {
+	max-height: 40vh;
+	max-width: 250px;
+	min-height: 100px;
+	min-width: 100px;
+	border-radius: 500px;
+	float: right;
+}
+
+footer {
+	background-color: #fafafa;
+}
+
+footer a {
+	display: block;
+	margin-bottom: 0.5em;
+}
+
+
+/* Utility styles */
+
+.hidden {
+	display: none;
+}
+
+.highlight {
+	@apply text-accent;
+}
+
+p {
+	line-height: 1.5em;
+}
+
+a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+
+h1 {
+	font-weight: bolder;
+	font-size: 2em;
+	letter-spacing: -0.1ch;
+}
+
+h2 {
+	margin-left: 1ch;
+}
+
+h3 {
+	margin-left: 3ch;
+}
+
+.bullet::before {
+	content: '› ';
+}
+
+.double-bullet::before {
+	content: '» ';
+}

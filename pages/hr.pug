@@ -5,8 +5,21 @@ include ../templates/education
 include ../templates/projects
 
 
-block body
-	header.d-flex.justify-content-between.align-items-baseline.flex-wrap
-		a#name(href='https://mstefan99.com/')
-			span Mikhail Stefantsev
-		span#info Personal page
+block content
+	article.max-w-screen-lg.my-6.mx-auto
+		h1#about.highlight About
+		.justify-between(class='md:flex')
+			p.highlight.
+				As a passionate Embedded Software Developer with a strong foundation in IT from Metropolia University of Applied
+				Sciences, specializing in IoT and Smart Systems, I bring a unique blend of academic excellence and practical experience.
+				My journey in technology began over a decade ago with a fascination for programming, leading to a bachelor's degree
+				achieved ahead of schedule with a GPA of 4.7/5. My academic and personal endeavors have seen me dive into the realms
+				of neural networks, firmware development, cutting-edge embedded systems and much more, with a keen eye on
+				bridging the gap between software and practical hardware innovations.
+			img#photo.shrink-0.ml-3(alt="Profile photo" src="./img/profile_photo.jpg")
+
+	.flex
+		.bg-accent.text-white.p-4(class='w-1/2')
+			p test
+		.text-accent.p-4
+			p test

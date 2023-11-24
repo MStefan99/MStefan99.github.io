@@ -9,7 +9,13 @@ module.exports = {
 		"./js/**/*.js"
 	],
 	theme: {
-		extend: {},
-	},
-	plugins: [],
+		// Override the theme here
+		extend: {
+			// Extend the theme here
+			colors: {
+				accent: 'var(--color-accent)'
+			}
+		},
+		plugins: [],
+	}
 };
