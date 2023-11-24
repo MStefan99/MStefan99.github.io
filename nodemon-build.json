@@ -1,0 +1,8 @@
+{
+	"ignore": [
+		"dist/",
+		"node_modules/"
+	],
+	"signal": "SIGTERM",
+	"ext": "pug,html,styl,css,ts,js,jpg,png,pdf"
+}

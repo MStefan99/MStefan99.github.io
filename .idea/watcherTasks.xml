@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectTasksOptions">
-    <TaskOptions isEnabled="true">
+  <component name="ProjectTasksOptions" suppressed-tasks="Sass">
+    <TaskOptions isEnabled="false">
       <option name="arguments" value="$FileName$ -c" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" />
@@ -21,7 +21,7 @@
       <option name="workingDir" value="$FileDir$" />
       <envs />
     </TaskOptions>
-    <TaskOptions isEnabled="true">
+    <TaskOptions isEnabled="false">
       <option name="arguments" value="$FileName$" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" />
@@ -36,7 +36,7 @@
       <option name="outputFromStdout" value="false" />
       <option name="program" value="pug" />
       <option name="runOnExternalChanges" value="true" />
-      <option name="scopeName" value="Project Files" />
+      <option name="scopeName" value="Pug" />
       <option name="trackOnlyRoot" value="true" />
       <option name="workingDir" value="$FileDir$" />
       <envs />
