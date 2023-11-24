@@ -20,7 +20,7 @@ main {
 }
 
 article, .sticky {
-	margin: 2em;
+	@apply my-8;
 }
 
 header {
@@ -45,12 +45,6 @@ header #name {
 	header #name {
 		font-size: 1.2em;
 	}
-}
-
-main a {
-	color: inherit;
-	display: block;
-	margin-bottom: 0.5em;
 }
 
 @media screen and (max-width: 1024px) {
@@ -97,12 +91,19 @@ article {
 }
 
 #photo {
+	@apply mb-4 rounded-full;
 	max-height: 40vh;
 	max-width: 250px;
 	min-height: 100px;
 	min-width: 100px;
-	border-radius: 500px;
-	float: right;
+}
+
+@media screen and (min-width: 375px) {
+	#photo {
+		float: right;
+		shape-outside: circle(calc(50% - 8px) at calc(50% - 16px) center);
+		background-clip: content-box;
+	}
 }
 
 footer {
@@ -134,6 +135,13 @@ a {
 	text-decoration: underline;
 }
 
+.clearfix {
+	overflow: auto;
+}
+
+ul {
+	list-style: disc inside;
+}
 
 h1 {
 	font-weight: bolder;
@@ -147,6 +155,56 @@ h2 {
 
 h3 {
 	margin-left: 3ch;
+}
+
+.split-layout {
+	display: flex;
+	flex-flow: row nowrap;
+	position: relative;
+	text-align: justify;
+}
+
+.split-layout:before {
+	@apply bg-white left-4 right-4;
+	content: '';
+	position: absolute;
+	bottom: 16px;
+	height: 4px;
+	width: 100%;
+}
+
+.split-layout:after {
+	@apply bg-accent left-1/2 right-4;
+	content: '';
+	position: absolute;
+	bottom: 16px;
+	height: 4px;
+}
+
+.split-layout > * {
+	@apply p-4 pb-8;
+}
+
+.split-layout p:not(:last-of-type) {
+	@apply mb-4;
+}
+
+.split-layout > *:nth-child(1) {
+	@apply bg-accent text-white;
+	flex: 0 0 50%;
+}
+
+.split-layout > *:nth-child(2) {
+	@apply text-accent;
+	flex: 0 0 50%;
+}
+
+.split-layout:first-of-type > *:nth-child(1) {
+	@apply rounded-tr-2xl;
+}
+
+.split-layout:last-of-type > *:nth-child(1) {
+	@apply rounded-br-2xl;
 }
 
 .bullet::before {
