@@ -1,0 +1,9 @@
+{
+	"watch": [
+		"files/",
+		"img/",
+		"js/",
+		"public/"
+	],
+	"ext": "pdf,jpg,png,bmp,js,txt,xml"
+}
