@@ -44,9 +44,8 @@ article {
 }
 
 #photo {
-	@apply max-xs:mx-auto mb-4 rounded-full
+	@apply max-xs:mx-auto mb-4 rounded-full max-h-48
 	xs:float-right xs:bg-clip-content xs:photo-shape xs:ml-4;
-	max-height: 15vh;
 	min-width: min(100px, 100vw);
 }
 
@@ -62,12 +61,8 @@ footer a {
 
 /* Utility styles */
 
-.highlight {
-	@apply text-accent;
-}
-
 p {
-	/*@apply leading-3;*/
+	@apply leading-relaxed;
 }
 
 a {

@@ -23,7 +23,7 @@
 		if (!connectionLost && window.liveWS) {
 			return;
 		}
-		const ws = new WebSocket('ws://localhost:3012');
+		const ws = new WebSocket(`ws://${location.hostname}:3012`);
 		let pingInterval = null;
 		window.liveWS = ws;
 
@@ -58,7 +58,7 @@
 		}
 	}
 
-	if (location.host.match(/localhost/)) {
+	if (location.hostname.match(/(?:\d+\.){3}\d+|localhost/)) {
 		openWS();
 	}
 })();
