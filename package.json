@@ -18,9 +18,7 @@
     "watch": "run-p watch:*",
     "watch:style": "nodemon --config nodemon-tw.json --exec npm run build:style",
     "watch:pages": "nodemon --config nodemon-pug.json --exec npm run build:pages",
-    "watch:files": "nodemon --config nodemon-files.json --exec npm run build:files",
-
-    "clean": "rm -rf build"
+    "watch:files": "nodemon --config nodemon-files.json --exec npm run build:files"
   },
   "author": "",
   "license": "GPL-3.0",
