@@ -14,6 +14,9 @@ module.exports = {
 			// Extend the theme here
 			colors: {
 				accent: 'var(--color-accent)'
+			},
+			screens: {
+				'xs': '425px'
 			}
 		},
 		plugins: [],
