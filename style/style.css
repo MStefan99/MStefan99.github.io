@@ -9,9 +9,10 @@
 }
 
 html {
-	@apply scroll-smooth overflow-x-hidden text-base font-sans;
+	@apply scroll-smooth overflow-x-hidden text-base font-sans dark:bg-zinc-900 dark:text-neutral-50;
 
 	--color-accent: #18492e;
+	--color-accent-soft: #e5fff1;
 }
 
 body {
@@ -40,7 +41,7 @@ article {
 }
 
 #about {
-	@apply md:text-accent;
+	@apply md:text-accent dark:md:text-accent-soft;
 }
 
 #photo {
@@ -50,8 +51,7 @@ article {
 }
 
 footer {
-	@apply flex justify-around p-4;
-	background-color: #fafafa;
+	@apply flex justify-around p-4 bg-white dark:bg-zinc-800;
 }
 
 footer a {
@@ -66,8 +66,7 @@ p {
 }
 
 a {
-	color: inherit;
-	text-decoration: underline;
+	@apply text-inherit underline;
 }
 
 .clearfix {
@@ -114,12 +113,12 @@ h1 {
 	@apply mb-4;
 }
 
-.split-layout > *:nth-child(1) {
-	@apply md:text-accent md:pb-8;
+.split-layout > *:first-child {
+	@apply md:text-accent dark:md:text-accent-soft md:pb-8;
 	flex: 0 0 50%;
 }
 
-.split-layout > *:nth-child(2) {
+.split-layout > *:last-child {
 	@apply bg-accent text-white pb-8;
 	flex: 0 0 50%;
 }

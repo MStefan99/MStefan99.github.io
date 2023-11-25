@@ -22,7 +22,7 @@ function start() {
 							client.send(JSON.stringify({changed: '/' + filename.replace('\\', '/')}));
 						}
 						changed.delete(filename);
-						console.log('[Live reload server] Changed', filename)
+						console.log('[Live reload server]', filename, 'has changed')
 					}, 50);
 				}
 			}

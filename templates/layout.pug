@@ -24,20 +24,20 @@ html(lang="en")
 				a#name(href='https://mstefan99.com/') Mikhail Stefantsev
 
 		main
+			block toc
 			block content
 
 	footer
 		block footer
-			div#foot-links
+			div
 				h4 Useful links
-				a(href="/files/CV.pdf") CV
-				a(href="https://github.com/MStefan99/") GitHub
+				a.block(href="/files/CV.pdf") CV
+				a.block(href="https://github.com/MStefan99/") GitHub
 
-			div#foot-contact
+			div
 				h4 Contact
-				a(href="https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/") LinkedIn
-				a(href="mailto:mikhail.stefantsev@outlook.com") Email
-				a(href="https://t.me/MStefan99/") Telegram
+				a.block(href="https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/") LinkedIn
+				a.block(href="mailto:mikhail.stefantsev@outlook.com") Email
 
-	script(async src="/js/main.js")
+	block end
 	script(async src="/js/live-reload.js")
