@@ -2,61 +2,67 @@
 
 
 (() => {
-	let connectionLost = false;
+	let retryInterval = null;
 
 	function recreateElement(fileName) {
-		const oldElement = document.querySelector(
+		const oldElements = document.querySelectorAll(
 			`[src*="${fileName}"], [href*="${fileName}"], [data*="${fileName}"]`
 		);
-		if (!oldElement) {
+		if (!oldElements.length) {
 			return;
 		}
 		console.log('[Live reload]', fileName, 'has changed, reloading...')
 
-		const newElement = document.createElement(oldElement.tagName);
+		for (const oldElement of oldElements) {
+			const newElement = document.createElement(oldElement.tagName);
 
-		Array.from(oldElement.attributes).forEach(attr =>
-			newElement.setAttribute(attr.name, attr.value));
+			Array.from(oldElement.attributes).forEach(attr =>
+				newElement.setAttribute(attr.name, attr.value));
 
-		oldElement.parentNode.insertBefore(newElement, oldElement);
-		oldElement.remove();
+			oldElement.parentNode.insertBefore(newElement, oldElement);
+			oldElement.remove();
+		}
+	}
+
+	function sendPing() {
+		if (window.liveWS) {
+			window.liveWS.send(JSON.stringify({ping: Date.now()}));
+			setTimeout(sendPing, 5000);
+		}
 	}
 
 	function openWS() {
-		if (!connectionLost && window.liveWS) {
-			return;
-		}
-		const ws = new WebSocket(`ws://${location.hostname}:3012`);
-		let pingInterval = null;
-		window.liveWS = ws;
-
-		ws.onopen = () => {
-			if (connectionLost) {
+		if (!window.liveWS) {
+			if (retryInterval) {
+				// This will reload the page when live reload server goes offline and can be removed if not needed
 				window.history.go();
-			} else {
-				console.log('[Live reload] Live reload active');
-				pingInterval = setInterval(() => ws.send(JSON.stringify({ping: Date.now()})), 5000);
 			}
+			window.liveWS = new WebSocket(`ws://${location.hostname}:3012`);
+			clearInterval(retryInterval);
+		}
 
-			ws.onmessage = ev => {
-				const message = JSON.parse(ev.data);
-				if (message.changed) {
-					if (message.changed.match(new RegExp(
-						location.pathname.replace(/^\/$/, '/index') + '\\.html$')
-					)) {
-						window.history.go();
-						return;
-					}
-					recreateElement(message.changed);
+		window.liveWS.onopen = () => {
+			console.log('[Live reload] Live reload active');
+			sendPing();
+		}
+
+		window.liveWS.onmessage = ev => {
+			const message = JSON.parse(ev.data);
+			if (message.changed) {
+				if (message.changed.match(new RegExp(
+					location.pathname.replace(/^\/$/, '/index') + '\\.html$')
+				)) {
+					window.history.go();
+					return;
 				}
+				recreateElement(message.changed);
 			}
 		}
 
-		ws.onclose = () => {
-			console.error('Server offline, polling for restart...');
-			clearInterval(pingInterval);
-			!connectionLost && setInterval(openWS, 1000);
-			connectionLost = true;
+		window.liveWS.onclose = () => {
+			console.error('[Live reload] Server offline, polling for restart...');
+			delete (window.liveWS);
+			retryInterval = setInterval(openWS, 1000);
 		}
 	}
 
