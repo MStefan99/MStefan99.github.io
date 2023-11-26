@@ -2,11 +2,16 @@
 
 
 (() => {
+	const attrs = ['src', 'href', 'data'];
 	let retryInterval = null;
+
+	function addParameter(str) {
+		return str.replace(/\?\w+/, '') + '?' + Math.floor(Math.random() * 0xffffffff).toString(16);
+	}
 
 	function recreateElement(fileName) {
 		const oldElements = document.querySelectorAll(
-			`[src*="${fileName}"], [href*="${fileName}"], [data*="${fileName}"]`
+			attrs.map(attr => `[${attr}*="${fileName}"]`).join(', ')
 		);
 		if (!oldElements.length) {
 			return;
@@ -18,6 +23,13 @@
 
 			Array.from(oldElement.attributes).forEach(attr =>
 				newElement.setAttribute(attr.name, attr.value));
+
+			for (const attr of attrs) {
+				if (newElement.hasAttribute(attr)) {
+					newElement.setAttribute(attr,
+						addParameter(newElement.getAttribute(attr)));
+				}
+			}
 
 			oldElement.parentNode.insertBefore(newElement, oldElement);
 			oldElement.remove();
