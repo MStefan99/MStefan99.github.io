@@ -5,10 +5,13 @@
 	let connectionLost = false;
 
 	function recreateElement(fileName) {
-		const oldElement = document.querySelector(`[src*="${fileName}"], [href*="${fileName}"]`);
+		const oldElement = document.querySelector(
+			`[src*="${fileName}"], [href*="${fileName}"], [data*="${fileName}"]`
+		);
 		if (!oldElement) {
 			return;
 		}
+		console.log('[Live reload]', fileName, 'has changed, reloading...')
 
 		const newElement = document.createElement(oldElement.tagName);
 
@@ -31,7 +34,7 @@
 			if (connectionLost) {
 				window.history.go();
 			} else {
-				console.log('Live reload active');
+				console.log('[Live reload] Live reload active');
 				pingInterval = setInterval(() => ws.send(JSON.stringify({ping: Date.now()})), 5000);
 			}
 
@@ -44,7 +47,6 @@
 						window.history.go();
 						return;
 					}
-					console.log(message.changed, 'changed, reloading...')
 					recreateElement(message.changed);
 				}
 			}

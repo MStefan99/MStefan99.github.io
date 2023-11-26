@@ -9,7 +9,26 @@ import argumented from '@mstefan99/argumented';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-async function copyNewer(src, dest) {
+async function copyFileIfNewer(src, dest) {
+	const srcStat = await fs.stat(src);
+	let newer = false;
+
+	try {
+		const destStat = await fs.stat(dest);
+		if (srcStat.mtime > destStat.mtime) {
+			newer = true;
+		}
+	} catch {
+		newer = true;
+	}
+
+	if (newer) {
+		console.log('[File copy]', src, '->', dest);
+		await fs.cp(src, dest);
+	}
+}
+
+async function copyFiles(src, dest) {
 	try {
 		const entries = await fs.readdir(src, {withFileTypes: true});
 
@@ -18,28 +37,13 @@ async function copyNewer(src, dest) {
 			const destPath = path.join(dest, entry.name);
 
 			if (entry.isDirectory()) {
-				await copyNewer(srcPath, destPath)
+				await copyFiles(srcPath, destPath)
 			} else {
-				const srcStat = await fs.stat(srcPath);
-				let newer = false;
-
-				try {
-					const destStat = await fs.stat(destPath);
-					if (srcStat.mtime > destStat.mtime) {
-						newer = true;
-					}
-				} catch {
-					newer = true;
-				}
-
-				if (newer) {
-					console.log('[File copy]', srcPath, '->', destPath);
-					await fs.cp(srcPath, destPath);
-				}
+				await copyFileIfNewer(srcPath, destPath)
 			}
 		}
 	} catch {
-		await fs.cp(src, dest);
+		await copyFileIfNewer(src, dest);
 	}
 }
 
@@ -50,5 +54,5 @@ for (let i = 0; i < args.positional.length - 1; ++i) {
 	const src = path.resolve(__dirname, args.positional[i]);
 	const dest = path.resolve(__dirname, args.positional[args.positional.length - 1], args.positional[i]);
 
-	copyNewer(src, dest);
+	copyFiles(src, dest);
 }

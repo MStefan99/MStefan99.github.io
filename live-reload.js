@@ -29,7 +29,7 @@ function start() {
 		);
 	} catch (e) {
 		if (e.code === 'ENOENT') {
-			console.error('[Live reload server] directory "dist" does not exist, retrying...')
+			console.error('[Live reload server] directory "dist" does not exist, retrying shortly...')
 		}
 		setTimeout(start, 500);
 		return;
