@@ -5,5 +5,5 @@
 		"js/",
 		"public/"
 	],
-	"ext": "pdf,jpg,png,bmp,js,txt,xml"
+	"ext": "*"
 }

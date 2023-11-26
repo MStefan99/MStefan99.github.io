@@ -136,7 +136,7 @@ h1 {
 }
 
 .project-row {
-	@apply flex flex-row overflow-x-scroll mx-auto w-max max-w-full;
+	@apply flex flex-row overflow-x-auto mx-auto w-max max-w-full;
 }
 
 .project-card {
