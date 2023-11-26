@@ -6,13 +6,13 @@ include ../templates/projects
 
 
 block content
-	div#nav-container.sticky
+	//div#nav-container.sticky
 		h1 Navigation
 		a(href="#")
 			h2 Top
 		div#nav-list
 
-	div#link-container.sticky
+	//div#link-container.sticky
 		h1 Contact
 		h2 Links
 		a(href='https://github.com/MStefan99/') Github
@@ -21,8 +21,16 @@ block content
 		a(href='https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/') LinkedIn
 
 	article
-		.hidden
-			h2#about.highlight About
+		.project-row
+			each _ in Array(6)
+				.project-card
+					img(src='/img/profile_photo.jpg')
+					.project-details
+						h1 Sample title
+						h2 Sample subtitle
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aperiam earum expedita fugit maxime officiis optio perferendis perspiciatis quia similique. Architecto beatae deleniti eligendi fugiat nam officia quidem sapiente voluptate.
+
+		h2#about.highlight About
 		img#photo.ml-3(alt="Profile photo" src="./img/profile_photo.jpg")
 
 		+workSection

@@ -131,6 +131,34 @@ h1 {
 	@apply md:rounded-br-2xl;
 }
 
+.project-grid {
+	@apply flex flex-row flex-wrap;
+}
+
+.project-row {
+	@apply flex flex-row overflow-x-scroll mx-auto w-max max-w-full;
+}
+
+.project-card {
+	@apply m-4 shrink-0 shadow-lg dark:shadow-zinc-800 rounded-md overflow-hidden w-48;
+}
+
+.project-card img {
+	@apply max-h-24 w-full rounded-md object-cover;
+}
+
+.project-details {
+	@apply m-2;
+}
+
+.project-card h1 {
+	@apply text-xl;
+}
+
+.project-card h2 {
+	@apply text-lg;
+}
+
 .bullet::before {
 	content: '› ';
 }
