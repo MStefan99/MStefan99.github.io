@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "run-p watch dev-server live-reload",
+    "dev": "run-p watch serve live-reload",
 
-    "dev-server": "serve dist -L -C -l 3011",
+    "serve": "serve dist -L -C -l 3011",
     "live-reload": "node live-reload.js",
 
     "build": "run-p build:*",
@@ -36,6 +36,7 @@
     "postcss-import": "^15.1.0",
     "pug": "^3.0.2",
     "pug-cli": "^1.0.0-alpha6",
+    "sharp": "^0.32.6",
     "tailwindcss": "^3.3.5"
   }
 }
