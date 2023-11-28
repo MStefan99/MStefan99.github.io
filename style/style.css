@@ -156,7 +156,11 @@ h1 {
 }
 
 .project-card h2 {
-	@apply text-lg;
+	@apply text-lg font-medium;
+}
+
+.project-card p {
+	@apply border-t-2;
 }
 
 .bullet::before {
