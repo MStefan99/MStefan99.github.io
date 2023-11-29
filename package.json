@@ -6,15 +6,13 @@
   "type": "module",
   "scripts": {
     "dev": "run-p watch serve live-reload",
-
     "serve": "serve dist -L -C -l 3011",
     "live-reload": "node live-reload.js",
-
+    "strip-medatata": "node strip-metadata.js img",
     "build": "run-p build:*",
     "build:style": "postcss style/style.css -o dist/style/style.css",
     "build:pages": "pug pages -o dist",
     "build:files": "node copy-files.js files img js robots.txt sitemap.xml dist",
-
     "watch": "run-p watch:*",
     "watch:style": "nodemon --config nodemon-tw.json --exec npm run build:style",
     "watch:pages": "nodemon --config nodemon-pug.json --exec npm run build:pages",
