@@ -14,8 +14,8 @@
     "build:pages": "pug pages -o dist",
     "build:files": "node copy-files.js files img js robots.txt sitemap.xml dist",
     "watch": "run-p watch:*",
-    "watch:style": "nodemon --config nodemon-tw.json --exec npm run build:style",
-    "watch:pages": "nodemon --config nodemon-pug.json --exec npm run build:pages",
+    "watch:style": "postcss style/style.css -o dist/style/style.css -w",
+    "watch:pages": "pug pages -o dist -w",
     "watch:files": "nodemon --config nodemon-files.json --exec npm run build:files"
   },
   "author": "",
