@@ -22,13 +22,37 @@ block content
 
 	article
 		.project-row
-			each _ in Array(6)
-				.project-card
-					img(src='/img/projects/crash_course/logo.svg')
-					.project-details
-						h1 Crash Course
-						h2 Tracking shouldn't mean losing privacy
-						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aperiam earum expedita fugit maxime officiis optio perferendis perspiciatis quia similique. Architecto beatae deleniti eligendi fugiat nam officia quidem sapiente voluptate.
+			.project-card
+				img(src='/img/projects/crash_course/logo.svg'
+					alt='Crash course logo. Words "Crash Course" written in white with a black outline against a white ' +
+					'background. Words are written on two lines with a red arrow between them pointing from left to right, ' +
+					'curving towards the bottom at the end')
+				.m-2
+					h1 Crash Course
+					h2 Online tracking shouldn't mean losing privacy
+					p Analytics platform that respects visitors' privacy
+			.project-card
+				img(src='/img/projects/siter/logo.svg'
+					alt='Siter logo. Black word "siter" against the white background written in cursive')
+				.m-2
+					h1 Siter
+					h2 Hosting, made easy
+				p Reverse proxy with GUI and a process manager
+			.project-card
+				img(src='/img/projects/power_meter/IMG_20231109_134037.jpg'
+					alt='DIY power meter. A PCB with a display showing 58.07mW in large font, with a similarly large ' +
+					'word "Power" underneath. In the background is a graph showing power consumption history. ' +
+					'The UI is executed in the shades of yellow: the power value is pale yellow, almost white. ' +
+					'Area under the graph is darker, followed by the word power. Background is dark yellow.')
+				.m-2
+					h1 Power meter
+					p A simple but very handy DIY power meter
+			.project-card
+				img.h-48(src='/img/projects/gimbal/IMG_20231120_223458.jpg' alt='A smartphone gimbal 3D-printed out of gray ' +
+				'plastic on a tripod. Gimbal stands against a monitor displaying a CAD model of the gimbal.')
+				.m-2
+					h1 Smartphone gimbal
+					p Fully open-source smartphone and action camera gimbal
 
 		h2#about.highlight About
 		img#photo.ml-3(alt="Profile photo" src="./img/profile_photo.jpg")

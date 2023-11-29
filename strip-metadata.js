@@ -17,12 +17,19 @@ function isImageFile(filePath) {
 }
 
 async function removeMetadata(filePath) {
-	console.log('[Metadata remover] Processed', filePath);
-	await sharp(filePath)
-		// This will correctly rotate the image and strip metadata
-		.rotate()
-		.toBuffer()
-		.then(buffer => fs.writeFile(filePath, buffer));
+	const sharpImage = sharp(filePath);
+	const metadata = await sharpImage.metadata();
+
+	if (metadata.exif || metadata.iptc || metadata.icc || metadata.xmp) {
+		console.log('[Metadata remover] Processed', filePath);
+		sharpImage
+			// This will correctly rotate the image and strip metadata
+			.rotate()
+			.toBuffer()
+			.then(buffer => fs.writeFile(filePath, buffer));
+	} else {
+		console.log('[Metadata remover] Skipped', filePath, 'since it contains no metadata');
+	}
 }
 
 async function walk(src) {

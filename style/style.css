@@ -140,15 +140,12 @@ h1 {
 }
 
 .project-card {
-	@apply m-4 shrink-0 shadow-lg dark:shadow-zinc-800 rounded-md overflow-hidden w-48;
+	@apply w-48 m-4 shrink-0 shadow-lg cursor-pointer dark:shadow-zinc-800 rounded-md overflow-hidden
+	transition-transform hover:-translate-y-1;
 }
 
 .project-card img {
-	@apply max-h-24 w-full rounded-md object-cover;
-}
-
-.project-details {
-	@apply m-2;
+	@apply h-28 w-full rounded-md object-cover shadow-md dark:shadow-zinc-800;
 }
 
 .project-card h1 {
@@ -156,11 +153,11 @@ h1 {
 }
 
 .project-card h2 {
-	@apply text-lg font-medium;
+	@apply text-base font-semibold;
 }
 
 .project-card p {
-	@apply border-t-2;
+	@apply border-t-2 pt-2;
 }
 
 .bullet::before {
