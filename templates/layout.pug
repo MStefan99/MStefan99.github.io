@@ -2,7 +2,6 @@ doctype html
 html(lang="en")
 	head
 		meta(charset="utf-8")
-		//link(href="/style/stylify.css" rel="stylesheet" type="text/css")
 		link(href="/style/style.css" rel="stylesheet" type="text/css")
 		link(href="/img/icon.jpg" rel="icon" sizes="64x64" type="image/jpg")
 		meta(content="width=device-width, minimum-scale=1.0, initial-scale=1.0" name="viewport")
@@ -12,7 +11,7 @@ html(lang="en")
 			sendHit();
 
 		title Mikhail Stefantsev | Personal page
-		meta(content="Software developer, Metropolia alumni" name="description")
+		meta(content="Software developer" name="description")
 		meta(content="Mikhail Stefantsev" name="author")
 		meta(content="#18492E" name="theme-color")
 
@@ -21,7 +20,7 @@ html(lang="en")
 	body
 		block header
 			header
-				a#name(href='https://mstefan99.com/') Mikhail Stefantsev
+				a#name(href='/') Mikhail Stefantsev
 
 		main
 			block toc
@@ -37,6 +36,7 @@ html(lang="en")
 			div
 				h4 Links
 				a.block(href="https://github.com/MStefan99/") GitHub
+				a.block(href="/cv") CV
 
 	block end
 	script(async src="/js/live-reload.js")
