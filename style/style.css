@@ -12,7 +12,6 @@ html {
 	@apply scroll-smooth overflow-x-hidden text-base font-sans dark:bg-zinc-900 dark:text-neutral-50;
 
 	--color-accent: #18492e;
-	--color-accent-soft: #e5fff1;
 }
 
 body {
@@ -32,7 +31,7 @@ header #name {
 }
 
 #about {
-	@apply md:text-accent dark:md:text-accent-soft;
+	@apply md:text-accent dark:md:text-neutral-50;
 }
 
 #photo {
@@ -138,12 +137,12 @@ h3 {
 }
 
 .split-layout > *:first-child {
-	@apply md:text-accent dark:md:text-accent-soft md:pb-8;
+	@apply md:text-accent dark:md:text-neutral-50 md:pb-8;
 	flex: 0 0 50%;
 }
 
 .split-layout > *:last-child {
-	@apply bg-accent text-white pb-8;
+	@apply bg-accent text-white dark:text-neutral-50 pb-8;
 	flex: 0 0 50%;
 }
 
