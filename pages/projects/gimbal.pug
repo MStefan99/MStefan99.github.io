@@ -1,0 +1,81 @@
+extends ../../templates/layout
+
+
+block content
+	article.project
+		.gallery-row.gallery-media
+			img(src='/img/projects/gimbal/driver.jpg')
+			img(src='/img/projects/gimbal/prototypes.jpg')
+			img(src='/img/projects/gimbal/pcbs.jpg')
+			img(src='/img/projects/gimbal/disassembled.jpg')
+			img(src='/img/projects/gimbal/assembled.jpg')
+		h1 Gimbal project
+		section
+			p.
+				This project has started - like many others - with me wishing to have a gimbal to shoot smooth video on
+				my phone. But, as it often happens, just going out to the store to buy one sounded too easy, so I decided
+				to make my own. And I am glad I did, this project has been one of the most interesting to work on so far
+				and a great opportunity to do some "real" mechanical engineering for the first time.
+			h2 Hardware setup
+			.clearfix
+				p.
+					First, let's cover the electronics setup for the project. I had an option to either combine everything
+					on a single PCB or have them separate. I decided to go with the second option because my goal here was to
+					build a modular solution. I split the electronics as follows: motor assembly would be a separate part,
+					controlled via UART or PWM. This would later allow me to reuse the whole motor assemblies to act as servos
+					for other projects if I ever need them. The main board contains the main power supply together with an
+					IMU for determining orientation as well as the microcontroller to connect to everything else in the system.
+					And finally, the control board is its own separate part, communicating with the main board over UART
+					to send user inputs - such as joystick movements and button presses - to then be processed by the main
+					board and turned into motor angles for the motor drivers. The idea behind a separate control board was to
+					have different interchangeable boards - for example, a simple one with just a joystick for orienting the
+					camera and a couple buttons to control everything else and a more sophisticated one with a small OLED screen
+					for better user experience.
+				img.float-left(src='/img/projects/gimbal/motor.jpg')
+				p.
+					For this project I was going to need some motors and something to drive them. I picked a couple cheap
+					brushless motors online (which later turned out to be a mistake) and proceeded on designing some electronics.
+				img.float-right(src='/img/projects/gimbal/driver.jpg')
+				p.
+					On the right is TMC6300 - an awesome and tiny (just 3x3mm!) brushless motor driver. It can work at voltages
+					up to 11 volts and currents up to 2 amps. At its core, it's actually not a very complicated device -
+					six transistors to control the motor together with some protection circuitry, so the inputs are quite simple as well.
+					Six input pins are used to open six corresponding transistors. Three of them connect the motor coil to
+					ground and the other three to bus voltage. By modulating the time each of the transistors is open
+					we can precisely control the position of the motor.
+			.clearfix
+				img.float-right(src='/img/projects/gimbal/pcb_design.jpg')
+				p.
+					Next - PCB design. The motors I picked were only 28mm in diameter and has four mounting holes but
+					I managed to fit all the components on a PCB quite easily since all of them were pretty small.
+					Aside from the drivers I added a magnetic encoder to keep track of the motor's orientation and, of course,
+					a microcontroller to process everything and control the drivers. The board also includes some
+					power regulation, level shifting and a place to solder a thermistor to keep motor temperature under control.
+					Special attention was paid to laying out power traces as they would see some current going through them.
+		h2 Electronics
+		.gallery-row.gallery-media
+			img(src='/img/projects/gimbal/driver.jpg')
+			img(src='/img/projects/gimbal/pcb_design.jpg')
+			img(src='/img/projects/gimbal/microcontroller.jpg')
+			img(src='/img/projects/gimbal/pcbs.jpg')
+			img(src='/img/projects/gimbal/motor_assembly.jpg')
+		section
+			h2 Communication
+			p.
+				Space is at a premium inside a device like this. This means you have to be very conscious about the free space
+				you leave within your device when designing its outer case and also the dimensions of everything that
+				goes inside the device. A painful discovery was that regular pin headers are pretty bulky and don't easily
+				fit in tight spaces but I decided to go with them anyway since they're easily available and you can
+				make your own cables in any length and pin count. That meant, however, that I needed to keep the number
+				of cables to a minimum and I found an interesting solution for UART. The microcontrollers I've chosen,
+				Microchip SAM L21 have universal serial communication modules that can act as USART (Universal
+				Synchronous/Asynchronous Receiver and Transmitter), I#[sup 2]C and SPI. One of the features of USART modules
+				is collision detection for UART similar to I#[sup 2]C multi-master configurations which allowed me to use
+				only 3 wires to connect all three motors to the main board: ground and voltage to carry power and a single
+				bidirectional data wire for communication.
+			h2 Software
+			p.
+				Software is what makes everything work in this device. From taking user inputs, measuring and estimating
+				handle orientation to calculating inverse kinematics and keeping the motors in the set position,
+				all that is handled in software. Each component runs its own custom-made firmware and uses UART to
+				communicate with other boards in the gimbal.

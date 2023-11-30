@@ -19,12 +19,8 @@ body {
 	@apply m-0;
 }
 
-article, .sticky {
-	@apply my-8;
-}
-
 header {
-	@apply flex justify-between items-baseline flex-wrap bg-accent text-white
+	@apply flex justify-between items-baseline flex-wrap bg-accent text-white shadow-lg dark:shadow-zinc-800
 	py-1 px-4 rounded-b-xl
 	md:py-2 md:px-6 md:rounded-b-xl;
 }
@@ -33,11 +29,6 @@ header #name {
 	@apply no-underline grow font-bold
 	text-lg text-center
 	xs:text-3xl xs:text-left;
-}
-
-article {
-	order: 1;
-	flex: 4 0 0;
 }
 
 #about {
@@ -51,7 +42,7 @@ article {
 }
 
 footer {
-	@apply flex justify-around p-4 bg-white dark:bg-zinc-800;
+	@apply flex justify-around p-4 mt-4 bg-neutral-100 dark:bg-zinc-800;
 }
 
 footer a {
@@ -69,6 +60,31 @@ a {
 	@apply text-inherit underline;
 }
 
+article {
+	order: 1;
+	flex: 4 0 0;
+}
+
+article img {
+	@apply m-4 rounded shadow-lg dark:shadow-zinc-800;
+}
+
+section p {
+	@apply mb-4;
+}
+
+section img {
+	@apply w-7/12 md:w-1/4;
+}
+
+section img.float-right {
+	@apply mr-0;
+}
+
+section img.float-left {
+	@apply ml-0;
+}
+
 .clearfix {
 	@apply overflow-auto;
 }
@@ -79,6 +95,14 @@ ul {
 
 h1 {
 	@apply font-black text-3xl tracking-tight mb-2;
+}
+
+h2 {
+	@apply text-xl font-semibold mb-1;
+}
+
+h3 {
+	@apply text-lg font-medium;
 }
 
 .split-container {
@@ -131,16 +155,28 @@ h1 {
 	@apply md:rounded-br-2xl;
 }
 
-.project-grid {
-	@apply flex flex-row flex-wrap;
+.gallery-grid {
+	@apply flex flex-row flex-wrap mb-4;
 }
 
-.project-row {
-	@apply flex flex-row overflow-x-auto mx-auto w-max max-w-full;
+.gallery-row {
+	@apply flex flex-row overflow-x-auto mx-auto w-max max-w-full space-x-4;
+}
+
+.gallery-media {
+	@apply space-x-4;
+}
+
+.gallery-media img {
+	@apply mx-0 max-h-80 max-w-none;
+}
+
+a.project-card {
+	@apply no-underline;
 }
 
 .project-card {
-	@apply w-48 m-4 shrink-0 shadow-lg cursor-pointer dark:shadow-zinc-800 rounded-md overflow-hidden
+	@apply w-48 shrink-0 shadow-lg cursor-pointer dark:shadow-zinc-800 rounded-md overflow-hidden
 	transition-transform hover:-translate-y-1;
 }
 
@@ -160,52 +196,6 @@ h1 {
 	@apply border-t-2 pt-2;
 }
 
-.bullet::before {
-	content: '› ';
+article.project {
+	@apply max-w-screen-lg mx-auto p-4;
 }
-
-.double-bullet::before {
-	content: '» ';
-}
-
-
-/* Old styles, to be updated */
-
-@media screen and (max-width: 1024px) {
-	.sticky {
-		border-bottom: 1px solid #b3b3b3;
-	}
-}
-
-@media screen and (min-width: 1024px) {
-	.sticky {
-		position: sticky;
-		padding: 0 2ch;
-		top: 2vh;
-		height: 95vh;
-		overflow-y: auto;
-		overflow-x: hidden;
-		flex: 1 0 0;
-	}
-}
-
-#nav-container {
-	order: 0;
-}
-
-#nav-container a {
-	text-decoration: none;
-}
-
-#nav-container #nav-list {
-	font-size: 0.9em;
-}
-
-#link-container {
-	order: 2;
-}
-
-#link-container a {
-	font-size: 1.2em;
-}
-
