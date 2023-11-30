@@ -27,8 +27,6 @@ async function removeMetadata(filePath) {
 			.rotate()
 			.toBuffer()
 			.then(buffer => fs.writeFile(filePath, buffer));
-	} else {
-		console.log('[Metadata remover] Skipped', filePath, 'since it contains no metadata');
 	}
 }
 
@@ -42,13 +40,13 @@ async function walk(src) {
 			const srcPath = path.join(src, entry.name);
 
 			if (entry.isDirectory()) {
-				await walk(srcPath)
+				walk(srcPath)
 			} else if (isImageFile(srcPath)) {
 				removeMetadata(srcPath)
 			}
 		}
 	} else {
-		await removeMetadata(src);
+		removeMetadata(src);
 	}
 }
 
