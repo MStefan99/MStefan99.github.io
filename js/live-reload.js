@@ -3,7 +3,7 @@
 
 (() => {
 	const attrs = ['src', 'href', 'data'];
-	let retryInterval = null;
+	let lastPongTime = null;
 
 	function addParameter(str) {
 		return str.replace(/\?\w+/, '') + '?' + Math.floor(Math.random() * 0xffffffff).toString(16);
@@ -36,29 +36,50 @@
 		}
 	}
 
-	function sendPing() {
-		if (window.liveWS) {
-			window.liveWS.send(JSON.stringify({ping: Date.now()}));
-			setTimeout(sendPing, 5000);
+	function poll() {
+		if (window.liveReload.ws.readyState === 1) {
+			return; // Another WebSocket already open
+		} else if (window.liveReload.ws?.readyState <= 1 ?? false) {
+			window.liveReload.ws.close(); // Close websocket if it isn't already
 		}
+		connect(true);
+
+		setTimeout(poll, 1000);
 	}
 
-	function openWS() {
-		if (!window.liveWS) {
-			if (retryInterval) {
-				// This will reload the page when live reload server goes offline and can be removed if not needed
-				window.history.go();
-			}
-			window.liveWS = new WebSocket(`ws://${location.hostname}:3012`);
-			clearInterval(retryInterval);
+	function ping(ws) {
+		if (ws?.readyState !== 1) {
+			return; // WebSocket isn't open
 		}
 
-		window.liveWS.onopen = () => {
+		if (lastPongTime !== null && Date.now() - lastPongTime > 15000) {
+			console.error('[Live reload] Server offline, polling for restart...');
+			poll();
+		}
+
+		window.liveReload.ws.send(JSON.stringify({ping: Date.now()}));
+		window.liveReload.pingTimeout = setTimeout(() => ping(ws), 5000);
+	}
+
+	function connect(reloadOnConnect = false) {
+		let connected = window.liveReload?.ws?.readyState === 1;
+		if (!window.liveReload?.ws || window.liveReload.ws.readyState > 1) { // Open WebSocket if it doesn't exist or was previously closed
+			window.liveReload = {ws: new WebSocket(`ws://${location.hostname}:3012`)};
+		} else { // Using previously opened connection and updating ping
+			clearTimeout(window.liveReload.pingTimeout);
+			ping(window.liveReload.ws);
+		}
+
+		window.liveReload.ws.onopen = () => {
 			console.log('[Live reload] Live reload active');
-			sendPing();
+			// This will reload the page when live reload server goes offline and can be removed if not needed
+			// reloadOnConnect && window.history.go();
+
+			connected = true;
+			ping(window.liveReload.ws);
 		}
 
-		window.liveWS.onmessage = ev => {
+		window.liveReload.ws.onmessage = ev => {
 			const message = JSON.parse(ev.data);
 			if (message.changed) {
 				if (message.changed.match(new RegExp(
@@ -68,17 +89,22 @@
 					return;
 				}
 				recreateElement(message.changed);
+			} else if (message.pong) {
+				lastPongTime = Date.now();
 			}
 		}
 
-		window.liveWS.onclose = () => {
-			console.error('[Live reload] Server offline, polling for restart...');
-			delete (window.liveWS);
-			retryInterval = setInterval(openWS, 1000);
+		window.liveReload.ws.onclose = () => {
+			if (connected) {
+				console.error('[Live reload] Server offline, polling for restart...');
+				poll();
+			} else {
+				console.warn('[Live reload] Server offline');
+			}
 		}
 	}
 
 	if (location.hostname.match(/(?:\d+\.){3}\d+|localhost/)) {
-		openWS();
+		connect();
 	}
 })();
