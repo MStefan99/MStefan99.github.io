@@ -5,8 +5,11 @@
 	const attrs = ['src', 'href', 'data'];
 	let lastPongTime = null;
 
-	function addParameter(str) {
-		return str.replace(/\?\w+/, '') + '?' + Math.floor(Math.random() * 0xffffffff).toString(16);
+	function replaceQuery(str) {
+		const url = new URL(str, window.location.origin);
+		url.searchParams.set('lr', Math.floor(Math.random() * 0xffffffff).toString(16));
+
+		return url.toString();
 	}
 
 	function recreateElement(fileName) {
@@ -27,7 +30,7 @@
 			for (const attr of attrs) {
 				if (newElement.hasAttribute(attr)) {
 					newElement.setAttribute(attr,
-						addParameter(newElement.getAttribute(attr)));
+						replaceQuery(newElement.getAttribute(attr)));
 				}
 			}
 
@@ -73,7 +76,7 @@
 		window.liveReload.ws.onopen = () => {
 			console.log('[Live reload] Live reload active');
 			// This will reload the page when live reload server goes offline and can be removed if not needed
-			// reloadOnConnect && window.history.go();
+			reloadOnConnect && window.history.go();
 
 			connected = true;
 			ping(window.liveReload.ws);
