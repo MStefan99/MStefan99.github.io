@@ -1,18 +1,7 @@
 'use strict';
 
+import Alpine from '/node_modules/alpinejs/dist/module.esm.js'
 
-(() => {
-	const navigationList = document.querySelector('#nav-list');
-	const headers = document.querySelectorAll('article h2,' +
-		'article h3,' +
-		'article h4');
+window.Alpine = Alpine
 
-	headers.forEach((header) => {
-		const headerLink = document.createElement('a');
-		headerLink.href = '#' + header.id;
-		const headerElement = document.createElement(header.tagName);
-		headerElement.innerHTML = header.innerHTML;
-		navigationList.appendChild(headerLink);
-		headerLink.appendChild(headerElement);
-	});
-})();
+Alpine.start()
