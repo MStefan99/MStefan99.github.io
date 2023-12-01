@@ -1,8 +1,10 @@
 extends ../../templates/layout
 
+//- TODO: Add alt image descriptions
+
 
 block content
-	article.project
+	article.project.text-justify
 		.gallery-row.gallery-media
 			img(src='/img/projects/gimbal/driver.jpg')
 			img(src='/img/projects/gimbal/prototypes.jpg')
@@ -46,17 +48,17 @@ block content
 			.clearfix
 				img.float-right(src='/img/projects/gimbal/pcb_design.jpg')
 				p.
-					Next - PCB design. The motors I picked were only 28mm in diameter and has four mounting holes but
+					Next was PCB design. The motors I picked were only 28mm in diameter and has four mounting holes but
 					I managed to fit all the components on a PCB quite easily since all of them were pretty small.
 					Aside from the drivers I added a magnetic encoder to keep track of the motor's orientation and, of course,
 					a microcontroller to process everything and control the drivers. The board also includes some
 					power regulation, level shifting and a place to solder a thermistor to keep motor temperature under control.
 					Special attention was paid to laying out power traces as they would see some current going through them.
-		h2 Electronics
 		.gallery-row.gallery-media
 			img(src='/img/projects/gimbal/driver.jpg')
 			img(src='/img/projects/gimbal/pcb_design.jpg')
 			img(src='/img/projects/gimbal/microcontroller.jpg')
+			img(src='/img/projects/gimbal/motor_pcbs.jpg')
 			img(src='/img/projects/gimbal/pcbs.jpg')
 			img(src='/img/projects/gimbal/motor_assembly.jpg')
 		section
@@ -78,4 +80,60 @@ block content
 				Software is what makes everything work in this device. From taking user inputs, measuring and estimating
 				handle orientation to calculating inverse kinematics and keeping the motors in the set position,
 				all that is handled in software. Each component runs its own custom-made firmware and uses UART to
-				communicate with other boards in the gimbal.
+				communicate with other boards in the gimbal. An unexpected but interesting challenge was optimizing
+				motor firmware for latency. AS5600, the magnetic encoder has a sampling time of 150µs. This means the
+				sensor can produce a new measurement 6666 times per second. Even though operating at such frequencies brings
+				little to no benefit for responsiveness, it felt like a good idea to try to exceed that. This gives us
+				150µs or less to read the data from the sensor and do all the processing required. Even at the highest
+				I#[sup 2]C clock frequency supported by the sensor at 1MHz reading the data takes about 100µs, leaving 50µs
+				for processing. In those 50 microseconds a lot needs to happen but I actually managed to do all the calculations
+				in under half the time by optimizing the code and moving the heavy computations away from the microcontroller
+				by precomputing the sine table during compile time.
+			h2 Mechanics and hardware
+			.clearfix
+				img.float-right(src='/img/projects/gimbal/prototypes.jpg')
+				p.
+					This was the first time I did something even remotely related to mechanical engineering. Mistakes were made -
+					sometimes quite obvious - but this was a great opportunity to learn how things are done and make something
+					cool in the process. I got a chance to experiment a bit with ergonomics (left), do quite a bit of 3D printing
+					and optimize the design - a lot. The most challenging part by far, however, was to shrink the outer
+					dimensions of the device as much as possible while maximizing internal space that can be occupied by
+					batteries, electronics and other components.
+				img.float-left(src='/img/projects/gimbal/printed_parts.jpg')
+				p.
+					Gimbal was designed to be modular. The whole top part with the motors is hot-swappable and is held down
+					by a single large 3D-printed nut. Two variants are in development - one with brushless motors and other is
+					using servos for applications where having low weight is important. The firmware detects which one of the two
+					is connected and uses the appropriate protocol for it - UART for motors and PWM for servos. Same story repeats
+					with the control board, although swapping the modules requires disassembling the handle.
+				img.float-right(src='/img/projects/gimbal/disassembled.jpg')
+				p.
+					Mechanically the gimbal is designed to be as simple as possible and assembled of as few parts as possible.
+					Getting the required strength from plastic parts was also a challenge, requiring many iterations and
+					prototypes to land on the design that's simple, functional and sturdy enough to support a smartphone.
+					The motors I picked initially turned out to be not only underpowered but also quite difficult to use so the
+					gimbal had to be redesigned for motors with a hollow shaft.
+			h2 Kinematics
+			.clearfix
+				img.float-left(src='/img/projects/gimbal/ik_angles.jpg')
+				p.
+					A decision I made on this project was not to have all motors' rotational axes orthogonal to each other.
+					The reason was simple - the gimbal can be made dramatically smaller using this configuration. However,
+					this raises an issue of controlling the motors as one motor's rotation starts affecting others so they
+					need to correct. This is a problem of inverse kinematics - we need to calculate the angles of all the
+					joints knowing the start and end orientation. Thankfully, this particular situation is quite easy to solve
+					for as it only has three degrees of freedom and three joints. This configuration has an analytical solution
+					and by calculating the rotation matrices and setting them equal we can get the movement equations.
+					By solving for angles, we can get the formulas for calculating each of the motors' angles for any
+					given orientation. Those equations were then checked against a CAD model to verify the calculations
+					were correct (left).
+			h2 Conclusion
+			.clearfix
+				img.float-right(src='/img/projects/gimbal/assembled.jpg')
+				p.
+					This project has been a great way to learn many things from firmware optimization and basics of
+					mechanical engineering to inverse kinematics and sensor fusion to estimate the orientation of the device
+					given the readings from accelerometers and gyroscopes. This project is still in development and things are
+					likely to change. The goal is to have the project completely open source, including source code together
+					with 3D models and PCB designs to serve as a learning opportunity and inspiration for anyone who's interested
+					in contributing or simply building a device of their own.

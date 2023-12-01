@@ -65,7 +65,7 @@ article {
 }
 
 article img {
-	@apply m-4 rounded shadow-lg dark:shadow-zinc-800;
+	@apply mx-4 rounded shadow-lg dark:shadow-zinc-800;
 }
 
 section p {
@@ -73,7 +73,7 @@ section p {
 }
 
 section img {
-	@apply w-7/12 md:w-1/4;
+	@apply mb-4 w-7/12 sm:max-h-80 sm:w-auto sm:max-w-xs;
 }
 
 section img.float-right {
@@ -163,7 +163,7 @@ h3 {
 }
 
 .gallery-media {
-	@apply space-x-4;
+	@apply space-x-4 mb-4;
 }
 
 .gallery-media img {
