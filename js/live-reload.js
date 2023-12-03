@@ -3,6 +3,8 @@
 
 (() => {
 	const attrs = ['src', 'href', 'data'];
+	const pingInterval = 5 * 1000;
+	const pongTimeout = 20 * 1000;
 	let lastPongTime = null;
 
 	function replaceQuery(str) {
@@ -55,13 +57,15 @@
 			return; // WebSocket isn't open
 		}
 
-		if (lastPongTime !== null && Date.now() - lastPongTime > 15000) {
+		if (lastPongTime !== null && Date.now() - lastPongTime > pongTimeout) {
 			console.error('[Live reload] Server offline, polling for restart...');
+			window.liveReload.ws.close();
 			poll();
+			return;
 		}
 
 		window.liveReload.ws.send(JSON.stringify({ping: Date.now()}));
-		window.liveReload.pingTimeout = setTimeout(() => ping(ws), 5000);
+		window.liveReload.pingTimeout = setTimeout(() => ping(ws), pingInterval);
 	}
 
 	function connect(reloadOnConnect = false) {
