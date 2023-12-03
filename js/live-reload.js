@@ -8,7 +8,7 @@
 	let lastPongTime = null;
 
 	function replaceQuery(str) {
-		const url = new URL(str, window.location.origin);
+		const url = new URL(str, window.location.href);
 		url.searchParams.set('lr', Math.floor(Math.random() * 0xffffffff).toString(16));
 
 		return url.toString();
