@@ -21,7 +21,7 @@ body {
 header {
 	@apply flex justify-between items-baseline flex-wrap bg-accent text-white shadow-lg dark:shadow-zinc-800
 	py-1 px-4 rounded-b-xl
-	md:py-2 md:px-6 md:rounded-b-xl;
+	xs:py-2 xs:px-6 xs:rounded-b-xl;
 }
 
 header #name {
@@ -59,9 +59,21 @@ a {
 	@apply text-inherit underline;
 }
 
+.disabled {
+	@apply text-neutral-400;
+}
+
+.disabled img {
+	@apply grayscale;
+}
+
 article {
 	order: 1;
 	flex: 4 0 0;
+}
+
+article.project {
+	@apply max-w-screen-lg mx-auto p-4;
 }
 
 article img {
@@ -193,8 +205,4 @@ a.project-card {
 
 .project-card p {
 	@apply border-t-2 pt-2;
-}
-
-article.project {
-	@apply max-w-screen-lg mx-auto p-4;
 }
