@@ -9,18 +9,23 @@
 }
 
 html {
-	@apply scroll-smooth overflow-x-hidden text-base font-sans dark:bg-zinc-900 dark:text-neutral-50;
+	@apply scroll-smooth overflow-x-hidden text-base font-sans h-full
+	dark:bg-zinc-900 dark:text-neutral-50;
 
 	--color-accent: #18492e;
 }
 
 body {
-	@apply m-0;
+	@apply m-0 flex flex-col min-h-full;
+}
+
+main {
+	@apply grow relative;
 }
 
 header {
 	@apply flex justify-between items-baseline flex-wrap bg-accent text-white shadow-lg dark:shadow-zinc-800
-	py-1 px-4 rounded-b-xl
+	py-1 px-4 mb-4 rounded-b-xl
 	xs:py-2 xs:px-6 xs:rounded-b-xl;
 }
 
@@ -37,11 +42,10 @@ header #name {
 #photo {
 	@apply max-xs:mx-auto mb-4 rounded-full max-h-48
 	xs:float-right xs:bg-clip-content xs:photo-shape xs:ml-4;
-	min-width: min(100px, 100vw);
 }
 
 footer {
-	@apply flex justify-around p-4 mt-4 bg-neutral-100 dark:bg-zinc-800;
+	@apply flex justify-between p-4 mt-4 bg-neutral-100 dark:bg-zinc-800;
 }
 
 footer a {
@@ -67,13 +71,17 @@ a {
 	@apply grayscale;
 }
 
+img {
+	@apply bg-white;
+}
+
 article {
 	order: 1;
 	flex: 4 0 0;
 }
 
 article.project {
-	@apply max-w-screen-lg mx-auto p-4;
+	@apply max-w-screen-lg mx-auto px-4;
 }
 
 article img {
@@ -121,7 +129,7 @@ h3 {
 }
 
 .split-container:before {
-	@apply md:absolute md:block md:left-0 md:right-1/2 md:mr-4 md:bg-accent md:h-full;
+	@apply md:absolute md:block md:left-0 md:right-1/2 md:mr-4 md:bg-accent md:h-full shadow-lg;
 	content: '';
 }
 
@@ -158,16 +166,16 @@ h3 {
 	flex: 0 0 50%;
 }
 
-.split-container:first-of-type > .split-layout > *:last-of-type {
+.split-container:first-child > .split-layout > *:last-child {
 	@apply md:rounded-tr-2xl;
 }
 
-.split-container:last-of-type > .split-layout > *:first-of-type {
+.split-container:last-child > .split-layout > *:last-child {
 	@apply md:rounded-br-2xl;
 }
 
 .gallery-grid {
-	@apply flex flex-row flex-wrap mb-4;
+	@apply flex flex-row flex-wrap gap-4;
 }
 
 .gallery-row {
@@ -187,7 +195,7 @@ a.project-card {
 }
 
 .project-card {
-	@apply w-48 shrink-0 shadow-lg cursor-pointer dark:shadow-zinc-800 rounded-md overflow-hidden
+	@apply w-48 shrink-0 shadow-lg bg-white rounded-md overflow-hidden dark:shadow-zinc-800
 	transition-transform hover:-translate-y-1;
 }
 
