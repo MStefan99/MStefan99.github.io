@@ -64,6 +64,14 @@ a {
 	@apply text-inherit underline;
 }
 
+button, .button {
+	@apply block text-white bg-accent rounded-lg font-semibold no-underline p-2 max-w-max mr-auto;
+}
+
+button.disabled, .button.disabled {
+	@apply bg-zinc-500;
+}
+
 .disabled {
 	@apply text-neutral-400;
 }
@@ -73,12 +81,17 @@ a {
 }
 
 img {
-	@apply bg-white;
+	@apply bg-white dark:bg-zinc-700;
 }
 
 .parallax {
 	@apply h-screen overflow-y-auto snap-y snap-mandatory;
 	perspective: 500px;
+	scrollbar-width: none;
+}
+
+.parallax::-webkit-scrollbar {
+	@apply hidden;
 }
 
 .parallax-group {
@@ -223,7 +236,7 @@ a.project-card {
 }
 
 .project-card {
-	@apply w-48 shrink-0 shadow-lg bg-white rounded-md overflow-hidden dark:shadow-zinc-800
+	@apply w-48 shrink-0 shadow-lg bg-inherit rounded-md overflow-hidden dark:shadow-zinc-800
 	transition-transform hover:-translate-y-1;
 }
 
