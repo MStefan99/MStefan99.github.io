@@ -77,46 +77,34 @@ img {
 }
 
 .parallax {
+	@apply h-screen overflow-y-auto;
 	perspective: 500px;
-	height: 100vh;
-	overflow-x: hidden;
-	overflow-y: auto;
 }
 
 .parallax-group {
-	position: relative;
-	height: 100%;
+	@apply relative h-full transition-transform duration-1000;
 	transform-style: preserve-3d;
-	transition: transform 1s ease;
-	/*border: 2px solid blue;*/
-}
-
-.parallax-group:last-child {
-	@apply max-h-screen;
 }
 
 .debug .parallax-group {
 	transform: translate3d(-100px,0,-500px) rotateY(20deg);
 }
 
-.parallax-group img {
-	@apply w-full object-cover brightness-50;
-	z-index: -1;
-	height: 100%;
+.parallax-background {
+	@apply w-full;
 }
 
-.parallax-layer {
+img.parallax-background {
+	@apply w-full h-full object-cover brightness-50;
 }
 
-.parallax-base {
-	@apply bg-white/75 backdrop-blur rounded-md p-4 absolute left-1/2 top-1/2 w-2/3;
+.parallax-foreground {
+	@apply
+	absolute left-1/2 top-1/2 w-2/3 border-4 border-accent
+	bg-white/75 backdrop-blur rounded-lg p-4
+	dark:bg-zinc-700/75
+	md:max-w-screen-sm;
 	transform: translate3d(-50%, -50%, 250px) scale(0.5);
-	/*border: 2px solid green;*/
-}
-
-.parallax-back {
-	width: 100%;
-	/*border: 2px solid red;*/
 }
 
 article {
@@ -157,7 +145,7 @@ ul {
 }
 
 h1 {
-	@apply font-black text-3xl tracking-tight mb-2;
+	@apply font-black text-2xl tracking-tight mb-2;
 }
 
 h2 {
