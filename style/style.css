@@ -24,13 +24,14 @@ main {
 }
 
 header {
-	@apply flex justify-between items-baseline flex-wrap bg-accent text-white shadow-lg dark:shadow-zinc-800
-	py-1 px-4 mb-4 rounded-b-xl
-	xs:py-2 xs:px-6 xs:rounded-b-xl;
+	@apply flex justify-between items-baseline flex-wrap bg-accent text-white shadow-lg
+	py-1 px-4
+	dark:shadow-zinc-800
+	xs:py-2 xs:px-6;
 }
 
 header #name {
-	@apply no-underline grow font-bold
+	@apply no-underline font-bold
 	text-lg text-center
 	xs:text-3xl xs:text-left;
 }
@@ -45,7 +46,7 @@ header #name {
 }
 
 footer {
-	@apply flex justify-between p-4 mt-4 bg-neutral-100 dark:bg-zinc-800;
+	@apply flex justify-evenly p-4 bg-neutral-100 dark:bg-zinc-800;
 }
 
 footer a {
@@ -73,6 +74,49 @@ a {
 
 img {
 	@apply bg-white;
+}
+
+.parallax {
+	perspective: 500px;
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.parallax-group {
+	position: relative;
+	height: 100%;
+	transform-style: preserve-3d;
+	transition: transform 1s ease;
+	/*border: 2px solid blue;*/
+}
+
+.parallax-group:last-child {
+	@apply max-h-screen;
+}
+
+.debug .parallax-group {
+	transform: translate3d(-100px,0,-500px) rotateY(20deg);
+}
+
+.parallax-group img {
+	@apply w-full object-cover brightness-50;
+	z-index: -1;
+	height: 100%;
+}
+
+.parallax-layer {
+}
+
+.parallax-base {
+	@apply bg-white/75 backdrop-blur rounded-md p-4 absolute left-1/2 top-1/2 w-2/3;
+	transform: translate3d(-50%, -50%, 250px) scale(0.5);
+	/*border: 2px solid green;*/
+}
+
+.parallax-back {
+	width: 100%;
+	/*border: 2px solid red;*/
 }
 
 article {
