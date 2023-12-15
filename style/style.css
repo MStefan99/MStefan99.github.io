@@ -1,1 +1,257 @@
-html{font-family:sans-serif;scroll-behavior:smooth;overflow-x:hidden;font-size:12pt}html body{margin:0;display:flex;flex-flow:column nowrap}html body .highlight{color:#18492e}html body p{line-height:1.5em}html body a{color:inherit}html body .bullet::before{content:'› '}html body .double-bullet::before{content:'» '}html body header{background:#18492e;padding:2vh 5vw;color:#fff}html body header #name{text-decoration:none;font-size:4em;font-weight:bold}@media screen and (max-width:375px){html body header #name{font-size:3em}}html body header #info{font-size:1.5em}html body main>*{margin:2em}html body main a{color:inherit;display:block;margin-bottom:.5em}@media screen and (max-width:1024px){html body main .sticky{border-bottom:1px solid #b3b3b3}}@media screen and (min-width:1024px){html body main .sticky{position:sticky;padding:0 2ch;top:2vh;height:95vh;overflow-y:auto;overflow-x:hidden;flex:1 0 0}}html body main .sticky>h1{hyphens:manual}html body main #nav-container{order:0}html body main #nav-container a{text-decoration:none}html body main #nav-container #nav-list{font-size:.9em}html body main #nav-container #nav-list h2{margin-left:1ch}html body main #nav-container #nav-list h3{margin-left:3ch}html body main #link-container{order:2}html body main #link-container a{font-size:1.2em}html body main article{order:1;flex:4 0 0}html body main #photo{max-height:40vh;max-width:250px;min-height:100px;min-width:100px;border-radius:500px}html body footer{background-color:#fafafa}html body footer a{display:block;margin-bottom:.5em}html body #cookie-consent{position:fixed;right:0;bottom:5vh;background-color:#f7f7f7;border:1px solid #000;border-radius:8px}html body #cookie-consent #consent-close{margin-left:2ch}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.photo-shape {
+		shape-outside: circle(calc(50% - 8px) at calc(50% - 16px) center)
+	}
+}
+
+html {
+	@apply scroll-smooth overflow-x-hidden text-base font-sans h-full
+	dark:bg-zinc-900 dark:text-neutral-50;
+
+	--color-accent: #18492e;
+}
+
+body {
+	@apply m-0 flex flex-col min-h-full;
+}
+
+main {
+	@apply grow relative;
+}
+
+header {
+	@apply flex justify-between items-baseline flex-wrap bg-accent text-white shadow-lg
+	py-1 px-4
+	dark:shadow-zinc-800
+	xs:py-2 xs:px-6;
+}
+
+header #name {
+	@apply no-underline font-bold
+	text-lg text-center
+	xs:text-3xl xs:text-left;
+}
+
+#about {
+	@apply md:text-accent dark:md:text-neutral-50;
+}
+
+#photo {
+	@apply max-xs:mx-auto mb-4 rounded-full max-h-48
+	xs:float-right xs:bg-clip-content xs:photo-shape xs:ml-4;
+}
+
+footer {
+	@apply flex justify-evenly p-4 bg-neutral-100 dark:bg-zinc-800;
+}
+
+footer a {
+	@apply mb-1;
+}
+
+
+/* Utility styles */
+
+p {
+	@apply leading-relaxed;
+}
+
+a {
+	@apply text-inherit underline;
+}
+
+button, .button {
+	@apply block text-white bg-accent rounded-lg font-semibold no-underline p-2 max-w-max mr-auto;
+}
+
+button.disabled, .button.disabled {
+	@apply bg-zinc-500;
+}
+
+.disabled {
+	@apply text-neutral-400;
+}
+
+.disabled img {
+	@apply grayscale;
+}
+
+img {
+	@apply bg-white dark:bg-zinc-700;
+}
+
+.parallax {
+	@apply h-screen overflow-y-auto snap-y snap-mandatory;
+	perspective: 500px;
+	scrollbar-width: none;
+}
+
+.parallax::-webkit-scrollbar {
+	@apply hidden;
+}
+
+.parallax-group {
+	@apply relative h-full snap-start;
+	transform-style: preserve-3d;
+}
+
+.parallax-background {
+	@apply w-full;
+}
+
+img.parallax-background {
+	@apply w-full h-full object-cover brightness-50;
+}
+
+.parallax-foreground {
+	@apply
+	absolute left-1/2 top-1/2 w-2/3 border-4 border-accent
+	bg-white/75 backdrop-blur rounded-lg p-4
+	dark:bg-zinc-700/75
+	md:max-w-screen-sm;
+	transform: translate3d(-50%, -50%, 250px) scale(0.5);
+}
+
+article {
+	order: 1;
+	flex: 4 0 0;
+}
+
+article.project {
+	@apply max-w-screen-lg mx-auto px-4;
+}
+
+article img {
+	@apply mx-4 rounded shadow-lg dark:shadow-zinc-800;
+}
+
+section p {
+	@apply mb-4;
+}
+
+section img {
+	@apply mb-4 w-7/12 sm:max-h-80 sm:w-auto sm:max-w-xs;
+}
+
+section img.float-right {
+	@apply mr-0;
+}
+
+section img.float-left {
+	@apply ml-0;
+}
+
+.clearfix {
+	@apply overflow-auto;
+}
+
+ul {
+	@apply list-disc list-inside;
+}
+
+h1 {
+	@apply font-black text-2xl tracking-tight mb-2;
+}
+
+h2 {
+	@apply text-xl font-semibold mb-1;
+}
+
+h3 {
+	@apply text-lg font-medium;
+}
+
+.split-container {
+	@apply w-full relative;
+}
+
+.split-container:before {
+	@apply md:absolute md:block md:left-0 md:right-1/2 md:mr-4 md:bg-accent md:h-full shadow-lg;
+	content: '';
+}
+
+.split-layout {
+	@apply relative text-justify max-w-screen-lg
+	md:flex md:flex-row-reverse md:flex-nowrap md:mx-auto;
+}
+
+.split-layout:before {
+	@apply absolute bg-white left-4 right-4 bottom-4 h-1;
+	content: '';
+}
+
+.split-layout:after {
+	@apply md:absolute md:bg-accent md:left-1/2 md:right-4 md:bottom-4 md:h-1;
+	content: '';
+}
+
+.split-layout > * {
+	@apply p-4;
+}
+
+.split-layout p:not(:last-of-type) {
+	@apply mb-4;
+}
+
+.split-layout > *:first-child {
+	@apply md:text-accent dark:md:text-neutral-50 md:pb-8;
+	flex: 0 0 50%;
+}
+
+.split-layout > *:last-child {
+	@apply bg-accent text-white dark:text-neutral-50 pb-8;
+	flex: 0 0 50%;
+}
+
+.split-container:first-child > .split-layout > *:last-child {
+	@apply md:rounded-tr-2xl;
+}
+
+.split-container:last-child > .split-layout > *:last-child {
+	@apply md:rounded-br-2xl;
+}
+
+.gallery-grid {
+	@apply flex flex-row flex-wrap gap-4;
+}
+
+.gallery-row {
+	@apply flex flex-row overflow-x-auto mx-auto w-max max-w-full space-x-4;
+}
+
+.gallery-media {
+	@apply space-x-4 mb-4;
+}
+
+.gallery-media img {
+	@apply mx-0 max-h-80 max-w-none;
+}
+
+a.project-card {
+	@apply no-underline;
+}
+
+.project-card {
+	@apply w-48 shrink-0 shadow-lg bg-inherit rounded-md overflow-hidden dark:shadow-zinc-800
+	transition-transform hover:-translate-y-1;
+}
+
+.project-card img {
+	@apply h-28 w-full rounded-md object-cover shadow-md dark:shadow-zinc-800;
+}
+
+.project-card h1 {
+	@apply text-xl;
+}
+
+.project-card h2 {
+	@apply text-base font-semibold;
+}
+
+.project-card p {
+	@apply border-t-2 pt-2;
+}

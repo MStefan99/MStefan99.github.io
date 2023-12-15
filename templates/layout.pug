@@ -1,0 +1,44 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		link(href="/style/style.css" rel="stylesheet" type="text/css")
+		link(href="/img/icon.jpg" rel="icon" sizes="64x64" type="image/jpg")
+		meta(content="width=device-width, minimum-scale=1.0, initial-scale=1.0" name="viewport")
+
+		script(async type="module").
+			import {sendHit} from 'https://crash-course-backend.apps.mstefan99.com/cc?k=442a1d98e0c60f79&verbose';
+			sendHit();
+		script(async type='module' src="/js/live-reload.js")
+
+		block title
+			title Mikhail Stefantsev
+		block description
+			meta(name="description" content="Software developer")
+		meta(name="author" content="Mikhail Stefantsev")
+		meta(name="theme-color" content="#18492E")
+
+		block head
+
+	body
+		header
+			block header
+				a#name(href='/') Mikhail Stefantsev
+
+		main
+			block main
+				block content
+
+		footer
+			block footer
+				div
+					h4 Contact
+					a.block(href="https://www.linkedin.com/in/mikhail-stefantsev-a9414917a/") LinkedIn
+					a.block(href="mailto:mikhail.stefantsev@outlook.com") Email
+
+				div
+					h4 Links
+					a.block(href="https://github.com/MStefan99/") GitHub
+					a.block(href="/cv") CV
+
+		block end

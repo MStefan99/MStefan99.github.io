@@ -1,11 +1,12 @@
 'use strict';
 
-const navigationList = document.querySelector('#nav-list');
-const headers = document.querySelectorAll('article h2,' +
+
+(() => {
+	const navigationList = document.querySelector('#nav-list');
+	const headers = document.querySelectorAll('article h2,' +
 		'article h3,' +
 		'article h4');
 
-addEventListener('load', e => {
 	headers.forEach((header) => {
 		const headerLink = document.createElement('a');
 		headerLink.href = '#' + header.id;
@@ -14,4 +15,4 @@ addEventListener('load', e => {
 		navigationList.appendChild(headerLink);
 		headerLink.appendChild(headerElement);
 	});
-});
+})();

@@ -1,0 +1,86 @@
+extends ../templates/layout
+
+//- Projects to be added
+	✅ - Article done
+	❌ - Article to be written
+
+	Project highlights - full screen
+	- Gimbal ✅
+	- Crash Course ❌
+	- Flight computer + Command Center ❌
+	- ardUI ❌
+	- Deep learning robot ❌
+	- Trader (neural net) ❌
+	- Invenfinder ❌
+	- Power meter ❌
+
+	Miscellaneous - smaller project cards
+	- Siter ❌
+	- Discord bots (roombot + codebot) ❌
+	- GoDaddns ❌
+	- Credible ❌
+	- MIDI parser ❌
+	- My HR ❌
+	- Simply message ❌
+
+block content
+	.parallax
+		.parallax-group
+			img.parallax-background(src='/img/projects/gimbal/assembled.jpg' alt='A smartphone gimbal 3D-printed out of gray ' +
+			'plastic on a tripod. Gimbal stands on a table before a monitor displaying a CAD model of the gimbal.')
+			.parallax-foreground
+				h1 Smartphone gimbal
+				p Open-source gimbal for smartphones and action cameras
+				a.button.mt-2(href='/projects/gimbal') Learn more
+		.parallax-group
+			img.parallax-background(src='/img/projects/crash-course/logo.svg'
+				alt='Crash course logo. Words "Crash Course" written in white with a black outline against a white ' +
+				'background. Words are written on two lines with a red arrow between them pointing from left to right, ' +
+				'curving towards the bottom at the end')
+			.parallax-foreground
+				h1 Crash Course
+				h2 Tracking shouldn't mean giving up privacy
+				p Analytics platform that respects visitors' privacy
+				.button.disabled.mt-2 Coming soon
+		.parallax-group
+			img.parallax-background(src='/img/projects/flight-computer/v2.jpg' alt='A green rectangular PCB assembled with ' +
+			'electronic components and many pin headers.')
+			.parallax-foreground
+				h1 Flight computer
+				p Custom hardware and software to help fly model aircraft
+				.button.disabled.mt-2 Coming soon
+		.parallax-group
+			img.parallax-background(src='/img/projects/ardui/arduino.png' alt='Arduino Uno with an LCD breakout. ' +
+			'LCD is showing "5C" on the left and two arrows on the right pointing up and down. In the background is a ' +
+			'vertical red-blue gradient.')
+			.parallax-foreground
+				h1 ardUI
+				p Tiny UI framework for microcontrollers
+				.button.disabled.mt-2 Coming soon
+		.parallax-group
+			img.parallax-background(src='/img/projects/power_meter/power.jpg'
+				alt='DIY power meter. A PCB with a display showing 58.07mW in large font, with a similarly large ' +
+				'word "Power" underneath. In the background is a graph showing power consumption history. ' +
+				'The UI is executed in the shades of yellow: the power value is pale yellow, almost white. ' +
+				'Area under the graph is darker, followed by the word power. Background is dark yellow.')
+			.parallax-foreground
+				h1 Power meter
+				p A simple but very handy DIY power meter
+				.button.disabled.mt-2 Coming soon
+
+	h1.p-4 More projects
+	.gallery-row.p-4
+		.project-card.disabled
+			img(src='/img/projects/siter/logo.svg'
+				alt='Siter logo. Black word "siter" against the white background written in cursive')
+			.m-2
+				h1 Siter
+				h2 Hosting, made easy
+				p Reverse proxy with GUI and a process manager
+		.project-card.disabled
+			img(src='/img/projects/my-hr/desktop.jpg'
+				alt='Image showing an app with a desktop-like environment with multiple application windows used to review ' +
+				'applications for taking part in a project')
+			.m-2
+				h1 My HR
+				p System for processing applications

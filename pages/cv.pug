@@ -1,0 +1,153 @@
+extends ../templates/layout
+
+
+block content
+	article.w-full-lg
+		.clearfix.mx-auto.max-w-screen-lg
+			.m-4#about
+				h1 About
+				img#photo(alt="Profile photo" src="./img/profile_photo.jpg")
+				p.text-justify.
+					As a passionate Embedded Software Developer with a strong foundation in IT from Metropolia University of Applied
+					Sciences, specializing in IoT and Smart Systems, I bring a unique blend of academic excellence and practical experience.
+					My journey in technology began over a decade ago with a fascination for programming, leading to a bachelor's degree
+					achieved ahead of schedule with a GPA of 4.7/5. My academic and personal endeavors have seen me dive into the realms
+					of neural networks, firmware development, cutting-edge embedded systems and much more, with a keen eye on
+					bridging the gap between software and practical hardware innovations.
+
+		div
+			.split-container
+				.split-layout
+					div
+						h1 Education
+						ul
+							li Degree: Bachelor of IT, IoT and Smart Systems Major.
+							li Institution: Metropolia University of Applied Sciences.
+							li Key Subjects: Embedded Linux, Digital Signal Processing,
+								|  Modern Computer Architecture, Test Automation, Sensors.
+							li Notable Projects: Developed a maze-solving robot and a
+								|  2D plotter firmware, both utilizing FreeRTOS.
+							li Achievement: Completed degree ahead of schedule with a GPA of 4.7/5.
+					p.
+						At Metropolia University of Applied Sciences, I completed
+						a Bachelor of IT, majoring in IoT and Smart Systems,
+						which mirrors my deep interest in embedded
+						programming. My education encompassed a broad
+						spectrum of subjects, setting a strong foundation for my
+						career in technology. This included in-depth studies in
+						Embedded Linux, Digital Signal Processing, and Modern
+						Computer Architecture, complemented by practical skills
+						in Test Automation, Sensors, and Basic Electronics
+						Engineering. Among my notable academic projects were
+						a maze-solving robot and a 2D plotter firmware, both
+						running on FreeRTOS, which greatly enhanced my
+						practical understanding and application of embedded
+						systems.
+
+			.split-container
+				.split-layout
+					div
+						h1 Experience
+						ul
+							li Nokia: Test Engineer; focused on 4G base station
+								|  software testing and automated test suite optimization.
+							li Futurice: Developer / IoT Consultant; developed a new dashboard for Stora Enso and
+								|  revamped an IoT applicationfor KONE. Established DevOps processes.
+					p.
+						I began my professional journey at Nokia as a Test
+						Engineer, focusing on the testing and enhancement of 4G
+						base station software and the automated test suite. This
+						role was a significant stepping stone in my career,
+						deepening my understanding of software testing and
+						optimization. Following Nokia, I joined Futurice as a
+						Developer and IoT Consultant. Here, I played a pivotal
+						role in developing an advanced dashboard for StoraEnso
+						and overhauling an IoT application for KONE, along with
+						setting up efficient DevOps processes.
+
+			.split-container
+				.split-layout
+					div
+						h1 Projects
+						ul
+							li Maze-Solving Robot: Developed using neural networks, running on FreeRTOS.
+							li Flight Computer: Designed PCB, wrote firmware, and integrated a Kalman filter for a model aircraft.
+							li Smartphone Gimbal: Currently developing, involving hardware design, firmware, and motor control.
+							li UI Framework: Created a UI framework in C++, including custom STL container implementations.
+							li Neural network: Made a lightweight neural network library for embedded systems using C++.
+					div
+						p.
+							My personal projects are where I express my creativity
+							and technical skills. The maze-solving robot, which began
+							as a university project, grew into a personal challenge,
+							using neural network algorithms to navigate complex
+							mazes. Another significant project was building a flight
+							computer for a model aircraft, involving designing the
+							PCB, writing firmware, and learning the Kalman filter for
+							stabilization. Currently, I am working on a smartphone
+							gimbal, a project that includes PCB design, firmware
+							development, and learning about brushless motors and
+							inverse kinematics.
+
+						p.
+							In addition, I created a UI framework entirely in C++,
+							showing my ability to build efficient solutions from
+							scratch. This project involved recreating some STL
+							containers, demonstrating my deep understanding of C++
+							and system-level programming.
+
+			.split-container
+				.split-layout
+					div
+						h1 Technical skills
+						ul
+							li Programming Languages: Advanced expertise in C/C++ (over 7 years), along with
+								|  JavaScript, Java, Kotlin, and Python.
+							li Embedded Systems: Proficient in FreeRTOS and firmware development for diverse applications.
+							li Digital Signal Processing: Practical experience in signal analysis and manipulation.
+							li Control Systems: Implemented Kalman filters and inverse kinematics for various projects.
+							li Driver and UI Development: Developed custom hardware drivers and a UI framework in C++.
+							li Hardware Design and Engineering: Skilled in PCB design, CAD, and basic mechanical engineering, with
+								|  hands-on experience in electronics testing and debugging.
+							li Cloud Platforms and DevOps: Experienced with AWS, Azure, Git, CI/CD, and Docker.
+					p.
+						With over seven years of experience in C/C++, my
+						programming expertise forms the cornerstone of my
+						technical skill set. This extensive experience is
+						complemented by proficiency in languages like JavaScript,
+						Java, Kotlin, and Python, allowing me to approach a wide
+						range of projects with versatility and depth. In the realm
+						of hardware, my skills extend beyond PCB design and
+						electronics testing to include CAD and fundamental
+						mechanical engineering principles. My projects have
+						often required a deep understanding of digital signal
+						processing, control systems such as Kalman filters and
+						inverse kinematics, and the development of custom
+						drivers for intricate hardware-software integration.
+						Additionally, my familiarity with cloud platforms like AWS
+						and Azure, coupled with strong capabilities in Git, CI/CD
+						pipelines, and Docker, ensures a comprehensive approach
+						to both software development and DevOps practices.
+
+			.split-container
+				.split-layout
+					div
+						h1 Soft skills
+						ul
+							li Project Leadership: Led a 15-member team in developing a smart lighting system,
+								|  meeting and exceeding project goals.
+							li Educational Initiative: Created and taught a 7-week course on full-stack development,
+								|  handling lecture creation, student support, and grading.
+					p.
+						My soft skills and leadership abilities were highlighted
+						during my academic and professional journey. I led a 15-
+						member team in a 7-week IoT project at university,
+						developing a smart modular lighting system. Additionally,
+						I created and taught a full-stack development course,
+						encompassing lecture preparation, student mentoring,
+						and grading, demonstrating my abilities in knowledge
+						sharing and team leadership.
+
+
+append footer
+	a.block(href="/files/CV.pdf") Open in PDF format
