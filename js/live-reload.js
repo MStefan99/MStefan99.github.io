@@ -22,33 +22,58 @@
 
 	// Recursively check and update elements that differ in the new DOM starting from the children
 	function diffAndUpdate(currentElement, newElement) {
-		// First, handle the children of the current element
+		// Update children
 		const currentChildren = Array.from(currentElement.children);
 		const newChildren = Array.from(newElement.children);
 
-		currentChildren.forEach((child, index) => {
-			if (newChildren.length > index) {
-				// Recursively update children first
-				diffAndUpdate(child, newChildren[index]);
-			} else {
-				// If the current element has more children, remove the extra ones
-				child.remove();
+		let currentChildIndex = 0;
+		let newChildIndex = 0;
+
+		while (currentChildIndex < currentChildren.length || newChildIndex < newChildren.length) {
+			const currentChild = currentChildren[currentChildIndex];
+			const newChild = newChildren[newChildIndex];
+
+			if (!currentChild || !newChild) {
+				break;
 			}
-		});
 
-		// Add any new children that weren't in the current element
-		if (newChildren.length > currentChildren.length) {
-			newChildren.slice(currentChildren.length).forEach(child => {
-				currentElement.appendChild(child.cloneNode(true));
-			});
+			diffAndUpdate(currentChild, newChild);
+			if (currentChild.isEqualNode(newChild)) {
+				// Nodes are the same, move to next child
+				currentChildIndex++;
+				newChildIndex++;
+			} else {
+				// Nodes are different
+				if (elementExistsInArray(newChild, currentChildren)) {
+					// If newChild exists later in currentChildren, it means currentChild was removed
+					currentChild.remove();
+					currentChildIndex++;
+				} else {
+					// If currentChild does not exist in newChildren, it means newChild was added
+					currentElement.insertBefore(newChild.cloneNode(true), currentChild);
+					newChildIndex++;
+				}
+			}
 		}
 
-		// Now handle the current element itself
-		// Check if the elements are different, ignoring child differences
-		if (!currentElement.isEqualNode(newElement)) {
-			// Replace only the attributes and content, not the entire element
-			replaceAttributesAndContent(currentElement, newElement);
+		// Clean up any remaining nodes in currentChildren that are not in newChildren
+		while (currentChildIndex < currentChildren.length) {
+			currentChildren[currentChildIndex].remove();
+			currentChildIndex++;
 		}
+
+		// Append any remaining new nodes
+		while (newChildIndex < newChildren.length) {
+			currentElement.appendChild(newChildren[newChildIndex].cloneNode(true));
+			newChildIndex++;
+		}
+
+		// Update the attributes and content of the current element if they are different
+		replaceAttributesAndContent(currentElement, newElement);
+	}
+
+	function elementExistsInArray(element, array) {
+		return array.some(arrElem => arrElem.isEqualNode(element));
 	}
 
 	function replaceAttributesAndContent(currentElement, newElement) {
@@ -64,9 +89,11 @@
 		});
 
 		// Add new attributes or update existing ones
-		Array.from(newAttrs).forEach(attr => {
-			currentElement.setAttribute(attr.name, attr.value);
-		});
+		Array.from(newAttrs)
+			.filter(attr => currentElement.getAttribute(attr.name) !== attr.value)
+			.forEach(attr => {
+				currentElement.setAttribute(attr.name, attr.value);
+			});
 
 		// Replace the inner content if different
 		if (currentElement.innerHTML !== newElement.innerHTML) {
