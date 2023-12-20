@@ -7,6 +7,74 @@
 	const pongTimeout = 20 * 1000;
 	let lastPongTime = null;
 
+	// Fetch updated DOM and patch elements in-place
+	function fetchAndUpdate() {
+		fetch('')
+			.then(response => response.text())
+			.then(newContent => {
+				const parser = new DOMParser();
+				const newDoc = parser.parseFromString(newContent, 'text/html');
+				const newBody = newDoc.body;
+
+				diffAndUpdate(document.body, newBody);
+			});
+	}
+
+	// Recursively check and update elements that differ in the new DOM starting from the children
+	function diffAndUpdate(currentElement, newElement) {
+		// First, handle the children of the current element
+		const currentChildren = Array.from(currentElement.children);
+		const newChildren = Array.from(newElement.children);
+
+		currentChildren.forEach((child, index) => {
+			if (newChildren.length > index) {
+				// Recursively update children first
+				diffAndUpdate(child, newChildren[index]);
+			} else {
+				// If the current element has more children, remove the extra ones
+				child.remove();
+			}
+		});
+
+		// Add any new children that weren't in the current element
+		if (newChildren.length > currentChildren.length) {
+			newChildren.slice(currentChildren.length).forEach(child => {
+				currentElement.appendChild(child.cloneNode(true));
+			});
+		}
+
+		// Now handle the current element itself
+		// Check if the elements are different, ignoring child differences
+		if (!currentElement.isEqualNode(newElement)) {
+			// Replace only the attributes and content, not the entire element
+			replaceAttributesAndContent(currentElement, newElement);
+		}
+	}
+
+	function replaceAttributesAndContent(currentElement, newElement) {
+		// Update attributes
+		const currentAttrs = currentElement.attributes;
+		const newAttrs = newElement.attributes;
+
+		// Remove any old attributes not present in the new element
+		Array.from(currentAttrs).forEach(attr => {
+			if (!newElement.hasAttribute(attr.name)) {
+				currentElement.removeAttribute(attr.name);
+			}
+		});
+
+		// Add new attributes or update existing ones
+		Array.from(newAttrs).forEach(attr => {
+			currentElement.setAttribute(attr.name, attr.value);
+		});
+
+		// Replace the inner content if different
+		if (currentElement.innerHTML !== newElement.innerHTML) {
+			currentElement.innerHTML = newElement.innerHTML;
+		}
+	}
+
+	// Add a cache-busting query parameter to element URL
 	function replaceQuery(str) {
 		const url = new URL(str, window.location.href);
 		url.searchParams.set('lr', Math.floor(Math.random() * 0xffffffff).toString(16));
@@ -14,7 +82,8 @@
 		return url.toString();
 	}
 
-	function recreateElement(fileName) {
+	// Replace the element with a freshly-created one, used for external resource linkers (img, script, link, etc.)
+	function replaceElement(fileName) {
 		const oldElements = document.querySelectorAll(
 			attrs.map(attr => `[${attr}*="${fileName}"]`).join(', ')
 		);
@@ -92,10 +161,10 @@
 				if (message.changed.match(new RegExp(
 					location.pathname.replace(/^\/$/, '/index') + '\\.html$')
 				)) {
-					window.history.go();
+					fetchAndUpdate();
 					return;
 				}
-				recreateElement(message.changed);
+				replaceElement(message.changed);
 			} else if (message.pong) {
 				lastPongTime = Date.now();
 			}
