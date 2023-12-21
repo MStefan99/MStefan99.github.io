@@ -20,7 +20,7 @@ function isImageFile(filePath) {
 async function compressAndCopyImage(srcPath, destPath) {
 	await sharp(srcPath)
 		.resize({width: 1280, withoutEnlargement: true})
-		.jpeg({quality: 60})
+		.jpeg({quality: 80})
 		.toFile(destPath);
 }
 

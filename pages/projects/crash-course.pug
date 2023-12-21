@@ -1,10 +1,44 @@
 extends ../../templates/layout
 
+//- TODO: Add alt image descriptions
+
+block title
+	title Crash Course
+
+block description
+	meta(name="description" content="Web analytics tool designed for privacy")
+
 
 block content
 	article.project.text-justify
+		img.splash(src='/img/projects/crash-course/overview.png')
 		a.button.bg-black.my-2(href='https://github.com/MStefan99/Crash-Course')
 			img.button-icon(src='/img/icons/github.svg' alt='GitHub logo')
 			span View source code on GitHub
-		h1
-
+		h1 Crash Course
+		section
+			p.
+				Online tracking is ubiquitous on the internet and is so for a good reason. Businesses and individuals alike
+				understandably want to know how popular their websites are. It's great to know what's popular and what isn't,
+				what works and what doesn't. However, the way analytics are collected today is all but ethical. Website
+				visitors often aren't informed about tracking on the page, can't easily opt-out and don't know where
+				and how their (often private) data is stored. Crash Course is an attempt to make analytics compatible
+				with privacy.
+			.clearfix
+				img.float-right(src='/img/projects/crash-course/logo.svg')
+				p.
+					Previously I've been using Google Analytics. It's an extremely capable and popular analytics
+					platform but unfortunately it's not exactly known for privacy and I felt like I could do better
+					for my website visitors.
+					Welcome Crash Course, an analytics tool designed for privacy. The foundational principle behind
+					Crash Course is user anonymity: regardless of what or how much data is collected by the tool, it is still
+					impossible to trace it back to an individual person. Additionally, Crash Course will never sell the data
+					unlike large analytics providers.
+			.clearfix
+				img.float-left(src='/img/projects/crash-course/logs.png')
+				p.
+					Another goal behind Crash Course was to provide comprehensive data on the application. Put simply,
+					it's not just a web tracker. In addition to website metrics it can collect client and/or server logs
+					and server performance metrics. It might not be the most feature-rich tool but it's proven to be
+					sufficient for small websites and applications. I have switched all my websites over to Crash Course to
+					ensure the best for my visitors and ensure their private data stays private.

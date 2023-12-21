@@ -69,7 +69,7 @@ a {
 }
 
 button, .button {
-	@apply block text-white rounded-lg font-semibold no-underline p-2 max-w-max shadow-md dark:shadow-zinc-800;
+	@apply block text-white text-start rounded-lg font-semibold no-underline p-2 max-w-max shadow-md dark:shadow-zinc-800;
 }
 
 button.disabled, .button.disabled {
@@ -134,7 +134,12 @@ article.project {
 }
 
 article img {
-	@apply mx-4 rounded shadow-lg dark:shadow-zinc-800;
+	@apply mx-4 rounded-lg shadow-lg dark:shadow-zinc-800;
+}
+
+article .splash {
+	@apply my-4 mx-0 w-full object-cover;
+	max-height: 40vh;
 }
 
 section p {
@@ -244,11 +249,11 @@ a.project-card {
 }
 
 .project-card {
-	@apply w-48 shrink-0 shadow-lg bg-inherit rounded-md overflow-hidden dark:shadow-zinc-800;
+	@apply w-48 shrink-0 shadow-lg bg-inherit rounded-lg overflow-hidden dark:shadow-zinc-800;
 }
 
 .project-card > img {
-	@apply h-28 w-full rounded-md object-cover shadow-md dark:shadow-zinc-800;
+	@apply h-28 w-full rounded-lg object-cover shadow-md dark:shadow-zinc-800;
 }
 
 .project-card h1 {
