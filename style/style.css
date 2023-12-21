@@ -64,12 +64,20 @@ a {
 	@apply text-inherit underline;
 }
 
+.row {
+	@apply flex flex-row flex-wrap justify-start gap-2;
+}
+
 button, .button {
-	@apply block text-white bg-accent rounded-lg font-semibold no-underline p-2 max-w-max mr-auto;
+	@apply block text-white rounded-lg font-semibold no-underline p-2 max-w-max shadow-md dark:shadow-zinc-800;
 }
 
 button.disabled, .button.disabled {
 	@apply bg-zinc-500;
+}
+
+button img, .button img {
+	@apply inline-block ml-0 mr-2 w-6 bg-transparent align-top;
 }
 
 .disabled {
@@ -111,7 +119,7 @@ img.parallax-background {
 	@apply
 	absolute left-1/2 top-1/2 w-2/3 border-4 border-accent
 	bg-white/75 backdrop-blur rounded-lg p-4
-	dark:bg-zinc-700/75
+	dark:bg-zinc-900/75
 	md:max-w-screen-sm;
 	transform: translate3d(-50%, -50%, 250px) scale(0.5);
 }
@@ -236,11 +244,10 @@ a.project-card {
 }
 
 .project-card {
-	@apply w-48 shrink-0 shadow-lg bg-inherit rounded-md overflow-hidden dark:shadow-zinc-800
-	transition-transform hover:-translate-y-1;
+	@apply w-48 shrink-0 shadow-lg bg-inherit rounded-md overflow-hidden dark:shadow-zinc-800;
 }
 
-.project-card img {
+.project-card > img {
 	@apply h-28 w-full rounded-md object-cover shadow-md dark:shadow-zinc-800;
 }
 
@@ -254,4 +261,8 @@ a.project-card {
 
 .project-card p {
 	@apply border-t-2 pt-2;
+}
+
+.project-card button, .project-card .button {
+	@apply min-w-full;
 }

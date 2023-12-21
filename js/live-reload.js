@@ -16,7 +16,10 @@
 				const newDoc = parser.parseFromString(newContent, 'text/html');
 				const newBody = newDoc.body;
 
-				diffAndUpdate(document.body, newBody);
+				if (!document.body.isEqualNode(newBody)) {
+					console.log('[Live reload] Page content has changed, updating...')
+					diffAndUpdate(document.body, newBody);
+				}
 			});
 	}
 
