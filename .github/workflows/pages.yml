@@ -38,6 +38,9 @@ jobs:
       - name: Install dependencies
         run: npm install -omit=dev
       - name: Build
+        env:
+          CRASH_COURSE_URL: https://crash-course.apps.mstefan99.com/api
+          CRASH_COURSE_KEY: 442a1d98e0c60f79
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3

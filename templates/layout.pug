@@ -6,9 +6,10 @@ html(lang="en")
 		link(href="/img/icons/favicon.png" rel="icon" sizes="64x64" type="image/jpg")
 		meta(content="width=device-width, minimum-scale=1.0, initial-scale=1.0" name="viewport")
 
-		script(async type="module").
-			import {sendHit} from 'https://crash-course-backend.apps.mstefan99.com/cc?k=442a1d98e0c60f79&verbose';
-			sendHit();
+		if (env.CRASH_COURSE_URL)
+			script(async type="module").
+				import {sendHit} from '#{env.CRASH_COURSE_URL}/cc?k=#{env.CRASH_COURSE_KEY}&verbose';
+				sendHit();
 		script(async type='module' src="/js/live-reload.js")
 
 		block title
