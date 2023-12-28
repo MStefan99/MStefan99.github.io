@@ -14,7 +14,10 @@ module.exports = {
 		extend: {
 			// Extend the theme here
 			colors: {
-				'accent': 'var(--color-accent)'
+				accent: 'var(--color-accent)',
+				zinc: {
+					850: '#1f1f22;'
+				}
 			},
 			screens: {
 				'xs': '425px'

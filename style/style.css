@@ -69,7 +69,9 @@ a {
 }
 
 button, .button {
-	@apply block text-white text-start rounded-lg font-semibold no-underline p-2 max-w-max shadow-md dark:shadow-zinc-800;
+	@apply text-white
+	flex flex-row flex-nowrap justify-center
+	text-start rounded-lg font-semibold no-underline p-2 max-w-max shadow-md dark:shadow-zinc-850;
 }
 
 button.disabled, .button.disabled {
@@ -81,7 +83,7 @@ img {
 }
 
 button img, .button img {
-	@apply inline-block ml-0 mr-2 w-6 align-top;
+	@apply inline-block ml-0 mr-2 w-6;
 }
 
 .disabled {
@@ -273,11 +275,15 @@ a.project-card {
 }
 
 .project-card {
-	@apply w-48 shrink-0 shadow-lg bg-inherit rounded-lg overflow-hidden dark:shadow-zinc-800;
+	@apply flex flex-col w-56 shrink-0 shadow-lg bg-inherit rounded-lg overflow-hidden dark:shadow-zinc-800;
 }
 
-.project-card > img {
+.project-card > img, .project-card > .backdrop {
 	@apply h-28 w-full rounded-lg object-cover shadow-md dark:shadow-zinc-800;
+}
+
+.project-card > .backdrop {
+	@apply flex flex-row justify-center items-center;
 }
 
 .project-card h1 {
