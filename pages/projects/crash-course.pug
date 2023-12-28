@@ -8,10 +8,13 @@ block title
 block description
 	meta(name="description" content="Web analytics tool designed for privacy")
 
+append head
+	script(async src="/js/gallery.js")
+
 
 block content
 	article.project.text-justify
-		img.splash(src='/img/projects/crash-course/overview.png')
+		img.splash.gallery(src='/img/projects/crash-course/overview.png')
 		a.button.bg-black.my-2(href='https://github.com/MStefan99/Crash-Course')
 			img.button-icon(src='/img/icons/github.svg' alt='GitHub logo')
 			span View source code on GitHub
@@ -35,7 +38,7 @@ block content
 					impossible to trace it back to an individual person. Additionally, Crash Course will never sell the data
 					unlike large analytics providers.
 			.clearfix
-				img.float-left(src='/img/projects/crash-course/logs.png')
+				img.float-left.gallery(src='/img/projects/crash-course/logs.png')
 				p.
 					Another goal behind Crash Course was to provide comprehensive data on the application. Put simply,
 					it's not just a web tracker. In addition to website metrics it can collect client and/or server logs

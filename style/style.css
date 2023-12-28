@@ -76,8 +76,12 @@ button.disabled, .button.disabled {
 	@apply bg-zinc-500;
 }
 
+img {
+	@apply max-w-none;
+}
+
 button img, .button img {
-	@apply inline-block ml-0 mr-2 w-6 bg-transparent align-top;
+	@apply inline-block ml-0 mr-2 w-6 align-top;
 }
 
 .disabled {
@@ -88,8 +92,28 @@ button img, .button img {
 	@apply grayscale;
 }
 
-img {
+img.bg {
 	@apply bg-white dark:bg-zinc-700;
+}
+
+img.gallery {
+	@apply cursor-pointer;
+}
+
+.gallery-layout {
+	@apply fixed left-0 top-0 right-0 bottom-0 bg-black/75 backdrop-blur;
+}
+
+.gallery-layout .close {
+	@apply absolute cursor-pointer h-8 right-0 top-0 m-4 p-2 bg-black/75 rounded-full;
+}
+
+.gallery-container {
+	@apply w-full h-full flex flex-row flex-nowrap overflow-x-auto snap-x snap-mandatory;
+}
+
+.gallery-container img {
+	@apply min-w-full max-h-screen object-contain snap-center;
 }
 
 .parallax {
@@ -241,7 +265,7 @@ h3 {
 }
 
 .gallery-media img {
-	@apply mx-0 max-h-80 max-w-none;
+	@apply mx-0 h-80;
 }
 
 a.project-card {

@@ -10,18 +10,23 @@ import argumented from '@mstefan99/argumented';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SIZE_THRESHOLD = 512 * 1024; // 0.5MB image size threshold
+const IMAGE_SIZES = [320, 1280];
+const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.tiff', '.avif'];
 
 
-function isImageFile(filePath) {
-	const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.tiff'];
-	return imageExtensions.some(ext => filePath.endsWith(ext));
-}
+async function compressAndCopyImage(src, dest) {
+	const ext = path.extname(dest);
+	if (src.includes('ik_angles')) {
+		console.log('haha', ext, src, dest);
+	}
 
-async function compressAndCopyImage(srcPath, destPath) {
-	await sharp(srcPath)
-		.resize({width: 1280, withoutEnlargement: true})
-		.jpeg({quality: 80})
-		.toFile(destPath);
+	return await Promise.all(IMAGE_SIZES.map(height =>
+			sharp(src)
+				.resize({height, withoutEnlargement: true})
+				.jpeg({quality: 80})
+				.toFile(dest.replace(ext, (IMAGE_SIZES.some(w => w > height) ? '-' + height : '') + ext))
+		)
+	);
 }
 
 async function copyFileIfNewer(src, dest) {
@@ -38,7 +43,7 @@ async function copyFileIfNewer(src, dest) {
 	}
 
 	if (newer) {
-		if (isImageFile(src)) {
+		if (IMAGE_EXTENSIONS.some(ext => src.endsWith(ext))) {
 			if (srcStat.size > SIZE_THRESHOLD) {
 				compressAndCopyImage(src, dest);
 			} else {

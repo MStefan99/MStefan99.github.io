@@ -8,15 +8,18 @@ block title
 block description
 	meta(name="description" content="Open-source gimbal for smartphones and action cameras")
 
+append head
+	script(async src="/js/gallery.js")
+
 
 block content
 	article.project.text-justify
 		.gallery-row.gallery-media.mt-4
-			img(src='/img/projects/gimbal/driver.jpg')
-			img(src='/img/projects/gimbal/prototypes.jpg')
-			img(src='/img/projects/gimbal/pcbs.jpg')
-			img(src='/img/projects/gimbal/disassembled.jpg')
-			img(src='/img/projects/gimbal/assembled.jpg')
+			img.gallery(src='/img/projects/gimbal/driver-320.jpg')
+			img.gallery(src='/img/projects/gimbal/prototypes-320.jpg')
+			img.gallery(src='/img/projects/gimbal/pcbs-320.jpg')
+			img.gallery(src='/img/projects/gimbal/disassembled-320.jpg')
+			img.gallery(src='/img/projects/gimbal/assembled-320.jpg')
 		a.button.bg-black.my-2(href='https://github.com/MStefan99/OpenGimbal')
 			img.button-icon(src='/img/icons/github.svg' alt='GitHub logo')
 			span View source code on GitHub
@@ -42,20 +45,20 @@ block content
 					have different interchangeable boards - for example, a simple one with just a joystick for orienting the
 					camera and a couple buttons to control everything else and a more sophisticated one with a small OLED screen
 					for better user experience.
-				img.float-left(src='/img/projects/gimbal/motor.jpg')
+				img.float-left.gallery(src='/img/projects/gimbal/motor-320.jpg')
 				p.
 					For this project I was going to need some motors and something to drive them. I picked a couple cheap
 					brushless motors online (which later turned out to be a mistake) and proceeded on designing some electronics.
-				img.float-right(src='/img/projects/gimbal/driver.jpg')
+				img.float-right.gallery(src='/img/projects/gimbal/driver-320.jpg')
 				p.
-					On the right is TMC6300 - an awesome and tiny (just 3x3mm!) brushless motor driver. It can work at voltages
+					On the right is TMC6320 - an awesome and tiny (just 3x3mm!) brushless motor driver. It can work at voltages
 					up to 11 volts and currents up to 2 amps. At its core, it's actually not a very complicated device -
 					six transistors to control the motor together with some protection circuitry, so the inputs are quite simple as well.
 					Six input pins are used to open six corresponding transistors. Three of them connect the motor coil to
 					ground and the other three to bus voltage. By modulating the time each of the transistors is open
 					we can precisely control the position of the motor.
 			.clearfix
-				img.float-right(src='/img/projects/gimbal/pcb_design.jpg')
+				img.float-right.gallery(src='/img/projects/gimbal/pcb_design-320.jpg')
 				p.
 					Next was PCB design. The motors I picked were only 28mm in diameter and has four mounting holes but
 					I managed to fit all the components on a PCB quite easily since all of them were pretty small.
@@ -64,12 +67,12 @@ block content
 					power regulation, level shifting and a place to solder a thermistor to keep motor temperature under control.
 					Special attention was paid to laying out power traces as they would see some current going through them.
 		.gallery-row.gallery-media
-			img(src='/img/projects/gimbal/driver.jpg')
-			img(src='/img/projects/gimbal/pcb_design.jpg')
-			img(src='/img/projects/gimbal/microcontroller.jpg')
-			img(src='/img/projects/gimbal/motor_pcbs.jpg')
-			img(src='/img/projects/gimbal/pcbs.jpg')
-			img(src='/img/projects/gimbal/motor_assembly.jpg')
+			img.gallery(src='/img/projects/gimbal/driver-320.jpg')
+			img.gallery(src='/img/projects/gimbal/pcb_design-320.jpg')
+			img.gallery(src='/img/projects/gimbal/microcontroller-320.jpg')
+			img.gallery(src='/img/projects/gimbal/motor_pcbs-320.jpg')
+			img.gallery(src='/img/projects/gimbal/pcbs-320.jpg')
+			img.gallery(src='/img/projects/gimbal/motor_assembly-320.jpg')
 		section
 			h2 Communication
 			p.
@@ -100,7 +103,7 @@ block content
 				by precomputing the sine table during compile time.
 			h2 Mechanics and hardware
 			.clearfix
-				img.float-right(src='/img/projects/gimbal/prototypes.jpg')
+				img.float-right.gallery(src='/img/projects/gimbal/prototypes-320.jpg')
 				p.
 					This was the first time I did something even remotely related to mechanical engineering. Mistakes were made -
 					sometimes quite obvious - but this was a great opportunity to learn how things are done and make something
@@ -108,14 +111,14 @@ block content
 					and optimize the design - a lot. The most challenging part by far, however, was to shrink the outer
 					dimensions of the device as much as possible while maximizing internal space that can be occupied by
 					batteries, electronics and other components.
-				img.float-left(src='/img/projects/gimbal/printed_parts.jpg')
+				img.float-left.gallery(src='/img/projects/gimbal/printed_parts-320.jpg')
 				p.
 					Gimbal was designed to be modular. The whole top part with the motors is hot-swappable and is held down
 					by a single large 3D-printed nut. Two variants are in development - one with brushless motors and other is
 					using servos for applications where having low weight is important. The firmware detects which one of the two
 					is connected and uses the appropriate protocol for it - UART for motors and PWM for servos. Same story repeats
 					with the control board, although swapping the modules requires disassembling the handle.
-				img.float-right(src='/img/projects/gimbal/disassembled.jpg')
+				img.float-right.gallery(src='/img/projects/gimbal/disassembled-320.jpg')
 				p.
 					Mechanically the gimbal is designed to be as simple as possible and assembled of as few parts as possible.
 					Getting the required strength from plastic parts was also a challenge, requiring many iterations and
@@ -124,7 +127,7 @@ block content
 					gimbal had to be redesigned for motors with a hollow shaft.
 			h2 Kinematics
 			.clearfix
-				img.float-left(src='/img/projects/gimbal/ik_angles.jpg')
+				img.float-left.gallery(src='/img/projects/gimbal/ik_angles.jpg')
 				p.
 					A decision I made on this project was not to have all motors' rotational axes orthogonal to each other.
 					The reason was simple - the gimbal can be made dramatically smaller using this configuration. However,
@@ -138,7 +141,7 @@ block content
 					were correct (left).
 			h2 Conclusion
 			.clearfix
-				img.float-right(src='/img/projects/gimbal/assembled.jpg')
+				img.float-right.gallery(src='/img/projects/gimbal/assembled-320.jpg')
 				p.
 					This project has been a great way to learn many things from firmware optimization and basics of
 					mechanical engineering to inverse kinematics and sensor fusion to estimate the orientation of the device
