@@ -5,7 +5,7 @@ import fs from 'node:fs/promises'
 import {fileURLToPath} from 'url';
 
 import sharp from 'sharp';
-import argumented from '@mstefan99/argumented';
+import * as argumented from './argumented.cjs';
 
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
