@@ -8,23 +8,23 @@ extends ../templates/layout
 
 	Project highlights - full screen
 	- Gimbal  ✅
-	- Crash Course ⚠️
+	- Crash Course ✅
 	- Flight computer + Command Center ⚠️
 	- ardUI ❎ (links to the project page)
-	- Deep learning robot ❌
-	- Trader (neural net) ❌
-	- Invenfinder ❌
+	- Deep learning robot ⚠️
+	- Trader (neural net) ⚠️
+	- Invenfinder ⚠️
 	- Power meter ⚠️
 
 	Miscellaneous - smaller project cards
 	- Siter ⚠️
-	- Discord bots - roombot and codebot ❌
-	- GoDaddns ❌
-	- Credible ❌
+	- Discord bots - roombot and codebot ⚠️
+	- GoDaddns ⚠️
+	- Credible ⚠️
 	- MIDI parser ❌
 	- My HR ⚠️
-	- Feedbaq ❌
-	- Simply message ❌
+	- Feedbaq ⚠️
+	- Simply message ⚠️
 	- This website? (tooling) ❌
 
 block content
@@ -32,7 +32,7 @@ block content
 		// Gimbal
 		.parallax-group
 			img.parallax-background(src='/img/projects/gimbal/assembled.jpg' alt='A smartphone gimbal 3D-printed out of gray ' +
-			'plastic on a tripod. Gimbal stands on a table before a monitor displaying a CAD model of the gimbal.')
+      'plastic on a tripod. Gimbal stands on a table before a monitor displaying a CAD model of the gimbal.')
 			.parallax-foreground
 				h1 Smartphone gimbal
 				p Open-source gimbal for smartphones and action cameras
@@ -45,8 +45,8 @@ block content
 		.parallax-group
 			img.bg.parallax-background(src='/img/projects/crash-course/logo.svg'
 				alt='Crash course logo. Words "Crash Course" written in white with a black outline against a white ' +
-				'background. Words are written on two lines with a red arrow between them pointing from left to right, ' +
-				'curving towards the bottom at the end')
+        'background. Words are written on two lines with a red arrow between them pointing from left to right, ' +
+        'curving towards the bottom at the end')
 			.parallax-foreground
 				h1 Crash Course
 				h2 Tracking shouldn't mean giving up privacy
@@ -59,7 +59,7 @@ block content
 		// Flight computer + Command Center
 		.parallax-group
 			img.parallax-background(src='/img/projects/flight-computer/v2.jpg' alt='A green rectangular PCB assembled with ' +
-			'electronic components and many pin headers.')
+      'electronic components and many pin headers.')
 			.parallax-foreground
 				h1 Flight computer
 				p Custom hardware and software to help fly model aircraft
@@ -73,8 +73,8 @@ block content
 		// ardUI
 		.parallax-group
 			img.parallax-background(src='/img/projects/ardui/arduino.png' alt='Arduino Uno with an LCD breakout. ' +
-			'LCD is showing "5C" on the left and two arrows on the right pointing up and down. In the background is a ' +
-			'vertical red-blue gradient.')
+      'LCD is showing "5C" on the left and two arrows on the right pointing up and down. In the background is a ' +
+      'vertical red-blue gradient.')
 			.parallax-foreground
 				h1 ardUI
 				p Tiny UI framework for microcontrollers
@@ -85,13 +85,46 @@ block content
 					a.button.bg-black.mt-2(href='https://github.com/MStefan99/ardUI')
 						img(src='/img/icons/github.svg' alt='GitHub logo')
 						span GitHub
+		// Deep learning robot
+		.parallax-group
+			img.parallax-background(src='/img/projects/deep_robot/robot.jpg'
+				alt='Small tracked robot with a green PCB, microcontroller and ESP8266. On the front there is an ' +
+        'ultrasonic and IR distance sensors together with an aluminium plate for protection.')
+			.parallax-foreground
+				h1 Deep learning robot
+				p Teaching robots to find their way around... because why not?
+				.row
+					a.button.mt-2(href='https://youtu.be/NqrKGvQT0eU' class='bg-[#ff0000]')
+						img(src='/img/icons/youtube.svg' alt='GitHub logo')
+						span Demo
+					a.button.bg-black.mt-2(href='https://github.com/MStefan99/deep-learning-zumo-server')
+						img(src='/img/icons/github.svg' alt='GitHub logo')
+						span GitHub (server)
+					a.button.bg-black.mt-2(href='https://github.com/MStefan99/deep-learning-zumo-client')
+						img(src='/img/icons/github.svg' alt='GitHub logo')
+						span GitHub (robot)
+		// Invenfinder
+		.parallax-group
+			img.parallax-background(src='/img/projects/invenfinder/storage.jpg'
+				alt='3D-printed storage system for small electronic components. Each drawer has a few sections for ' +
+        'its own type of component')
+			.parallax-foreground
+				h1 Invenfinder
+				h2 No more looking for things
+				.row
+					a.button.bg-black.mt-2(href='https://github.com/MStefan99/InvenFinder-web')
+						img(src='/img/icons/github.svg' alt='GitHub logo')
+						span GitHub (web)
+					a.button.bg-black.mt-2(href='https://github.com/MStefan99/InvenFinder')
+						img(src='/img/icons/github.svg' alt='GitHub logo')
+						span GitHub (Android)
 		// Power meter
 		.parallax-group
-			img.parallax-background(src='/img/projects/power_meter/power.jpg'
+			img.parallax-background(src='/img/projects/power-meter/power.jpg'
 				alt='DIY power meter. A PCB with a display showing 58.07mW in large font, with a similarly large ' +
-				'word "Power" underneath. In the background is a graph showing power consumption history. ' +
-				'The UI is executed in the shades of yellow: the power value is pale yellow, almost white. ' +
-				'Area under the graph is darker, followed by the word power. Background is dark yellow.')
+        'word "Power" underneath. In the background is a graph showing power consumption history. ' +
+        'The UI is executed in the shades of yellow: the power value is pale yellow, almost white. ' +
+        'Area under the graph is darker, followed by the word power. Background is dark yellow.')
 			.parallax-foreground
 				h1 Power meter
 				p A simple but very handy DIY power meter
@@ -99,27 +132,90 @@ block content
 					img(src='/img/icons/github.svg' alt='GitHub logo')
 					span GitHub
 
-	h1.p-4 More projects
-	.gallery-row.p-4
-		// Siter
-		.project-card
-			img.bg(src='/img/projects/siter/logo.svg'
-				alt='Siter logo. Black word "siter" against the white background written in cursive')
-			.m-2
-				h1 Siter
-				h2 Hosting made easy
-				p Reverse proxy with GUI and a process manager
-				a.button.bg-black.mt-2(href='https://github.com/MStefan99/Siter')
-					img(src='/img/icons/github.svg' alt='GitHub logo')
-					span GitHub
-		// My HR
-		.project-card
-			img(src='/img/projects/my-hr/desktop-320.jpg'
-				alt='Image showing an app with a desktop-like environment with multiple application windows used to review ' +
-				'applications for taking part in a project')
-			.m-2
-				h1 My HR
-				p System for processing applications
-				a.button.bg-black.mt-2(href='https://github.com/MStefan99/My-HR')
-					img(src='/img/icons/github.svg' alt='GitHub logo')
-					span GitHub
+	.m-4
+		h1 More projects
+		.gallery-row.p-4
+			// Siter
+			.project-card
+				img.bg(src='/img/projects/siter/logo.svg'
+					alt='Siter logo. Black word "siter" against the white background written in cursive')
+				.m-2.grow
+					h1 Siter
+					h2 Hosting made easy
+					p Reverse proxy with GUI and a process manager
+				.m-2
+					a.button.bg-black.mt-2(href='https://github.com/MStefan99/Siter')
+						img(src='/img/icons/github.svg' alt='GitHub logo')
+						span GitHub
+			// Discord bots
+			.project-card
+				.backdrop(class='bg-[#5865f2]')
+					img.h-12(src='/img/icons/discord.svg' alt='Discord logo')
+				.m-2.grow
+					h1 Discord bots
+					p Two little but useful Discord bots
+				.m-2
+					a.button.bg-black(href='https://github.com/MStefan99/roomBot')
+						img(src='/img/icons/github.svg' alt='GitHub logo')
+						span GitHub (roomBot)
+					a.button.bg-black.mt-2(href='https://github.com/MStefan99/formatbot')
+						img(src='/img/icons/github.svg' alt='GitHub logo')
+						span GitHub (CodeBot)
+			// Cloudflare DDNS
+			.project-card
+				.m-2.grow
+					h1 Cloudflare DDNS
+					h2 Simple DDNS service
+				.m-2
+					a.button.bg-black(href='https://github.com/MStefan99/GoDaddns')
+						img(src='/img/icons/github.svg' alt='GitHub logo')
+						span GitHub
+			// Credible
+			.project-card
+				.m-2.grow
+					h1 Credible
+					h2 Encrypted storage for secrets
+				.m-2
+					a.button.bg-black(href='https://github.com/MStefan99/Credible')
+						img(src='/img/icons/github.svg' alt='GitHub logo')
+						span GitHub
+			// My HR
+			.project-card
+				img(src='/img/projects/my-hr/desktop-320.jpg'
+					alt='Image showing an app with a desktop-like environment with multiple application windows used to review ' +
+          'applications for taking part in a project')
+				.m-2.grow
+					h1 My HR
+					p System for processing applications
+				.m-2
+					a.button.bg-black.mt-2(href='https://github.com/MStefan99/My-HR')
+						img(src='/img/icons/github.svg' alt='GitHub logo')
+						span GitHub
+			// Feedbaq
+			.project-card
+				img(src='/img/projects/feedbaq/logo.svg' alt='Feedbaq logo, letters Fq against a dark purple background')
+				.m-2.grow
+					h1 Feedbaq
+					p Easily collect presentation feedback
+				.m-2
+					a.button.bg-black.mt-2(href='https://github.com/MStefan99/Feedbaq')
+						img(src='/img/icons/github.svg' alt='GitHub logo')
+						span GitHub
+			// Simply message
+			.project-card
+				.m-2.grow
+					h1 Simply message
+					p End-to-end encrypted messenger
+				.m-2
+					a.button.bg-black.mt-2(href='https://github.com/MStefan99/Simply-Message')
+						img(src='/img/icons/github.svg' alt='GitHub logo')
+						span GitHub
+			// Neural network
+			.project-card
+				.m-2.grow
+					h1 Neural network
+					p Neural network written from scratch in C++
+				.m-2
+					a.button.bg-black.mt-2(href='https://github.com/MStefan99/trader/tree/main/nntool')
+						img(src='/img/icons/github.svg' alt='GitHub logo')
+						span GitHub
