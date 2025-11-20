@@ -1,18 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@layer components {
-	.photo-shape {
+@utility photo-shape {
 		shape-outside: circle(calc(50% - 8px) at calc(50% - 16px) center)
-	}
+}
+
+@theme {
+	--color-accent: #18492e;
 }
 
 html {
 	@apply scroll-smooth overflow-x-hidden text-base font-sans h-full
 	dark:bg-zinc-900 dark:text-neutral-50;
-
-	--color-accent: #18492e;
 }
 
 body {
@@ -27,13 +25,13 @@ header {
 	@apply flex justify-between items-baseline flex-wrap bg-accent text-white shadow-lg
 	py-1 px-4
 	dark:shadow-zinc-800
-	xs:py-2 xs:px-6;
+	sm:py-2 sm:px-6;
 }
 
 header #name {
 	@apply no-underline font-bold
 	text-lg text-center
-	xs:text-3xl xs:text-left;
+	sm:text-3xl sm:text-left;
 }
 
 #about {
@@ -41,8 +39,8 @@ header #name {
 }
 
 #photo {
-	@apply max-xs:mx-auto mb-4 rounded-full max-h-48
-	xs:float-right xs:bg-clip-content xs:photo-shape xs:ml-4;
+	@apply max-sm:mx-auto mb-4 rounded-full max-h-48
+	sm:float-right sm:bg-clip-content sm:photo-shape sm:ml-4;
 }
 
 footer {
@@ -71,7 +69,7 @@ a {
 button, .button {
 	@apply text-white
 	flex flex-row flex-nowrap justify-center
-	text-start rounded-lg font-semibold no-underline p-2 max-w-max shadow-md dark:shadow-zinc-850;
+	text-start rounded-lg font-semibold no-underline p-2 max-w-max shadow-md dark:shadow-zinc-900;
 }
 
 button.disabled, .button.disabled {
@@ -103,11 +101,15 @@ img.gallery {
 }
 
 .gallery-layout {
-	@apply fixed left-0 top-0 right-0 bottom-0 bg-black/75 backdrop-blur;
+	@apply fixed left-0 top-0 right-0 bottom-0 bg-black/75 backdrop-blur transition-opacity duration-200;
 }
 
 .gallery-layout .close {
 	@apply absolute cursor-pointer h-8 right-0 top-0 m-4 p-2 bg-black/75 rounded-full;
+}
+
+.invisible {
+	@apply opacity-0 pointer-events-none;
 }
 
 .gallery-container {
@@ -173,7 +175,7 @@ section p {
 }
 
 section img {
-	@apply mb-4 w-7/12 sm:max-h-80 sm:w-auto sm:max-w-xs;
+	@apply mb-4 w-7/12 sm:max-h-80 sm:w-auto sm:max-w-sm;
 }
 
 section img.float-right {
